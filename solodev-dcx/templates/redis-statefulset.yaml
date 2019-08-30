@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}-redis
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
