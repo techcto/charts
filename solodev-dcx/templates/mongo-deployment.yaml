@@ -1,0 +1,58 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-mongo
+  labels:
+    app: {{ .Release.Name }}-mongo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-mongo
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-mongo
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-mongo
+            topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - env:
+        - name: MONGO_INITDB_DATABASE
+          value: {{ .Values.solodev.settings.mongoDbName }}
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: {{ .Values.mongo.settings.password }}
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: {{ .Values.mongo.settings.username }}
+        image: {{ .Values.mongo.image.repository }}:{{ .Values.mongo.image.tag }}
+        name: {{ .Release.Name }}-mongo
+        ports:
+        - containerPort: {{ .Values.mongo.port }}
+        volumeMounts:
+        - name: {{ .Release.Name }}-pv
+          mountPath: {{ .Values.mongo.storage.mount }}
+          subPath: mongo
+      restartPolicy: Always
+      volumes:
+      - name: {{ .Release.Name }}-pv
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-pv

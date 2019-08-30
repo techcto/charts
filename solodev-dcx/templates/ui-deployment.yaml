@@ -1,0 +1,49 @@
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: {{ .Release.Name }}-ui-scaler
+# spec:
+#   scaleTargetRef:
+#     kind: ReplicaSet
+#     name: {{ .Release.Name }}-ui
+#   minReplicas: 1
+#   maxReplicas: 10
+#   targetCPUUtilizationPercentage: 50
+# ---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-ui
+  labels:
+    app: {{ .Release.Name }}-ui
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-ui
+    spec:
+      imagePullSecrets:
+      - name: {{ .Values.solodev.pullSecret }}
+      containers:
+      - env:
+        - name: APP_ENV
+          value: {{ .Values.env }}
+        - name: APP_URL
+          value: "{{ .Release.Name }}-solodev:{{ .Values.solodev.port }}"
+        image: {{ .Values.ui.image.repository }}:{{ .Values.solodev.image.tag }}
+        name: {{ .Release.Name }}-ui
+        ports:
+        - containerPort: {{ .Values.ui.http.port }}
+        - containerPort: {{ .Values.ui.https.port }}
+        resources: {}
+        volumeMounts:
+        - mountPath: {{ quote .Values.solodev.storage.mount }}
+          name: client
+      restartPolicy: Always
+      volumes:
+      - name: client
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-client
