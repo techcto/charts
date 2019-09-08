@@ -10,7 +10,6 @@ tag(){
 }
 
 update(){
-    #https://blog.softwaremill.com/hosting-helm-private-repository-from-github-ff3fa940d0b7
     helm package solodev-dcx
     helm repo index .
     helm repo update
