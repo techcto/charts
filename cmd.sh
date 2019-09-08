@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(egrep -v '^#' .env | xargs)
+# export $(egrep -v '^#' .env | xargs)
 args=("$@")
 
 tag(){
@@ -13,12 +13,6 @@ update(){
     helm package solodev-dcx
     helm repo index .
     helm repo update
-}
-
-addCustomCharts(){
-    helm repo add charts 'https://raw.githubusercontent.com/techcto/charts/master/'
-    helm repo update
-    helm repo list
 }
 
 $*
