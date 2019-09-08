@@ -1,7 +1,13 @@
-Run this one command to install the Solodev DXC Helm charts on your Kubernetes cluster.
+# Quick Start Guide
+
+Run these commands to install the Solodev DXC Helm charts on your Kubernetes cluster.
+```Bash
     helm repo add charts 'https://raw.githubusercontent.com/techcto/charts/master/'
     helm repo update
     helm repo list
+```
 
-Run this one command to deploy Solodev DCX on your Kubernetes cluster.
+Run this command to deploy Solodev DCX on your Kubernetes cluster.
+```Bash
     helm install --namespace solodev-dcx --name solodev1 solodev-dcx
+```
