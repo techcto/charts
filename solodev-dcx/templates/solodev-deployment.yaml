@@ -43,8 +43,6 @@ spec:
           value: {{ quote .Values.solodev.settings.appPassword }}
         - name: SOLODEV_USER
           value: {{ quote .Values.solodev.settings.appUser }}
-        - name: RESOLVE_LOGGING
-          value: "false"
         ports:
         - containerPort: {{ .Values.solodev.port }}
         resources: {}

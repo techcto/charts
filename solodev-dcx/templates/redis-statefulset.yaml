@@ -70,12 +70,3 @@ spec:
       - name: {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-pv
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: {{ .Release.Name }}-pv
-  #   spec:
-  #     accessModes: ["ReadWriteOnce"]
-  #     resources:
-  #       requests:
-  #         storage: {{ .Values.storage.size }}
-  #     storageClassName: {{ .Values.storage.className }}
