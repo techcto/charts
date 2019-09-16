@@ -10,6 +10,7 @@ tag(){
 }
 
 update(){
+    helm package solodev-network
     helm package solodev-dcx
     helm repo index .
     helm repo update
