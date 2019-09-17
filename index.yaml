@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   solodev-dcx:
   - apiVersion: v1
-    created: "2019-09-16T15:07:18.0677073-04:00"
+    created: "2019-09-17T10:55:46.80099-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: 702e6218806f5affffa82b6d08355bbae9c497bbdf2843f553d6755a0951822a
+    digest: e432f74a7986a0df483868dc828b43b91b9acd3f32dc91f489a890108d47038c
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -17,9 +17,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2019-09-16T15:07:18.0727085-04:00"
+    created: "2019-09-17T10:55:46.8049952-04:00"
     description: Network for Solodev DCX
-    digest: f1161cb83e16f9114aa44fedc8cbce7556805b1737426eb788ee5cdb677549f8
+    digest: 2273e6ce2663c8b298a0d99ec008891b7a918fa148b8cc8b3c4e9ad3cf12a9e5
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -27,4 +27,19 @@ entries:
     urls:
     - solodev-network-9.1.tgz
     version: "9.1"
-generated: "2019-09-16T15:07:18.0602075-04:00"
+  vortala-solodev:
+  - apiVersion: v1
+    created: "2019-09-17T10:55:46.807988-04:00"
+    description: Solodev DCX is a content management and customer experience platform
+      that lets your team work together on digital transformation. Build amazing websites
+      and apps, collaborate, review code, and publish ideas with 24/7 support – all
+      powered by AWS.
+    digest: 1b476e3db8dd91373fb49b78f5a34015bef904d642cd5e801b24d9aad592483a
+    icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
+    keywords:
+    - Solodev, CMS, DCX, AWS, Docker, Kubernetes
+    name: vortala-solodev
+    urls:
+    - vortala-solodev-9.1.tgz
+    version: "9.1"
+generated: "2019-09-17T10:55:46.7970165-04:00"
