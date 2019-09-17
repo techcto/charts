@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   solodev-dcx:
   - apiVersion: v1
-    created: "2019-09-17T18:29:12.8441927-04:00"
+    created: "2019-09-17T18:40:06.2297214-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: e0e817a0489e751f961830aba6bb041fe3a517418f5926b8570a934ca85e02e4
+    digest: 0a27cb8e672bcdc85dd43436b98b605af9907c82e68bf9439d20824e31e5b93b
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -17,9 +17,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2019-09-17T18:29:12.8451991-04:00"
+    created: "2019-09-17T18:40:06.2307211-04:00"
     description: Network for Solodev DCX
-    digest: ef195062745d4f3f770c31895d05fe6e69e60909b71a7e5c4b60615e4c330767
+    digest: ee90fdf59b78ba3cdfb4295713eeb8ffbe7a4ed73415af378bf5de3ec8e93b14
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -29,7 +29,7 @@ entries:
     version: "9.1"
   vortala-solodev:
   - apiVersion: v1
-    created: "2019-09-17T18:29:12.8481923-04:00"
+    created: "2019-09-17T18:40:06.2307211-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -42,4 +42,4 @@ entries:
     urls:
     - vortala-solodev-9.1.tgz
     version: "9.1"
-generated: "2019-09-17T18:29:12.8402234-04:00"
+generated: "2019-09-17T18:40:06.2267277-04:00"
