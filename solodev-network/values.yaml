@@ -1,0 +1,6 @@
+env: prod
+
+dns:
+  zone:
+    name: domain.com
+    id: id
