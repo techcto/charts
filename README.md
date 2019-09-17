@@ -8,6 +8,12 @@ helm repo update
 helm repo list
 ```
 
+Install the Solodev network
+```console
+kubectl create namespace solodev-network
+helm install --namespace solodev-network --name solodev-network charts/solodev-network --set dns.zone.name=domain.com --set dns.zone.id=Z123456789
+```
+
 AWS Customers: Run this command to deploy Solodev DCX on your Kubernetes cluster.
 
 ```console
