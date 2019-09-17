@@ -5,6 +5,7 @@ metadata:
   labels:
     app: {{ .Release.Name }}-solodev
 spec:
+  serviceAccountName: {{ .Values.serviceAccountName }}
   replicas: 1
   strategy:
     type: Recreate
@@ -13,8 +14,7 @@ spec:
       labels:
         app: {{ .Release.Name }}-solodev
     spec:
-      imagePullSecrets:
-      - name: {{ .Values.solodev.pullSecret }}
+      serviceAccountName: {{ .Values.serviceAccountName }}
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}

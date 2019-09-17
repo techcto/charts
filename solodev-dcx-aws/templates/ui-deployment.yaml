@@ -13,8 +13,6 @@ spec:
       labels:
         app: {{ .Release.Name }}-ui
     spec:
-      imagePullSecrets:
-      - name: {{ .Values.solodev.pullSecret }}
       containers:
       - env:
         - name: APP_ENV

@@ -1,0 +1,74 @@
+env: prod
+storage:
+  className: gp2
+  size: 10G
+serviceAccountName: default
+solodev:
+  image:
+    registry: docker.io
+    repository: solodev/cms
+    tag: latest
+    pullPolicy: Always
+  cname: spacedeploy.com
+  port: 9000
+  protocol: TCP
+  storage:
+    className: efs
+    size: 10G
+    mount: /var/www/solodev/clients/solodev
+  settings:
+    debug: false
+    appSecret: c5d3adbb98f43d650d12f0cc8fbcd7f8
+    appUser: solodev
+    appPassword: password
+    dbHost: mysql
+    dbName: solodev
+    dbUser: solodev
+    dbPassword: password
+    mongoDbName: solodev_views
+  pullSecret: solodev
+ui:
+  image:
+    registry: docker.io
+    repository: solodev/cms-apache
+    tag: latest
+    pullPolicy: IfNotPresent
+  http:
+    port: 80
+    protocol: TCP
+  https:
+    port: 443
+    protocol: TCP
+mysql:
+  image:
+    registry: docker.io
+    repository: mysql
+    tag: 5.7
+    pullPolicy: IfNotPresent
+  port: 3306
+  storage:
+    mount: local-storage
+  read:
+    port: 3307
+  settings:
+mongo:
+  image:
+    registry: docker.io
+    repository: techcto/mongo
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 27017
+  settings:
+    username: solodev
+    password: password
+  storage:
+    mount: "/data"
+redis:
+  image:
+    registry: docker.io
+    repository: redis
+    tag: alpine
+    pullPolicy: IfNotPresent
+  port: 6379
+  storage:
+    mount: "/data"

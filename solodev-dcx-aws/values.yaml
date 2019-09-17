@@ -1,0 +1,74 @@
+env: prod
+storage:
+  className: gp2 
+  size: 10G
+serviceAccountName: default
+solodev:
+  image:
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-827618812
+    repository: solodev-cms
+    tag: DCXEnterpriseeditionfork8s-latest
+    pullPolicy: Always
+  cname: domain.com
+  port: 9000
+  protocol: TCP
+  storage:
+    className: gp2
+    size: 10G
+    mount: /var/www/solodev/clients/solodev
+  settings:
+    debug: false
+    appSecret: c5d3adbb98f43d650d12f0cc8fbcd7f8
+    appUser: solodev
+    appPassword: password
+    dbHost: mysql
+    dbName: solodev
+    dbUser: solodev
+    dbPassword: password
+    mongoDbName: solodev_views
+  pullSecret: solodev
+ui:
+  image:
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-827618812
+    repository: solodev-apache
+    tag: DCXEnterpriseeditionfork8s-latest
+    pullPolicy: IfNotPresent
+  http:
+    port: 80
+    protocol: TCP
+  https:
+    port: 443
+    protocol: TCP
+mysql:
+  image:
+    registry: docker.io
+    repository: mysql
+    tag: 5.7
+    pullPolicy: IfNotPresent
+  port: 3306
+  storage:
+    mount: local-storage
+  read:
+    port: 3307
+  settings:
+mongo:
+  image:
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-827618812
+    repository: techcto/mongo
+    tag: DCXEnterpriseeditionfork8s-latest
+    pullPolicy: IfNotPresent
+  port: 27017
+  settings:
+    username: solodev
+    password: password
+  storage:
+    mount: "/data"
+redis:
+  image:
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-827618812
+    repository: redis
+    tag: DCXEnterpriseeditionfork8s-latest
+    pullPolicy: IfNotPresent
+  port: 6379
+  storage:
+    mount: "/data"
