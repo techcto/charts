@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   solodev-dcx:
   - apiVersion: v1
-    created: "2019-09-17T17:09:08.4676497-04:00"
+    created: "2019-09-17T17:20:47.7187784-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: 3c9793f8d021943ecbf347b6fcabc5944dd23b4f6b157ca137655c69933f039e
+    digest: 151ab0f57b342b823559dae93bf47c0da63295c33d3551eafbaa39201984b105
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -17,9 +17,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2019-09-17T17:09:08.4706253-04:00"
+    created: "2019-09-17T17:20:47.7208119-04:00"
     description: Network for Solodev DCX
-    digest: ee75911da3419ad27e51a05330bb7f74960c7efd73af1b31e57be2b15315e652
+    digest: 759f372d590ebfec1906fde9365724a985fe47bc723cfb386ac9ab8e4e24acf1
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -29,12 +29,12 @@ entries:
     version: "9.1"
   vortala-solodev:
   - apiVersion: v1
-    created: "2019-09-17T17:09:08.4736557-04:00"
+    created: "2019-09-17T17:20:47.7218104-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: c0ce1636a10ad1ec6813e3d952e6bdfef7c93ca0eb96d3669ffb4810fcbfaf72
+    digest: 53f5195b66160a5b20ef72ae0a3bebfe1115a8c41d76b11bb7d561a87a9f6f69
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -42,4 +42,4 @@ entries:
     urls:
     - vortala-solodev-9.1.tgz
     version: "9.1"
-generated: "2019-09-17T17:09:08.466626-04:00"
+generated: "2019-09-17T17:20:47.7157806-04:00"
