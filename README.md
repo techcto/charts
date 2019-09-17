@@ -8,9 +8,14 @@ helm repo update
 helm repo list
 ```
 
-
-Run this command to deploy Solodev DCX on your Kubernetes cluster.
+AWS Customers: Run this command to deploy Solodev DCX on your Kubernetes cluster.
 
 ```console
-helm install --namespace solodev-dcx --name solodev1 solodev-dcx
+helm install --namespace solodev-dcx --name solodev1 charts/solodev-dcx-aws
+```
+
+Developers: Run this command to deploy Solodev DCX on your Kubernetes cluster.
+
+```console
+helm install --namespace solodev-dcx --name solodev1 charts/solodev-dcx
 ```
