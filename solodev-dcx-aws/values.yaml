@@ -18,7 +18,7 @@ solodev:
     mount: /var/www/solodev/clients/solodev
   settings:
     debug: false
-    appSecret: c5d3adbb98f43d650d12f0cc8fbcd7f8
+    appSecret: secret
     appUser: solodev
     appPassword: password
     dbHost: mysql
