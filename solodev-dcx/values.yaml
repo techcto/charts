@@ -67,7 +67,7 @@ redis:
   image:
     registry: docker.io
     repository: redis
-    tag: alpine
+    tag: latest
     pullPolicy: IfNotPresent
   port: 6379
   storage:
