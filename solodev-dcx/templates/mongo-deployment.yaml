@@ -49,7 +49,7 @@ spec:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
         - name: {{ .Release.Name }}-pv
-          mountPath: {{ .Values.mongo.storage.mount }}
+          mountPath: "/data"
           subPath: mongo
       restartPolicy: Always
       volumes:
