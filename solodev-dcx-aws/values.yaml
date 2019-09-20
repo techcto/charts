@@ -13,7 +13,7 @@ solodev:
   port: 9000
   protocol: TCP
   storage:
-    className: gp2
+    className: efs
     size: 10G
     mount: /var/www/solodev/clients/solodev
   settings:
