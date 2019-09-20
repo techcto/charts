@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   solodev-dcx:
   - apiVersion: v1
-    created: "2019-09-20T15:44:35.2550348-04:00"
+    created: "2019-09-20T16:07:55.6918978-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: 02a2051a5ae8ac72937399e9816f86316c42f064598bb5139554e8d691cfc91d
+    digest: 53221b8afcc93b61fb1cd5d5d3186e994197f355907cbc75f52925ddaf608721
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -17,12 +17,12 @@ entries:
     version: "9.1"
   solodev-dcx-aws:
   - apiVersion: v1
-    created: "2019-09-20T15:44:35.2580002-04:00"
+    created: "2019-09-20T16:07:55.6978971-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: 180f58661bbf9f2ad13e01d0d9a100a7d399cf05c27f3ca6b7903b01c629940d
+    digest: 8da9fdc01fbc2dcc0fe5db9659386be8ccf4ec24a3364929bf799744e19a3679
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -32,9 +32,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2019-09-20T15:44:35.2590025-04:00"
+    created: "2019-09-20T16:07:55.698896-04:00"
     description: Network for Solodev DCX
-    digest: 0e7e6da8c2a8c275d5083712f039c572fe72bf8baf9e00bd4b88a799ef128193
+    digest: f05acfba9e85d4846e1fc626bd0b28d0cd9b0c490cbcdcd1cefe823ee2e6c2c4
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -42,4 +42,4 @@ entries:
     urls:
     - solodev-network-9.1.tgz
     version: "9.1"
-generated: "2019-09-20T15:44:35.2520404-04:00"
+generated: "2019-09-20T16:07:55.6868969-04:00"
