@@ -43,7 +43,7 @@ mysql:
   image:
     registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2515116976
     repository: mysql/mysql-server
-    tag: 5.7
+    tag: 9.0-latest
     pullPolicy: IfNotPresent
   port: 3306
   read:
