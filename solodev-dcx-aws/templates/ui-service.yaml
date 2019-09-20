@@ -14,3 +14,4 @@ spec:
     targetPort: 443
   selector:
     app: {{ .Release.Name }}-ui
+  type: LoadBalancer
