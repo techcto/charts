@@ -9,5 +9,6 @@ spec:
   - name: "mongo"
     port: {{ .Values.mongo.port }}
     targetPort: {{ .Values.mongo.port }}
+  clusterIP: None
   selector:
     app: {{ .Release.Name }}-mongo

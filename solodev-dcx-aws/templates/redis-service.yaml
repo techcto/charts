@@ -10,5 +10,6 @@ spec:
   - name: redis
     port: {{ .Values.redis.port }}
     targetPort: {{ .Values.redis.port }}
+  clusterIP: None
   selector:
     app: {{ .Release.Name }}-redis

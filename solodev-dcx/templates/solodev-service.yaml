@@ -9,5 +9,6 @@ spec:
   - name: "solodev"
     port: {{ .Values.solodev.port }}
     targetPort: {{ .Values.solodev.port }}
+  clusterIP: None
   selector:
     app: {{ .Release.Name }}-solodev
