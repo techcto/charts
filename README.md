@@ -17,7 +17,10 @@ helm install --namespace solodev-network --name solodev-network charts/solodev-n
 AWS Customers: Run this command to deploy Solodev DCX on your Kubernetes cluster.
 
 ```console
-helm install --namespace solodev-dcx --name solodev1 charts/solodev-dcx-aws --set serviceAccountName=ROLEARN --set solodev.cname=domain.com
+helm install --namespace solodev-dcx --name solodev1 charts/solodev-dcx-aws \
+                --set solodev.settings.appSecret=secret \
+                --set solodev.settings.appPassword=password \
+                --set solodev.settings.dbPassword=password
 ```
 
 Developers: Run this command to deploy Solodev DCX on your Kubernetes cluster.
