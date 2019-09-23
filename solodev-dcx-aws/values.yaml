@@ -9,7 +9,6 @@ solodev:
     repository: solodev-cms
     tag: 9.1-latest
     pullPolicy: Always
-  cname: domain.com
   port: 9000
   protocol: TCP
   storage:
