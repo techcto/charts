@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: gp2
+  className: longhorn
   size: 10G
 serviceAccountName: default
 solodev:
@@ -42,8 +42,8 @@ ui:
 mysql:
   image:
     registry: docker.io
-    repository: mysql
-    tag: 5.7
+    repository: mariadb
+    tag: 10.4
     pullPolicy: IfNotPresent
   port: 3306
   storage:

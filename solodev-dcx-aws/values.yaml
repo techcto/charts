@@ -5,9 +5,9 @@ storage:
 serviceAccountName: default
 solodev:
   image:
-    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2515116976
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
     repository: solodev-cms
-    tag: 9.0-latest
+    tag: 9.1-latest
     pullPolicy: Always
   cname: domain.com
   port: 9000
@@ -29,9 +29,9 @@ solodev:
   pullSecret: solodev
 ui:
   image:
-    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2515116976
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
     repository: solodev-apache
-    tag: 9.0-latest
+    tag: 9.1-latest
     pullPolicy: IfNotPresent
   http:
     port: 80
@@ -41,18 +41,18 @@ ui:
     protocol: TCP
 mysql:
   image:
-    registry: docker.io
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
     repository: mariadb
-    tag: 10.4
+    tag: 9.1-latest
     pullPolicy: IfNotPresent
   port: 3306
   read:
     port: 3307
 mongo:
   image:
-    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2515116976
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
     repository: techcto/mongo
-    tag: 9.0-latest
+    tag: 9.1-latest
     pullPolicy: IfNotPresent
   port: 27017
   settings:
@@ -60,8 +60,8 @@ mongo:
     password: password
 redis:
   image:
-    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2515116976
+    registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
     repository: redis
-    tag: 9.0-latest
+    tag: 9.1-latest
     pullPolicy: IfNotPresent
   port: 6379

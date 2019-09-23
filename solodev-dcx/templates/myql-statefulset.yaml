@@ -69,7 +69,7 @@ spec:
         - name: config-map
           mountPath: /mnt/config-map
       - name: {{ .Release.Name }}-clone-mysql
-        image: gcr.io/google-samples/xtrabackup:1.0
+        image: khoanguyent/percona-xtrabackup
         command:
         - bash
         - "-c"
@@ -133,7 +133,7 @@ spec:
           periodSeconds: 2
           timeoutSeconds: 1
       - name: {{ .Release.Name }}-xtrabackup
-        image: gcr.io/google-samples/xtrabackup:1.0
+        image: khoanguyent/percona-xtrabackup
         ports:
         - name: xtrabackup
           containerPort: {{ .Values.mysql.read.port }}
