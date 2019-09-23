@@ -42,7 +42,7 @@ ui:
 mysql:
   image:
     registry: docker.io
-    repository: mysql
+    repository: mariadb
     tag: 5.7
     pullPolicy: IfNotPresent
   port: 3306
