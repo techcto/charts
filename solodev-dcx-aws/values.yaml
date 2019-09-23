@@ -2,7 +2,7 @@ env: prod
 storage:
   className: gp2 
   size: 10G
-serviceAccountName: solodev-serviceaccount
+serviceAccountName: 'solodev-serviceaccount'
 solodev:
   image:
     registry: 709373726912.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-2469757812
