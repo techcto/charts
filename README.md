@@ -25,7 +25,7 @@ export Region="us-east-1"
 ## Step 3: Create Service Account
 From command line and inside the directory that has the setService.sh script, run the following to create a service account:
 <pre>
-initServiceAccount
+./setService.sh initServiceAccount
 </pre>
 
  Visit the <a href="https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/">"Introducing Fine-Grained IAM Roles for Service Accounts"</a> AWS blog post for further instructions on creating your serviceAccountName through alternative means.
