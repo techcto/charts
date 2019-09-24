@@ -50,16 +50,14 @@ helm install --name solodev-dcx charts/solodev-dcx-aws \
 </pre>
 
 ## Step 6: Retrieve the External Endpoints of the "ui" Service
-In addition to the other services deployed, Solodev DCX will deploy a "ui" service. This service will output external endpoints that you can use to access Solodev DCX. 
+Run the following command to retrieve the hostname of the deployed Solodev DCX. The command will return the CNAME address related to the "ui" pod. Change the "solodev-dcx" portion to match the name of your installed deployment.
 
-<table>
-	<tr>
-		<td><img src="https://raw.githubusercontent.com/solodev/AWS-Launch-Pad/master/pages/images/install/eks-external-endpoints.jpg" /></td>
-	</tr>
-</table>
+<pre>
+kubectl get svc solodev-dcx-ui -o yaml | grep hostname
+</pre>
 
 ## Step 7: Login to Solodev 
-Visit the external endpoint retrived in step 4 to load Solodev DCX. Use the the username "solodev" and the appPassword specified during step 3 for login credentials.
+Visit the external endpoint retrived in step 6 to load Solodev DCX. Use the the username "solodev" and the appPassword specified during step 3 for login credentials.
 
 <table>
 	<tr>
