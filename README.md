@@ -15,11 +15,12 @@ Solodev is a professionally managed, enterprise-class Digital Customer Experienc
 ## Step 2: Download and Configure setService.sh
 Access and download the <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/bin/setService.sh">Solodev setService.sh script</a>. Place the shell script inside a directory you will use to access your Kubernetes cluster.
 
-Modify lines 4-5; the values will correspond to your existing EKS cluster's name as well as its region.
+Modify lines 4-6; the values will correspond to your existing EKS cluster's name as well as its region. This deployment assumes you will launch into the "default" namespace. Change this value if different.
 
 <pre>
 export EKSName=""
 export Region="us-east-1"
+export NAMESPACE="default"
 </pre>
 
 ## Step 3: Create Service Account
