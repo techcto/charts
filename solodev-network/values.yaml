@@ -1,5 +1,4 @@
 env: prod
-
 dns:
   zone:
     name: domain.com
