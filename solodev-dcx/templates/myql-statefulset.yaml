@@ -70,6 +70,8 @@ spec:
           mountPath: /mnt/config-map
       - name: {{ .Release.Name }}-clone-mysql
         image: khoanguyent/percona-xtrabackup
+        args:
+        - --ignore-db-dir=lost+found
         command:
         - bash
         - "-c"
@@ -132,6 +134,8 @@ spec:
           timeoutSeconds: 1
       - name: {{ .Release.Name }}-xtrabackup
         image: khoanguyent/percona-xtrabackup
+        args:
+        - --ignore-db-dir=lost+found
         ports:
         - name: xtrabackup
           containerPort: {{ .Values.mysql.read.port }}
