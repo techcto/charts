@@ -26,15 +26,15 @@ spec:
                 values:
                 - {{ .Release.Name }}-mongo
             topologyKey: "kubernetes.io/hostname"
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - {{ .Release.Name }}-redis
-            topologyKey: "kubernetes.io/hostname"
+      #   podAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #         - key: app
+      #           operator: In
+      #           values:
+      #           - {{ .Release.Name }}-redis
+      #       topologyKey: "kubernetes.io/hostname"
       containers:
       - env:
         - name: MONGO_INITDB_DATABASE
@@ -50,7 +50,6 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-mongo-pv
           mountPath: "/data"
-          subPath: mongo
       restartPolicy: Always
       volumes:
       - name: {{ .Release.Name }}-mongo-pv

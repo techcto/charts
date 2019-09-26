@@ -40,7 +40,6 @@ spec:
         volumeMounts:
         - name: conf
           mountPath: /etc
-          subPath: redis.conf
         - name: config-map
           mountPath: /mnt/config-map
       containers:
@@ -60,7 +59,6 @@ spec:
           subPath: redis
         - name: conf
           mountPath: /etc/
-          subPath: redis.conf
       volumes:
       - name: conf
         emptyDir: {}
