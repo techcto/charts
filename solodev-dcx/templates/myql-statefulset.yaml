@@ -88,6 +88,7 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-mysql-pv
           mountPath: /var/lib/mysql
+          subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
       containers:
@@ -111,6 +112,7 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-mysql-pv
           mountPath: /var/lib/mysql
+          subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
         resources:
@@ -180,6 +182,7 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-mysql-pv
           mountPath: /var/lib/mysql
+          subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
         # resources:
