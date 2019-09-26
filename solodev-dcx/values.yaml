@@ -42,12 +42,10 @@ ui:
 mysql:
   image:
     registry: docker.io
-    repository: mariadb
-    tag: 10.4
+    repository: mysql
+    tag: 5.7
     pullPolicy: IfNotPresent
   port: 3306
-  storage:
-    mount: local-storage
   read:
     port: 3307
   settings:
@@ -61,8 +59,6 @@ mongo:
   settings:
     username: solodev
     password: password
-  storage:
-    mount: "/data"
 redis:
   image:
     registry: docker.io
@@ -70,5 +66,3 @@ redis:
     tag: latest
     pullPolicy: IfNotPresent
   port: 6379
-  storage:
-    mount: "/data"
