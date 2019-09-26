@@ -52,7 +52,12 @@ spec:
           mountPath: "/data"
           subPath: mongo
       restartPolicy: Always
-      volumes:
-      - name: {{ .Release.Name }}-mongo-pv
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-mongo-pv
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Release.Name }}-mongo-pv
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: {{ .Values.storage.size }}
+      storageClassName: {{ .Values.storage.className }}

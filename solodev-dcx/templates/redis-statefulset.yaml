@@ -65,6 +65,12 @@ spec:
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-redis
-      - name: {{ .Release.Name }}-redis-pv
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-redis-pv
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Release.Name }}-redis-pv
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: {{ .Values.storage.size }}
+      storageClassName: {{ .Values.storage.className }}
