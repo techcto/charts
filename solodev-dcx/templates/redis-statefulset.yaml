@@ -55,7 +55,7 @@ spec:
         - name: redis
           containerPort: {{ .Values.redis.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-pv
+        - name: {{ .Release.Name }}-redis-pv
           mountPath: /data
           subPath: redis
         - name: conf
@@ -67,6 +67,6 @@ spec:
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-redis
-      - name: {{ .Release.Name }}-pv
+      - name: {{ .Release.Name }}-redis-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pv
+          claimName: {{ .Release.Name }}-redis-pv
