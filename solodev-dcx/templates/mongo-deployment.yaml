@@ -50,6 +50,7 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-mongo-pv
           mountPath: "/data"
+          subPath: mongo
       restartPolicy: Always
       volumes:
       - name: {{ .Release.Name }}-mongo-pv
