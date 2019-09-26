@@ -195,12 +195,6 @@ spec:
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-mysql
-  volumeClaimTemplates:
-  - metadata:
-      name: {{ .Release.Name }}-mysql-pv
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: {{ .Values.storage.size }}
-      storageClassName: {{ .Values.storage.className }}
+      - name: {{ .Release.Name }}-mysql-pv
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-mysql-pv
