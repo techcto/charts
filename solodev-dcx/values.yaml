@@ -1,7 +1,7 @@
 env: prod
 storage:
   className: longhorn
-  size: 10G
+  size: 1G
 serviceAccountName: default
 solodev:
   image:
