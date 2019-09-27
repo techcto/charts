@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: openebs-standalone
+  className: openebs-jiva-default
   size: 1G
 serviceAccountName: default
 solodev:
