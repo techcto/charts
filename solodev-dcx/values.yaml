@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: longhorn
+  className: openebs-standalone
   size: 1G
 serviceAccountName: default
 solodev:
