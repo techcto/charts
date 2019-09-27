@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-mysql-pv
   annotations:
-      volume.beta.kubernetes.io/storage-class: openebs-standard
+      volume.beta.kubernetes.io/storage-class: openebs-jiva-default
 spec:
   accessModes:
   - ReadWriteOnce
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-mongo-pv
   annotations:
-      volume.beta.kubernetes.io/storage-class: openebs-standard
+      volume.beta.kubernetes.io/storage-class: openebs-jiva-default
 spec:
   accessModes:
   - ReadWriteOnce
@@ -31,7 +31,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-redis-pv
   annotations:
-      volume.beta.kubernetes.io/storage-class: openebs-standard
+      volume.beta.kubernetes.io/storage-class: openebs-jiva-default
 spec:
   accessModes:
   - ReadWriteOnce
