@@ -13,6 +13,7 @@ update(){
     helm package solodev-network
     helm package solodev-dcx
     helm package solodev-dcx-aws
+    helm package portworx
     helm repo index .
     helm repo update
 }
