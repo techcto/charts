@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: openebs-hostpath
+  className: gp2
   size: 1G
 serviceAccountName: default
 solodev:
