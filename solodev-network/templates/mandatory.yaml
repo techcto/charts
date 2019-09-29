@@ -149,7 +149,6 @@ rules:
       - endpoints
     verbs:
       - get
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
@@ -167,7 +166,6 @@ subjects:
   - kind: ServiceAccount
     name: nginx-ingress-serviceaccount
     namespace: solodev-network
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -184,9 +182,7 @@ subjects:
   - kind: ServiceAccount
     name: nginx-ingress-serviceaccount
     namespace: solodev-network
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
