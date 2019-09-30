@@ -86,7 +86,7 @@ spec:
           # Prepare the backup.
           xtrabackup --prepare --target-dir=/var/lib/mysql
         volumeMounts:
-        - name: {{ .Release.Name }}-mysql-pv
+        - name: {{ .Release.Name }}-pv
           mountPath: /var/lib/mysql
           subPath: mysql
         - name: conf
@@ -110,7 +110,7 @@ spec:
         - name: mysql
           containerPort: {{ .Values.mysql.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-mysql-pv
+        - name: {{ .Release.Name }}-pv
           mountPath: /var/lib/mysql
           subPath: mysql
         - name: conf
@@ -180,7 +180,7 @@ spec:
           exec ncat --listen --keep-open --send-only --max-conns=1 {{ .Values.mysql.read.port }} -c \
             "xtrabackup --backup --slave-info --stream=xbstream --host=127.0.0.1 --user=root --password={{ .Values.solodev.settings.dbPassword }}"
         volumeMounts:
-        - name: {{ .Release.Name }}-mysql-pv
+        - name: {{ .Release.Name }}-pv
           mountPath: /var/lib/mysql
           subPath: mysql
         - name: conf
@@ -195,6 +195,6 @@ spec:
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-mysql
-      - name: {{ .Release.Name }}-mysql-pv
+      - name: {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-pv

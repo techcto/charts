@@ -48,11 +48,11 @@ spec:
         ports:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-mongo-pv
+        - name:  {{ .Release.Name }}-pv
           mountPath: "/data"
           subPath: mongo
       restartPolicy: Always
       volumes:
-      - name: {{ .Release.Name }}-mongo-pv
+      - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-pv
