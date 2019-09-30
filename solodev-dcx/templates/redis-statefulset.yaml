@@ -67,4 +67,4 @@ spec:
           name: {{ .Release.Name }}-redis
       - name: {{ .Release.Name }}-redis-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-redis-pv
+          claimName: {{ .Release.Name }}-pv

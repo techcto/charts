@@ -55,4 +55,4 @@ spec:
       volumes:
       - name: {{ .Release.Name }}-mongo-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-mongo-pv
+          claimName: {{ .Release.Name }}-pv

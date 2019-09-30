@@ -197,4 +197,4 @@ spec:
           name: {{ .Release.Name }}-mysql
       - name: {{ .Release.Name }}-mysql-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-mysql-pv
+          claimName: {{ .Release.Name }}-pv
