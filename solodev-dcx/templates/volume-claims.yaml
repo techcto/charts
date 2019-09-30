@@ -9,31 +9,6 @@ spec:
     requests:
       storage: {{ .Values.storage.size }}
   storageClassName: {{ .Values.storage.className }}
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: {{ .Release.Name }}-mongo-pv
-# spec:
-#   accessModes:
-#   - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: {{ .Values.storage.size }}
-#   storageClassName: {{ .Values.storage.className }}
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: {{ .Release.Name }}-redis-pv
-# spec:
-#   accessModes:
-#   - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: {{ .Values.storage.size }}
-#   storageClassName: {{ .Values.storage.className }}
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
