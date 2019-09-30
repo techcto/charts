@@ -1,4 +1,6 @@
 env: prod
+ssl:
+  email: ssl@domain.com
 dns:
   zone:
     name: domain.com
