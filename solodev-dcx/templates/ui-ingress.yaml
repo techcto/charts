@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-ui
   annotations:
     host: "{{ .Release.Name }}.{{ .Values.solodev.cname }}"
+    external-dns.alpha.kubernetes.io/hostname: "{{ .Release.Name }}.{{ .Values.solodev.cname }}"
     kubernetes.io/ingress.class: nginx
     # ingress.kubernetes.io/rewrite-target: /
     # nginx.ingress.kubernetes.io/ssl-redirect: "false"
