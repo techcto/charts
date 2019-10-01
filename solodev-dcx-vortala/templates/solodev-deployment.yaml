@@ -55,6 +55,8 @@ spec:
           value: {{ quote .Values.solodev.migration.BLOG_ID }}
         - name: BLOG_ID_OLD
           value: {{ quote .Values.solodev.migration.BLOG_ID_OLD }}
+        - name: SOLODEV_MIGRATE
+          value: {{ quote .Values.solodev.migration.SOLODEV_MIGRATE }}
         ports:
         - containerPort: {{ .Values.solodev.port }}
         resources: {}

@@ -33,6 +33,7 @@ solodev:
     WEBSITE_ADMIN: ''
     BLOG_ID: ''
     BLOG_ID_OLD: ''
+    SOLODEV_MIGRATE: ''
   pullSecret: solodev
 ui:
   image:
