@@ -1,0 +1,25 @@
+#READING
+Thank you to the following articles:
+https://stackoverflow.com/questions/36232906/how-to-access-private-docker-hub-repository-from-kubernetes-on-vagrant
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+https://stackoverflow.com/questions/43499971/helm-error-no-available-release-name-found
+https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+https://myopswork.com/transparent-ssh-tunnel-through-a-bastion-host-d1d864ddb9ae
+https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/
+https://kubernetes.github.io/ingress-nginx/user-guide/basic-usage/
+https://www.phillipsj.net/posts/aws-eks-and-kubernetes-external-dns
+https://medium.com/kokster/how-to-setup-nginx-ingress-controller-on-aws-clusters-7bd244278509
+https://github.com/helm/charts/tree/master/stable/wordpress
+https://banzaicloud.com/blog/creating-helm-charts/
+https://www.nickaws.net/aws/2018/10/09/Dont-Do-This.html
+https://docs.aws.amazon.com/eks/latest/userguide/calico.html
+https://medium.com/codeops/installing-weave-cni-on-aws-eks-51c2e6b7abc8
+https://rancher.com/blog/2019/2019-03-21-comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/
+https://github.com/cni-genie/CNI-Genie
+https://www.linkedin.com/pulse/multi-cni-containers-network-interfaces-kubernetes-gokul-chandra/
+https://dev.to/ankitbansal/multi-tenancy-in-kubernetes-cluster-44me
+https://github.com/aws/amazon-vpc-cni-k8s/issues/534
+https://www.weave.works/docs/net/latest/kubernetes/kube-addon/
+https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/
+https://kublr.com/blog/setting-up-mysql-replication-clusters-in-kubernetes-2/
+https://supergiant.io/blog/kubernetes-storage-introduction/
