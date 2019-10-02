@@ -13,6 +13,25 @@ spec:
       labels:
         app: {{ .Release.Name }}-solodev
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-solodev
+            topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
       containers:
