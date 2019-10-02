@@ -28,10 +28,17 @@ spec:
         - containerPort: {{ .Values.ui.https.port }}
         resources: {}
         volumeMounts:
-        - mountPath: {{ quote .Values.solodev.storage.mount }}
-          name: client
+        # - mountPath: {{ quote .Values.solodev.storage.mount }}
+        #   name: client
+        - name:  {{ .Release.Name }}-pv
+          mountPath: {{ quote .Values.solodev.storage.mount }}
+          subPath: client
       restartPolicy: Always
+      # volumes:
+      # - name: client
+      #   persistentVolumeClaim:
+      #     claimName: {{ .Release.Name }}-client
       volumes:
-      - name: client
+      - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-client
+          claimName: {{ .Release.Name }}-pv
