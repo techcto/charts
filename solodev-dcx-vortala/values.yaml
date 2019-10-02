@@ -26,6 +26,7 @@ solodev:
     dbUser: solodev
     dbPassword: password
     mongoDbName: solodev_views
+    isISV: ''
   migration:
     WEBSITE_URL: ''
     WEBSITE_NAME: ''

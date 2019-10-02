@@ -43,6 +43,8 @@ spec:
           value: {{ quote .Values.solodev.settings.appPassword }}
         - name: SOLODEV_USER
           value: {{ quote .Values.solodev.settings.appUser }}
+        - name: IS_ISV
+          value: {{ quote .Values.solodev.settings.isISV }}
         - name: WEBSITE_URL
           value: {{ quote .Values.solodev.migration.WEBSITE_URL }}
         - name: WEBSITE_NAME
