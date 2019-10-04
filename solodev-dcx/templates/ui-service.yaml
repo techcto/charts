@@ -6,7 +6,6 @@ metadata:
     app: {{ .Release.Name }}-ui
 spec:
   externalName: {{ .Release.Name }}-ui
-  type: ExternalName
   ports:
   - name: "http"
     port: {{ .Values.ui.http.port }}
@@ -14,5 +13,6 @@ spec:
   - name: "https"
     port: {{ .Values.ui.https.port }}
     targetPort: 443
+  clusterIP: None
   selector:
     app: {{ .Release.Name }}-ui
