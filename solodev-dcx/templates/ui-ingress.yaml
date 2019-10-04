@@ -5,11 +5,11 @@ metadata:
   annotations:
     host: "{{ .Release.Name }}.{{ .Values.solodev.cname }}"
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/service-upstream: "true"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/service-upstream: "true"
     nginx.ingress.kubernetes.io/upstream-vhost: "{{ .Release.Name }}.{{ .Values.solodev.cname }}"
 spec:
   # tls:
