@@ -6,6 +6,16 @@ provisioner: kubernetes.io/portworx-volume
 parameters:
   repl: "3"
   priority_io: "high"
+  snapshotschedule.stork.libopenstorage.org/default-schedule: |
+    schedulePolicyName: daily
+    annotations:
+      portworx/snapshot-type: local
+  snapshotschedule.stork.libopenstorage.org/weekly-schedule: |
+    schedulePolicyName: weekly
+    annotations:
+      portworx/snapshot-type: cloud
+      # https://docs.portworx.com/reference/cli/credentials/#list-credentials
+      # portworx/cloud-cred-id: <credential-uuid>
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
