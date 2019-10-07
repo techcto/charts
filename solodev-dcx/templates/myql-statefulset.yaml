@@ -128,8 +128,8 @@ spec:
         readinessProbe:
           exec:
             # Check we can execute queries over TCP (skip-networking is off).
-            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p'{{ .Values.solodev.settings.dbPassword }}'", "-e", "SELECT 1"]
-          initialDelaySeconds: 5
+            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
+          initialDelaySeconds: 20
           periodSeconds: 2
           timeoutSeconds: 1
       - name: {{ .Release.Name }}-xtrabackup
