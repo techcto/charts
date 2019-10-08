@@ -125,13 +125,12 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            # command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
-            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p", "{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
-          initialDelaySeconds: 20
-          periodSeconds: 2
-          timeoutSeconds: 1
+        # readinessProbe:
+        #   exec:
+        #     command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
+        #   initialDelaySeconds: 20
+        #   periodSeconds: 2
+        #   timeoutSeconds: 1
       - name: {{ .Release.Name }}-xtrabackup
         image: gcr.io/google-samples/xtrabackup:1.0
         ports:
