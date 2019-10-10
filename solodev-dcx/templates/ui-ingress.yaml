@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # nginx.ingress.kubernetes.io/service-upstream: "true"
+    nginx.ingress.kubernetes.io/service-upstream: "true"
     # ingress.kubernetes.io/secure-backends: "true"
     nginx.ingress.kubernetes.io/upstream-vhost: "{{ .Release.Name }}.{{ .Values.solodev.cname }}"
     nginx.ingress.kubernetes.io/affinity: "cookie"
