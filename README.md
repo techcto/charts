@@ -1,7 +1,7 @@
 # Deploy Solodev DCX on an EKS Cluster via Helm Charts
 The following steps will allow you to deploy Solodev DCX to an existing EKS cluster via Helm Charts. Additional installation methods are available including <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/pages/deploy-via-cloudformation.md">via AWS CloudFormation</a> or via <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/pages/deploy-solodev-dcx-kcmd.md">custom kubectl commands</a>.
 
-These instructions presume you already have installed <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html">aws-iam-authenticator</a>, <a href="https://stedolan.github.io/jq/">jq</a> (<a href="https://chocolatey.org/packages/jq">windows install instructions</a>), and <a href="https://github.com/helm/helm">kubernetes-helm</a>.
+These instructions presume you already have installed <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>, <a href="https://aws.amazon.com/cli/">aws cli</a>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html">aws-iam-authenticator</a>, <a href="https://stedolan.github.io/jq/">jq</a> (<a href="https://chocolatey.org/packages/jq">windows install instructions</a>), and <a href="https://github.com/helm/helm">kubernetes-helm</a>.
 
 ## Step 1: Subscribe on the AWS Marketplace
 Solodev is a professionally managed, enterprise-class Digital Customer Experience Platform and content management system (CMS). Before launching one of our products, you'll first need to subscribe to Solodev on the <a href="https://aws.amazon.com/marketplace/pp/B07XV951M6">AWS Marketplace.</a> Click the button below to get started: 
@@ -17,11 +17,11 @@ If you wish to deploy Solodev DCX to an existing Kubernetes cluster, skip to Ste
 
 For AWS users needing to create a new cluster, please follow the <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html">Getting Started instructions</a> to deploy a new EKS cluster with your unique cluster-spec.yaml and <a href="https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl">eksctl</a>.
 
-You can also run the following command to create a cluster using <a href="https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl">eksctl</a> directly:
+You can also run the following command to create a cluster using <a href="https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl">eksctl</a> directly. Change the "name" and "nodegroup-name" attributes to be unique cluster names. 
 
 <pre>
 eksctl create cluster \
---name prod \
+--name clustername \
 --version 1.14 \
 --nodegroup-name standard-workers \
 --node-type t3.medium \
@@ -30,6 +30,8 @@ eksctl create cluster \
 --nodes-max 4 \
 --node-ami auto
 </pre>
+
+With your cluster created, connect to following the steps outlined in the <a href="https://docs.aws.amazon.com/eks/latest/userguide/helm.html">Using Helm with Amazon EKS</a> article. With tiller running, proceed to the following steps.
 
 ## Step 3: Download and Configure setService.sh
 Access and download the <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/bin/setService.sh">Solodev setService.sh script</a>. Place the shell script inside a directory you will use to access your Kubernetes cluster.
@@ -77,7 +79,7 @@ kubectl get svc solodev-dcx-ui -o yaml | grep hostname
 </pre>
 
 ## Step 8: Login to Solodev 
-Visit the external endpoint retrived in step 7 to load Solodev DCX. Use the the username "solodev" and the appPassword specified during step 3 for login credentials.
+Visit the external endpoint retrived in step 7 to load Solodev DCX. Note that it may take several minutes for the endpoint URL to be available. Use the the username "solodev" and the appPassword specified during step 6 for login credentials.
 
 <table>
 	<tr>
