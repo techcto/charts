@@ -17,6 +17,20 @@ If you wish to deploy Solodev DCX to an existing Kubernetes cluster, skip to Ste
 
 For AWS users needing to create a new cluster, please follow the <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html">Getting Started instructions</a> to deploy a new EKS cluster with your unique cluster-spec.yaml and eksctl.
 
+You can also run the following command directly to create a cluster without a cluster-spec.yaml
+
+<pre>
+eksctl create cluster \
+--name prod \
+--version 1.14 \
+--nodegroup-name standard-workers \
+--node-type t3.medium \
+--nodes 3 \
+--nodes-min 1 \
+--nodes-max 4 \
+--node-ami auto
+</pre>
+
 ## Step 3: Download and Configure setService.sh
 Access and download the <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/bin/setService.sh">Solodev setService.sh script</a>. Place the shell script inside a directory you will use to access your Kubernetes cluster.
 
