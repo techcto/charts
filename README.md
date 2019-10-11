@@ -15,9 +15,9 @@ Solodev is a professionally managed, enterprise-class Digital Customer Experienc
 ## (Optional) Step 2: Create EKS Cluster via Command Line
 If you wish to deploy Solodev DCX to an existing Kubernetes cluster, skip to Step 3.
 
-For AWS users needing to create a new cluster, please follow the <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html">Getting Started instructions</a> to deploy a new EKS cluster with your unique cluster-spec.yaml and eksctl.
+For AWS users needing to create a new cluster, please follow the <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html">Getting Started instructions</a> to deploy a new EKS cluster with your unique cluster-spec.yaml and <a href="https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl">eksctl</a>.
 
-You can also run the following command directly to create a cluster without a cluster-spec.yaml
+You can also run the following command to create a cluster using <a href="https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl">eksctl</a> directly:
 
 <pre>
 eksctl create cluster \
