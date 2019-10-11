@@ -1,0 +1,16 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: lighthouse
+    namespace: kube-system
+  spec:
+    rules:
+    - host: lighthouse.px
+      http:
+        paths:
+        - backend:
+            serviceName: px-lighthouse
+            servicePort: 80
+          path: /
