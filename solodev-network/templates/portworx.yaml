@@ -420,7 +420,7 @@ spec:
         - --leader-elect=true
         - --health-monitor-interval=120
         imagePullPolicy: Always
-        image: openstorage/stork:2.2.5
+        image: openstorage/stork:2.3
         env:
         - name: "PX_SERVICE_NAME"
           value: "portworx-api"
