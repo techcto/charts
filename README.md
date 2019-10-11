@@ -1,5 +1,5 @@
 # Deploy Solodev DCX on an EKS Cluster via Helm Charts
-The following steps will allow you to deploy Solodev DCX to an existing EKS cluster via Helm Charts. Additional installation methods are available including <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/pages/deploy-solodev-dcx.md">via AWS CloudFormation</a> or via <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/pages/deploy-solodev-dcx-kcmd.md">custom kubectl commands</a>.
+The following steps will allow you to deploy Solodev DCX to an existing EKS cluster via Helm Charts. Additional installation methods are available including <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/pages/deploy-via-cloudformation.md">via AWS CloudFormation</a> or via <a href="https://github.com/techcto/quickstart-solodev-dcx/blob/master/eks/pages/deploy-solodev-dcx-kcmd.md">custom kubectl commands</a>.
 
 These instructions presume you already have installed <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html">aws-iam-authenticator</a>, <a href="https://stedolan.github.io/jq/">jq</a> (<a href="https://chocolatey.org/packages/jq">windows install instructions</a>), and <a href="https://github.com/helm/helm">kubernetes-helm</a>.
 
