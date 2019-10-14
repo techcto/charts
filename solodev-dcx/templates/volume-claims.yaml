@@ -16,7 +16,7 @@ metadata:
   name: {{ .Release.Name }}-client
 spec:
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: {{ .Values.solodev.storage.size }}
