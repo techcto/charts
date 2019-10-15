@@ -163,7 +163,10 @@ spec:
           image: portworx/oci-monitor:2.1.2
           imagePullPolicy: Always
           args:
-            ["-k", "etcd:http://px-etcd1.portworx.com:2379,etcd:http://px-etcd2.portworx.com:2379,etcd:http://px-etcd3.portworx.com:2379", "-c", "px-cluster-varunj-22dcbd1c-ede1-454f-97cb-6ccf54e7572a", "-A", "-f", "-secret_type", "k8s",
+            # ["-k", "etcd:http://px-etcd1.portworx.com:2379,etcd:http://px-etcd2.portworx.com:2379,etcd:http://px-etcd3.portworx.com:2379", "-c", "px-cluster-varunj-22dcbd1c-ede1-454f-97cb-6ccf54e7572a", "-A", "-f", "-secret_type", "k8s",
+            #  "-x", "kubernetes"]
+             args:
+            ["-c", "px-cluster-4b9fb640-de38-4529-a144-69ecfe15a83e", "-s", "type=gp2,size=150", "-secret_type", "k8s", "-metadata", "type=gp2,size=150", "-b", 
              "-x", "kubernetes"]
           env:
             - name: "AUTO_NODE_RECOVERY_TIMEOUT_IN_SECS"
