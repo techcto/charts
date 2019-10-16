@@ -62,26 +62,26 @@ spec:
           limits:
             memory: 256Mi
             cpu: 100m
-        livenessProbe:
-          exec:
-            command:
-            - mysqladmin
-            - ping
-          initialDelaySeconds: 120
-          periodSeconds: 10
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 3
-        readinessProbe:
-          exec:
-            command:
-            - mysqladmin
-            - ping
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 3
+        # livenessProbe:
+        #   exec:
+        #     command:
+        #     - mysqladmin
+        #     - ping
+        #   initialDelaySeconds: 120
+        #   periodSeconds: 10
+        #   timeoutSeconds: 1
+        #   successThreshold: 1
+        #   failureThreshold: 3
+        # readinessProbe:
+        #   exec:
+        #     command:
+        #     - mysqladmin
+        #     - ping
+        #   initialDelaySeconds: 30
+        #   periodSeconds: 10
+        #   timeoutSeconds: 1
+        #   successThreshold: 1
+        #   failureThreshold: 3
       volumes:
       - name: conf
         emptyDir: {}
