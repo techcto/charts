@@ -46,6 +46,12 @@ spec:
                 fieldPath: status.hostIP
           - name: DD_APM_ENABLED
             value: "true"
+          - name: DD_PROCESS_AGENT_ENABLED
+            value: "true"
+        volumes:
+          - hostPath:
+              path: /etc/passwd
+            name: passwd
         resources:
           requests:
             memory: "256Mi"
@@ -61,6 +67,9 @@ spec:
             readOnly: true
           - name: cgroups
             mountPath: /host/sys/fs/cgroup
+            readOnly: true
+          - name: passwd
+            mountPath: /etc/passwd
             readOnly: true
         livenessProbe:
           exec:
