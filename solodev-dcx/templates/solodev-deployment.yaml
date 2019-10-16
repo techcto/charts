@@ -50,6 +50,13 @@ spec:
         volumeMounts:
         - mountPath: {{ quote .Values.solodev.storage.mount }}
           name: client
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
       restartPolicy: Always
       volumes:
       - name: client

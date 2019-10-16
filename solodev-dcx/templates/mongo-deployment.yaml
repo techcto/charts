@@ -50,6 +50,13 @@ spec:
         volumeMounts:
         - name:  {{ .Release.Name }}-pv
           mountPath: "/data"
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
       restartPolicy: Always
       volumes:
       - name:  {{ .Release.Name }}-pv
