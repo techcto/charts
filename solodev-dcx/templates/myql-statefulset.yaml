@@ -68,16 +68,16 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
-          successThreshold: 1
-          failureThreshold: 3
+          # successThreshold: 1
+          # failureThreshold: 3
         readinessProbe:
           exec:
             command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
           initialDelaySeconds: 5
           periodSeconds: 10
           timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 3
+          # successThreshold: 1
+          # failureThreshold: 3
       volumes:
       - name: conf
         emptyDir: {}
