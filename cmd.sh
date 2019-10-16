@@ -14,7 +14,6 @@ update(){
     helm package solodev-dcx
     helm package solodev-dcx-aws
     helm package solodev-dcx-vortala
-    helm package portworx
     helm repo index .
     helm repo update
 }
