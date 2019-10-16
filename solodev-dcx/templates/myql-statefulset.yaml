@@ -230,6 +230,38 @@ spec:
           timeoutSeconds: 1
           successThreshold: 1
           failureThreshold: 3
+      {{- if .Values.mysql.metrics.enabled }}
+      - name: metrics
+        image: "{{ .Values.mysql.metrics.image }}:{{ .Values.mysql.metrics.imageTag }}"
+        imagePullPolicy: {{ .Values.mysql.metrics.imagePullPolicy | quote }}
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: {{ .Values.solodev.settings.dbPassword }}
+        command:
+        - 'sh'
+        - '-c'
+        - 'DATA_SOURCE_NAME="root:$MYSQL_ROOT_PASSWORD@(localhost:3306)/" /bin/mysqld_exporter'
+        {{- range $f := .Values.mysql.metrics.flags }}
+        - {{ $f | quote }}
+        {{- end }}
+        ports:
+        - name: metrics
+          containerPort: 9104
+        livenessProbe:
+          httpGet:
+            path: /
+            port: metrics
+          initialDelaySeconds: {{ .Values.mysql.metrics.livenessProbe.initialDelaySeconds }}
+          timeoutSeconds: {{ .Values.mysql.metrics.livenessProbe.timeoutSeconds }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: metrics
+          initialDelaySeconds: {{ .Values.mysql.metrics.readinessProbe.initialDelaySeconds }}
+          timeoutSeconds: {{ .Values.mysql.metrics.readinessProbe.timeoutSeconds }}
+        resources:
+        {{ toYaml .Values.mysql.metrics.resources | indent 10 }}
+      {{- end }}
       - name: {{ .Release.Name }}-xtrabackup
         image: gcr.io/google-samples/xtrabackup:1.0
         ports:

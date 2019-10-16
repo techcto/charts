@@ -50,7 +50,25 @@ mysql:
   port: 3306
   read:
     port: 3307
-  settings:
+  metrics:
+    enabled: false
+    image: prom/mysqld-exporter
+    imageTag: v0.10.0
+    imagePullPolicy: IfNotPresent
+    resources: {}
+    annotations: {}
+      # prometheus.io/scrape: "true"
+      # prometheus.io/port: "9104"
+    livenessProbe:
+      initialDelaySeconds: 15
+      timeoutSeconds: 5
+    readinessProbe:
+      initialDelaySeconds: 5
+      timeoutSeconds: 1
+    flags: []
+    serviceMonitor:
+      enabled: false
+      additionalLabels: {}
 mongo:
   image:
     registry: docker.io
