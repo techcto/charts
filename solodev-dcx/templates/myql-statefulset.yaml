@@ -103,7 +103,7 @@ spec:
             cpu: 100m
         livenessProbe:
           exec:
-            command: ["mysqladmin", "ping"]
+            command: ["mysqladmin", "ping", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
           initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 1
@@ -111,7 +111,7 @@ spec:
           # failureThreshold: 3
         readinessProbe:
           exec:
-            command: ["mysqladmin", "status", "-u", "root", "-p$MYSQL_ROOT_PASSWORD"]
+            command: ["mysqladmin", "status", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
           initialDelaySeconds: 45
           periodSeconds: 10
           timeoutSeconds: 1
