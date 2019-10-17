@@ -89,6 +89,7 @@ spec:
         - --sql_mode=
         - --ignore-db-dirs=lost+found
         - --log-basename={{ .Release.Name }}-mysql-0
+        - --datadir=/var/lib/mysql
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
@@ -108,10 +109,10 @@ spec:
         #   mountPath: /etc/mysql/conf.d
         resources:
           requests:
-            memory: 128M
+            memory: 64M
             cpu: 50m
           limits:
-            memory: 256M
+            memory: 128M
             cpu: 100m
         # livenessProbe:
         #   exec:
