@@ -96,14 +96,14 @@ spec:
         #   mountPath: /etc/mysql/conf.d
         resources:
           requests:
-            memory: 64M
+            memory: 128M
             cpu: 50m
           limits:
-            memory: 128M
+            memory: 256M
             cpu: 100m
         livenessProbe:
           exec:
-            command: ["mysqladmin", "-u", "root", "-p$MYSQL_ROOT_PASSWORD", "ping"]
+            command: ["sh", "-c", "exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD"]
           initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 1
@@ -111,7 +111,7 @@ spec:
           # failureThreshold: 3
         readinessProbe:
           exec:
-            command: ["mysql", "-u", "root", "-p$MYSQL_ROOT_PASSWORD", "-e", "SELECT 1"]
+            command: ["sh", "-c", "exec mysql", "-u", "root", "-p$MYSQL_ROOT_PASSWORD", "-e", "SELECT 1"]
           initialDelaySeconds: 45
           periodSeconds: 10
           timeoutSeconds: 1
