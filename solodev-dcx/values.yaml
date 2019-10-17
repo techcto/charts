@@ -43,7 +43,7 @@ mysql:
   image:
     registry: docker.io
     repository: mariadb
-    tag: 10.3
+    tag: latest
     # repository: mysql
     # tag: latest
     pullPolicy: IfNotPresent
