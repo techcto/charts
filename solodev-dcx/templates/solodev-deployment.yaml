@@ -57,14 +57,6 @@ spec:
           limits:
             memory: 256M
             cpu: 300m
-        livenessProbe:
-          exec:
-            command: ["ping", "{{ .Release.Name }}-mysql"]
-          initialDelaySeconds: 120
-          periodSeconds: 10
-          timeoutSeconds: 1
-          # successThreshold: 1
-          # failureThreshold: 3
       restartPolicy: Always
       volumes:
       - name: client
