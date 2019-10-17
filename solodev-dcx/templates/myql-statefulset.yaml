@@ -23,31 +23,31 @@ spec:
                 values:
                 - {{ .Release.Name }}-mysql
             topologyKey: "kubernetes.io/hostname"
-      initContainers:
-      - name: {{ .Release.Name }}-init-mysql
-        image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
-        command:
-        - bash
-        - "-c"
-        - |
-          set -ex
-          # Generate mysql server-id from pod ordinal index.
-          [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
-          ordinal=${BASH_REMATCH[1]}
-          echo [mysqld] > /mnt/conf.d/server-id.cnf
-          # Add an offset to avoid reserved server-id=0 value.
-          echo server-id=$((100 + $ordinal)) >> /mnt/conf.d/server-id.cnf
-          # Copy appropriate conf.d files from config-map to emptyDir.
-          if [[ $ordinal -eq 0 ]]; then
-            cp /mnt/config-map/master.cnf /mnt/conf.d/
-          else
-            cp /mnt/config-map/slave.cnf /mnt/conf.d/
-          fi
-        volumeMounts:
-        - name: conf
-          mountPath: /mnt/conf.d
-        - name: config-map
-          mountPath: /mnt/config-map
+      # initContainers:
+      # - name: {{ .Release.Name }}-init-mysql
+      #   image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
+      #   command:
+      #   - bash
+      #   - "-c"
+      #   - |
+      #     set -ex
+      #     # Generate mysql server-id from pod ordinal index.
+      #     [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
+      #     ordinal=${BASH_REMATCH[1]}
+      #     echo [mysqld] > /mnt/conf.d/server-id.cnf
+      #     # Add an offset to avoid reserved server-id=0 value.
+      #     echo server-id=$((100 + $ordinal)) >> /mnt/conf.d/server-id.cnf
+      #     # Copy appropriate conf.d files from config-map to emptyDir.
+      #     if [[ $ordinal -eq 0 ]]; then
+      #       cp /mnt/config-map/master.cnf /mnt/conf.d/
+      #     else
+      #       cp /mnt/config-map/slave.cnf /mnt/conf.d/
+      #     fi
+      #   volumeMounts:
+      #   - name: conf
+      #     mountPath: /mnt/conf.d
+      #   - name: config-map
+      #     mountPath: /mnt/config-map
       # - name: {{ .Release.Name }}-clone-mysql
       #   image: gcr.io/google-samples/xtrabackup:1.0
       #   command:
@@ -76,8 +76,7 @@ spec:
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
         args:
         - --sql_mode=
-        - --ignore_db_dirs="lost+found"
-        - --default-authentication-plugin=mysql_native_password
+        - --ignore_db_dirs=lost+found
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
@@ -179,11 +178,11 @@ spec:
       #       memory: 128M
       #       cpu: 50m
       volumes:
-      - name: conf
-        emptyDir: {}
-      - name: config-map
-        configMap:
-          name: {{ .Release.Name }}-mysql
+      # - name: conf
+      #   emptyDir: {}
+      # - name: config-map
+      #   configMap:
+      #     name: {{ .Release.Name }}-mysql
       - name: {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-mysql
