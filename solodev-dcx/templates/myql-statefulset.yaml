@@ -77,7 +77,7 @@ spec:
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
         args:
         - --sql_mode=
-        - --ignore-db-dirs=lost+found
+        - --ignore-db-dir=lost+found
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
