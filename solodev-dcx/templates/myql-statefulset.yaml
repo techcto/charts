@@ -113,22 +113,22 @@ spec:
           limits:
             memory: 256M
             cpu: 100m
-        livenessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 120
-          periodSeconds: 10
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 3
-        readinessProbe:
-          exec:
-            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 3
+        # livenessProbe:
+        #   exec:
+        #     command: ["mysqladmin", "ping"]
+        #   initialDelaySeconds: 120
+        #   periodSeconds: 10
+        #   timeoutSeconds: 1
+        #   successThreshold: 1
+        #   failureThreshold: 3
+        # readinessProbe:
+        #   exec:
+        #     command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
+        #   initialDelaySeconds: 30
+        #   periodSeconds: 10
+        #   timeoutSeconds: 1
+        #   successThreshold: 1
+        #   failureThreshold: 3
       # - name: {{ .Release.Name }}-xtrabackup
       #   image: gcr.io/google-samples/xtrabackup:1.0
       #   ports:
