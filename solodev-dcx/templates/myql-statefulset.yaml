@@ -78,8 +78,6 @@ spec:
         args:
         - --sql_mode=
         - --ignore-db-dirs=lost+found
-        - --log-basename={{ .Release.Name }}-mysql-0
-        - --datadir=/var/lib/mysql
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
