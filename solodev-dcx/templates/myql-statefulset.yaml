@@ -103,7 +103,7 @@ spec:
             cpu: 100m
         livenessProbe:
           exec:
-            command: ["sh", "-c", "exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD"]
+            command: ["sh", "-c", "exec mysqladmin status --protocol=socket"]
           initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 1
@@ -111,7 +111,7 @@ spec:
           # failureThreshold: 3
         readinessProbe:
           exec:
-            command: ["sh", "-c", "exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD"]
+            command: ["sh", "-c", "exec mysqladmin status --protocol=socket"]
           initialDelaySeconds: 45
           periodSeconds: 10
           timeoutSeconds: 1
