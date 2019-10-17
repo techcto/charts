@@ -27,7 +27,7 @@ spec:
       - name: {{ .Release.Name }}-init-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
         args:
-        - --ignore-db-dir=lost+found
+        - --ignore-db-dirs=lost+found
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
@@ -87,7 +87,8 @@ spec:
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
         args:
         - --sql_mode=
-        - --ignore-db-dir=lost+found
+        - --ignore-db-dirs=lost+found
+        - --log-basename={{ .Release.Name }}-mysql-0
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
