@@ -111,8 +111,8 @@ spec:
           # failureThreshold: 3
         readinessProbe:
           exec:
-            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
-          initialDelaySeconds: 30
+            command: ["mysqladmin", "status", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}"]
+          initialDelaySeconds: 45
           periodSeconds: 10
           timeoutSeconds: 1
           # successThreshold: 1
