@@ -26,6 +26,9 @@ spec:
       initContainers:
       - name: {{ .Release.Name }}-init-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
+        env:
+        - name: MYSQL_INITDB_SKIP_TZINFO
+          value: "yes"
         command:
         - bash
         - "-c"
@@ -79,6 +82,8 @@ spec:
         - --sql_mode=
         - --ignore_db_dirs=lost+found
         env:
+        - name: MYSQL_INITDB_SKIP_TZINFO
+          value: "yes"
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
         - name: MYSQL_ROOT_PASSWORD

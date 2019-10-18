@@ -57,16 +57,16 @@ mysql:
       skip-name-resolve
       port=3306
       bind-address=0.0.0.0
-      wait_timeout=90
-      net_read_timeout=90
-      net_write_timeout=90
-      connect_timeout=90
-      max_allowed_packet = 512M
-      character-set-server=UTF8
-      collation-server=utf8_general_ci
-      [client]
-      port=3306
-      default-character-set=UTF8
+      # wait_timeout=90
+      # net_read_timeout=90
+      # net_write_timeout=90
+      # connect_timeout=90
+      # max_allowed_packet = 512M
+      # character-set-server=UTF8
+      # collation-server=utf8_general_ci
+      # [client]
+      # port=3306
+      # default-character-set=UTF8
     slave.cnf: |
       # Apply this config only on slaves.
       [mysqld]
