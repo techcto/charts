@@ -102,9 +102,9 @@ spec:
             memory: 256M
             cpu: 100m
         livenessProbe:
-          tcpSocket:
-            port: mysql
-          initialDelaySeconds: 60
+          exec:
+            command: ["sh", "-c", "exec mysqladmin ping"]
+          initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 1
           # successThreshold: 1
