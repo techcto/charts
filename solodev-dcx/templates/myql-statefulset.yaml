@@ -102,9 +102,9 @@ spec:
             memory: 256M
             cpu: 100m
         livenessProbe:
-          exec:
-            command: ["sh", "-c", "exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD"]
-          initialDelaySeconds: 120
+          tcpSocket:
+            port: {{ .Values.mysql.port }}
+          initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 1
           # successThreshold: 1
