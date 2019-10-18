@@ -78,7 +78,6 @@ spec:
         args:
         - --sql_mode=
         - --ignore_db_dirs=lost+found
-        - --skip-bind-address
         env:
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
