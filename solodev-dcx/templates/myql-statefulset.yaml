@@ -103,7 +103,7 @@ spec:
             cpu: 100m
         livenessProbe:
           tcpSocket:
-            port: {{ .Values.mysql.port }}
+            port: mysql
           initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 1
