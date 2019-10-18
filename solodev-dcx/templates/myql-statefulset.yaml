@@ -1,3 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-mysql
+  labels:
+    app: {{ .Release.Name }}-mysql
+data:
+{{ toYaml .Values.mysql.configFiles | indent 2 }}
+  # create-replication-user.sh: |-
+  #   #!/bin/bash
+  #   set -e
+  #   mysql -h 127.0.0.1 --verbose -e "CREATE USER IF NOT EXISTS '${MYSQL_REPLICATION_USER}' IDENTIFIED BY '${MYSQL_REPLICATION_PASSWORD}';"
+  #   mysql -h 127.0.0.1 --verbose -e "GRANT PROCESS, RELOAD, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '${MYSQL_REPLICATION_USER}';"
+  #   mysql -h 127.0.0.1 --verbose -e "FLUSH PRIVILEGES;"
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -23,31 +38,32 @@ spec:
                 values:
                 - {{ .Release.Name }}-mysql
             topologyKey: "kubernetes.io/hostname"
-      # initContainers:
-      # - name: {{ .Release.Name }}-init-mysql
-      #   image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
-      #   command:
-      #   - bash
-      #   - "-c"
-      #   - |
-      #     set -ex
-      #     # Generate mysql server-id from pod ordinal index.
-      #     [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
-      #     ordinal=${BASH_REMATCH[1]}
-      #     echo [mysqld] > /mnt/conf.d/server-id.cnf
-      #     # Add an offset to avoid reserved server-id=0 value.
-      #     echo server-id=$((100 + $ordinal)) >> /mnt/conf.d/server-id.cnf
-      #     # Copy appropriate conf.d files from config-map to emptyDir.
-      #     if [[ $ordinal -eq 0 ]]; then
-      #       cp /mnt/config-map/master.cnf /mnt/conf.d/
-      #     else
-      #       cp /mnt/config-map/slave.cnf /mnt/conf.d/
-      #     fi
-      #   volumeMounts:
-      #   - name: conf
-      #     mountPath: /mnt/conf.d
-      #   - name: config-map
-      #     mountPath: /mnt/config-map
+      initContainers:
+      - name: {{ .Release.Name }}-init-mysql
+        image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
+        command:
+        - bash
+        - "-c"
+        - |
+          set -ex
+          # Generate mysql server-id from pod ordinal index.
+          [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
+          ordinal=${BASH_REMATCH[1]}
+          echo [mysqld] > /mnt/conf.d/server-id.cnf
+
+          # Add an offset to avoid reserved server-id=0 value.
+          echo server-id=$((100 + $ordinal)) >> /mnt/conf.d/server-id.cnf
+          # Copy appropriate conf.d files from config-map to emptyDir.
+          if [[ $ordinal -eq 0 ]]; then
+            cp /mnt/config-map/master.cnf /mnt/conf.d/
+          else
+            cp /mnt/config-map/slave.cnf /mnt/conf.d/
+          fi
+        volumeMounts:
+        - name: conf
+          mountPath: /mnt/conf.d
+        - name: config-map
+          mountPath: /mnt/config-map
       # - name: {{ .Release.Name }}-clone-mysql
       #   image: gcr.io/google-samples/xtrabackup:1.0
       #   command:
@@ -92,8 +108,8 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-pv
           mountPath: /var/lib/mysql
-        # - name: conf
-        #   mountPath: /etc/mysql/conf.d
+        - name: conf
+          mountPath: /etc/mysql/conf.d
         resources:
           requests:
             memory: 128M
@@ -178,11 +194,11 @@ spec:
       #       memory: 128M
       #       cpu: 50m
       volumes:
-      # - name: conf
-      #   emptyDir: {}
-      # - name: config-map
-      #   configMap:
-      #     name: {{ .Release.Name }}-mysql
+      - name: conf
+        emptyDir: {}
+      - name: config-map
+        configMap:
+          name: {{ .Release.Name }}-mysql
       - name: {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-mysql
