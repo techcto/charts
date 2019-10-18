@@ -60,10 +60,10 @@ spec:
           mountPath: /etc/
         resources:
           requests:
-            memory: 2M
-            cpu: 5m
+            memory: 5M
+            cpu: 10m
           limits:
-            memory: 8M
+            memory: 20M
             cpu: 20m
       volumes:
       - name: conf
