@@ -53,10 +53,10 @@ spec:
         resources:
           requests:
             memory: 128M
-            cpu: 100m
+            cpu: 25m
           limits:
             memory: 256M
-            cpu: 300m
+            cpu: 150m
       restartPolicy: Always
       volumes:
       - name: client
