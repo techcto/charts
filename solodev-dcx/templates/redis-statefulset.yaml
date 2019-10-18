@@ -60,11 +60,11 @@ spec:
           mountPath: /etc/
         resources:
           requests:
-            memory: 32M
-            cpu: 25m
+            memory: 2M
+            cpu: 5m
           limits:
-            memory: 64M
-            cpu: 50m
+            memory: 8M
+            cpu: 20m
       volumes:
       - name: conf
         emptyDir: {}

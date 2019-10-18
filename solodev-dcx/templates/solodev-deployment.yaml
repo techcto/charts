@@ -52,11 +52,11 @@ spec:
           name: client
         resources:
           requests:
-            memory: 128M
-            cpu: 25m
+            memory: 96M
+            cpu: 20m
           limits:
-            memory: 256M
-            cpu: 150m
+            memory: 128M
+            cpu: 100m
       restartPolicy: Always
       volumes:
       - name: client

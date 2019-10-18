@@ -44,10 +44,10 @@ spec:
         resources:
           requests:
             memory: 64M
-            cpu: 25m
+            cpu: 5m
           limits:
-            memory: 128M
-            cpu: 50m
+            memory: 96M
+            cpu: 20m
       restartPolicy: Always
       volumes:
       - name:  {{ .Release.Name }}-pv

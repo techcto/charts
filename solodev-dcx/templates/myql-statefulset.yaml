@@ -102,11 +102,11 @@ spec:
           mountPath: /etc/mysql/conf.d
         resources:
           requests:
-            memory: 128M
-            cpu: 25m
+            memory: 80M
+            cpu: 10m
           limits:
             memory: 256M
-            cpu: 100m
+            cpu: 50m
         livenessProbe:
           exec:
             command: ["sh", "-c", "exec mysqladmin ping -uroot -p$MYSQL_ROOT_PASSWORD"]
