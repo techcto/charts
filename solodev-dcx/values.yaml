@@ -54,7 +54,7 @@ mysql:
     master.cnf: |
       # Apply this config only on the master.
       [mysqld]
-      log-bin
+      skip-name-resolve
       port=3306
       bind-address=0.0.0.0
       wait_timeout=90
@@ -62,7 +62,12 @@ mysql:
       net_write_timeout=90
       interactive_timeout=300
       connect_timeout=90
-      max_allowed_packet = 128M
+      max_allowed_packet = 64M
+      character-set-server=UTF8
+      collation-server=utf8_general_ci
+      [client]
+      port=3306
+      default-character-set=UTF8
     slave.cnf: |
       # Apply this config only on slaves.
       [mysqld]
