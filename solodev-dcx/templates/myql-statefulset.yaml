@@ -35,6 +35,7 @@ spec:
           [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
           ordinal=${BASH_REMATCH[1]}
           echo [mysqld] > /mnt/conf.d/server-id.cnf
+          cat /mnt/conf.d/server-id.cnf
           ls -al /mnt/config-map
 
           # Add an offset to avoid reserved server-id=0 value.
