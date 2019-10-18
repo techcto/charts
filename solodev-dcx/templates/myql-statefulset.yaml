@@ -35,9 +35,6 @@ spec:
           [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
           ordinal=${BASH_REMATCH[1]}
           echo [mysqld] > /mnt/conf.d/server-id.cnf
-          cat /mnt/conf.d/server-id.cnf
-          ls -al /mnt/config-map
-
           # Add an offset to avoid reserved server-id=0 value.
           echo server-id=$((100 + $ordinal)) >> /mnt/conf.d/server-id.cnf
           # Copy appropriate conf.d files from config-map to emptyDir.
@@ -106,7 +103,7 @@ spec:
             cpu: 100m
         livenessProbe:
           exec:
-            command: ["sh", "-c", "exec mysqladmin ping"]
+            command: ["sh", "-c", "exec mysqladmin -h 127.0.0.1 ping"]
           initialDelaySeconds: 120
           periodSeconds: 10
           timeoutSeconds: 1
@@ -114,7 +111,7 @@ spec:
           # failureThreshold: 3
         readinessProbe:
           exec:
-            command: ["sh", "-c", "exec mysql", "-u", "root", "-p$MYSQL_ROOT_PASSWORD", "-e", "SELECT 1"]
+            command: ["sh", "-c", "exec mysql", "-h", "127.0.0.1", "-u", "root", "-p$MYSQL_ROOT_PASSWORD", "-e", "SELECT 1"]
           initialDelaySeconds: 45
           periodSeconds: 10
           timeoutSeconds: 1
