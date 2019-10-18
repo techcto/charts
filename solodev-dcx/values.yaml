@@ -55,11 +55,8 @@ mysql:
       # Apply this config only on the master.
       [mysqld]
       log-bin
-      max_allowed_packet=16M
       port=3306
       bind-address=0.0.0.0
-      character-set-server=UTF8
-      collation-server=utf8_general_ci
     slave.cnf: |
       # Apply this config only on slaves.
       [mysqld]
