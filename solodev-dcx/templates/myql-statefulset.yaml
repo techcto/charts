@@ -40,6 +40,7 @@ spec:
           # Copy appropriate conf.d files from config-map to emptyDir.
           if [[ $ordinal -eq 0 ]]; then
             cp /mnt/config-map/master.cnf /mnt/conf.d/
+            echo log-basename={{ .Release.Name }}-mysql-0 >> /mnt/conf.d/server-id.cnf
           else
             cp /mnt/config-map/slave.cnf /mnt/conf.d/
           fi
