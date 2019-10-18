@@ -104,8 +104,8 @@ spec:
             cpu: 100m
         livenessProbe:
           exec:
-            command: ["sh", "-c", "exec mysqladmin -h 127.0.0.1 ping"]
-          initialDelaySeconds: 120
+            command: ["sh", "-c", "exec mysqladmin ping"]
+          initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 1
           # successThreshold: 1
