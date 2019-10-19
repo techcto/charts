@@ -45,9 +45,11 @@ spec:
           requests:
             memory: 64M
             cpu: 5m
+            # ephemeral-storage: 100M
           limits:
             memory: 96M
             cpu: 20m
+            # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
       - name:  {{ .Release.Name }}-pv

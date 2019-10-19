@@ -62,9 +62,11 @@ spec:
           requests:
             memory: 5M
             cpu: 10m
+            # ephemeral-storage: 100M
           limits:
             memory: 20M
             cpu: 20m
+            # ephemeral-storage: 500M
       volumes:
       - name: conf
         emptyDir: {}

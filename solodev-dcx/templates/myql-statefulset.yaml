@@ -104,9 +104,11 @@ spec:
           requests:
             memory: 80M
             cpu: 10m
+            # ephemeral-storage: 200M
           limits:
             memory: 256M
             cpu: 50m
+            # ephemeral-storage: 1G
         livenessProbe:
           exec:
             command: ["sh", "-c", "exec mysqladmin ping -uroot -p$MYSQL_ROOT_PASSWORD"]
