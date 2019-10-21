@@ -55,8 +55,8 @@ spec:
             memory: "256Mi"
             cpu: "200m"
           limits:
-            memory: "256Mi"
-            cpu: "200m"
+            memory: "500Mi"
+            cpu: "300m"
         volumeMounts:
           - name: dockersocket
             mountPath: /var/run/docker.sock
