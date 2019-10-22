@@ -13,25 +13,6 @@ spec:
       labels:
         app: {{ .Release.Name }}-solodev
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - {{ .Release.Name }}-solodev
-            topologyKey: "kubernetes.io/hostname"
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - {{ .Release.Name }}-redis
-            topologyKey: "kubernetes.io/hostname"
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
       containers:
@@ -83,17 +64,19 @@ spec:
         resources: {}
         tty: true
         volumeMounts:
-        # - mountPath: {{ quote .Values.solodev.storage.mount }}
-        #   name: client
-        - name:  {{ .Release.Name }}-pv
-          mountPath: {{ quote .Values.solodev.storage.mount }}
-          subPath: client
+        - mountPath: {{ quote .Values.solodev.storage.mount }}
+          name: client
+        resources:
+          requests:
+            memory: 96M
+            cpu: 20m
+            # ephemeral-storage: 200M
+          limits:
+            memory: 128M
+            cpu: 100m
+            # ephemeral-storage: 500M
       restartPolicy: Always
-      # volumes:
-      # - name: client
-      #   persistentVolumeClaim:
-      #     claimName: {{ .Release.Name }}-client
       volumes:
-      - name:  {{ .Release.Name }}-pv
+      - name: client
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pv
+          claimName: {{ .Release.Name }}-client

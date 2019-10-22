@@ -1,20 +1,20 @@
 env: prod
 storage:
-  className: gp2
-  size: 1G
+  className: portworx
+  size: 500M
 serviceAccountName: default
 solodev:
   image:
     registry: docker.io
-    repository: solodev/cms
+    repository: vortala/solodev
     tag: latest
     pullPolicy: Always
   cname: domain.com
   port: 9000
   protocol: TCP
   storage:
-    className: efs
-    size: 10G
+    className: portworx-shared
+    size: 1G
     mount: /var/www/solodev/clients/solodev
   settings:
     debug: false
@@ -39,7 +39,7 @@ solodev:
 ui:
   image:
     registry: docker.io
-    repository: solodev/cms-apache
+    repository: vortala/solodev-ui
     tag: latest
     pullPolicy: IfNotPresent
   http:
@@ -52,12 +52,24 @@ mysql:
   image:
     registry: docker.io
     repository: mariadb
-    tag: latest
+    tag: 10.3
     pullPolicy: IfNotPresent
   port: 3306
   read:
     port: 3307
-  settings:
+  configFiles:
+    master.cnf: |
+      # Apply this config only on the master.
+      [mysqld]
+      skip-name-resolve
+      port=3306
+      bind-address=0.0.0.0
+    slave.cnf: |
+      # Apply this config only on slaves.
+      [mysqld]
+      super-read-only
+      port=3307
+      bind-address=0.0.0.0
 mongo:
   image:
     registry: docker.io
