@@ -81,11 +81,11 @@ spec:
         resources:
           requests:
             memory: 80M
-            cpu: 100m
+            cpu: 50m
             # ephemeral-storage: 200M
           limits:
             memory: 256M
-            cpu: 200m
+            cpu: 100m
             # ephemeral-storage: 1G
         livenessProbe:
           exec:
