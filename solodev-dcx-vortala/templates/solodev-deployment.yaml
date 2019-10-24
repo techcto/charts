@@ -70,11 +70,11 @@ spec:
         resources:
           requests:
             memory: 96M
-            cpu: 20m
+            cpu: 100m
             # ephemeral-storage: 200M
           limits:
             memory: 128M
-            cpu: 100m
+            cpu: 200m
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
