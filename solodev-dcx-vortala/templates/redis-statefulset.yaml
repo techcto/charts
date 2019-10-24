@@ -56,6 +56,7 @@ spec:
         volumeMounts:
         - name:  {{ .Release.Name }}-pv
           mountPath: /data
+          subPath: redis
         - name: conf
           mountPath: /etc/
         resources:
@@ -75,4 +76,4 @@ spec:
           name: {{ .Release.Name }}-redis
       - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-redis
+          claimName: {{ .Release.Name }}-db

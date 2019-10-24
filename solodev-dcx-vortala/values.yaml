@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: portworx
+  className: gp2
   size: 500M
 serviceAccountName: default
 solodev:

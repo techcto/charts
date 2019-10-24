@@ -26,6 +26,15 @@ spec:
                 values:
                 - {{ .Release.Name }}-mongo
             topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - env:
         - name: MONGO_INITDB_DATABASE
@@ -41,6 +50,7 @@ spec:
         volumeMounts:
         - name:  {{ .Release.Name }}-pv
           mountPath: "/data"
+          subPath: mongo
         resources:
           requests:
             memory: 64M
@@ -54,4 +64,4 @@ spec:
       volumes:
       - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-mongo
+          claimName: {{ .Release.Name }}-db

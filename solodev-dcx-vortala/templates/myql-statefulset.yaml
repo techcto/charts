@@ -23,6 +23,15 @@ spec:
                 values:
                 - {{ .Release.Name }}-mysql
             topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
       initContainers:
       - name: {{ .Release.Name }}-init-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
@@ -76,6 +85,7 @@ spec:
         volumeMounts:
         - name: {{ .Release.Name }}-pv
           mountPath: /var/lib/mysql
+          subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
         resources:
@@ -111,4 +121,4 @@ spec:
           name: {{ .Release.Name }}-mysql
       - name: {{ .Release.Name }}-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-mysql
+          claimName: {{ .Release.Name }}-db
