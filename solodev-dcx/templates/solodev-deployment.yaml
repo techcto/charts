@@ -18,7 +18,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}
-        imagePullPolicy: Latest
+        imagePullPolicy: Always
         env:
         - name: APP_DEBUG
           value: {{ quote .Values.solodev.settings.debug }}
