@@ -55,10 +55,10 @@ spec:
       containers:
       - name: {{ .Release.Name }}-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
-        command: mysqld --innodb-buffer-pool-size=200M
         args:
         - --sql_mode=
         - --ignore_db_dirs=lost+found
+        - --innodb-buffer-pool-size=128M
         env:
         - name: MYSQL_INITDB_SKIP_TZINFO
           value: "yes"
