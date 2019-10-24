@@ -1,6 +1,7 @@
 env: prod
 storage:
   className: gp2
+  # className: portworx
   size: 500M
 serviceAccountName: default
 solodev:
@@ -13,7 +14,8 @@ solodev:
   port: 9000
   protocol: TCP
   storage:
-    className: portworx-shared
+    className: gp2
+    # className: portworx-shared
     size: 1G
     mount: /var/www/solodev/clients/solodev
   settings:

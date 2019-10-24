@@ -15,6 +15,16 @@ spec:
     spec:
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-ui
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}
