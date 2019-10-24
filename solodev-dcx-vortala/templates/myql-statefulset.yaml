@@ -58,7 +58,7 @@ spec:
         args:
         - --sql_mode=
         - --ignore_db_dirs=lost+found
-        - --innodb-buffer-pool-size=128M
+        - --innodb-buffer-pool-size=256M
         env:
         - name: MYSQL_INITDB_SKIP_TZINFO
           value: "yes"
