@@ -63,7 +63,7 @@ metadata:
   name: {{ .Release.Name }}-www
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   resources:
     requests:
       storage: {{ .Values.solodev.storage.size }}
