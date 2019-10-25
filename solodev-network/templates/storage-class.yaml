@@ -38,3 +38,4 @@ parameters:
   priority_io: "high"
   shared: "true"
   io_profile: "cms"
+  sharedv4: "true"
