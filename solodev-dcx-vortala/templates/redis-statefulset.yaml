@@ -37,9 +37,6 @@ spec:
           else
             cp /mnt/config-map/slave.conf /etc/redis.conf
           fi
-          echo madvise | tee -a /sys/kernel/mm/transparent_hugepage/enabled
-          echo madvise | tee -a /sys/kernel/mm/transparent_hugepage/defrag
-          # --sysctl net.core.somaxconn=511
         volumeMounts:
         - name: conf
           mountPath: /etc
@@ -49,7 +46,7 @@ spec:
       - name: {{ .Release.Name }}-redis
         image: {{ .Values.redis.image.registry }}/{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}
         command: ["redis-server"]
-        args: ["/etc/redis.conf"]
+        args: ["/etc/redis.conf", "--sysctl net.core.somaxconn=511"]
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
