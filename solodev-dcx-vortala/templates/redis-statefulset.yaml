@@ -46,7 +46,7 @@ spec:
       - name: {{ .Release.Name }}-redis
         image: {{ .Values.redis.image.registry }}/{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}
         command: ["redis-server"]
-        args: ["/etc/redis.conf", "--sysctl net.core.somaxconn=511"]
+        args: ["/etc/redis.conf"]
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
@@ -61,11 +61,11 @@ spec:
           mountPath: /etc/
         resources:
           requests:
-            memory: 5M
+            memory: 64M
             cpu: 10m
             # ephemeral-storage: 100M
           limits:
-            memory: 20M
+            memory: 256M
             cpu: 20m
             # ephemeral-storage: 500M
       volumes:
