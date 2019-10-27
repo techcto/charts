@@ -51,6 +51,8 @@ spec:
         - name:  {{ .Release.Name }}-pv
           mountPath: "/data"
           subPath: mongo
+        - name: home
+          mountPath: /home/mongodb/
         resources:
           requests:
             memory: 64M
@@ -62,6 +64,8 @@ spec:
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
+      - name: home
+        emptyDir: {}
       - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-db
