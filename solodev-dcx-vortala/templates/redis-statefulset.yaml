@@ -39,6 +39,7 @@ spec:
           fi
           echo never > /sys/kernel/mm/transparent_hugepage/enabled
           echo never > /sys/kernel/mm/transparent_hugepage/defrag
+          # --sysctl net.core.somaxconn=511
         volumeMounts:
         - name: conf
           mountPath: /etc
@@ -48,7 +49,7 @@ spec:
       - name: {{ .Release.Name }}-redis
         image: {{ .Values.redis.image.registry }}/{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}
         command: ["redis-server"]
-        args: ["/etc/redis.conf", "--sysctl net.core.somaxconn=511"]
+        args: ["/etc/redis.conf"]
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
