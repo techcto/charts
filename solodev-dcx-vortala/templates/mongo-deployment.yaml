@@ -45,6 +45,8 @@ spec:
           value: {{ .Values.mongo.settings.username }}
         image: {{ .Values.mongo.image.registry }}/{{ .Values.mongo.image.repository }}:{{ .Values.mongo.image.tag }}
         name: {{ .Release.Name }}-mongo
+        args:
+        - --wiredTigerCacheSizeGB=.25
         ports:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
@@ -59,7 +61,7 @@ spec:
             cpu: 5m
             # ephemeral-storage: 100M
           limits:
-            memory: 96M
+            memory: 128M
             cpu: 20m
             # ephemeral-storage: 500M
       restartPolicy: Always
