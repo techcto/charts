@@ -37,8 +37,8 @@ spec:
           else
             cp /mnt/config-map/slave.conf /etc/redis.conf
           fi
-          echo never > /sys/kernel/mm/transparent_hugepage/enabled
-          echo never > /sys/kernel/mm/transparent_hugepage/defrag
+          echo madvise | sudo tee -a /sys/kernel/mm/transparent_hugepage/enabled
+          echo madvise | sudo tee -a /sys/kernel/mm/transparent_hugepage/defrag
           # --sysctl net.core.somaxconn=511
         volumeMounts:
         - name: conf
