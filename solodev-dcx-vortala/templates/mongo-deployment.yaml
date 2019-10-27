@@ -45,8 +45,6 @@ spec:
           value: {{ .Values.mongo.settings.username }}
         image: {{ .Values.mongo.image.registry }}/{{ .Values.mongo.image.repository }}:{{ .Values.mongo.image.tag }}
         name: {{ .Release.Name }}-mongo
-        args:
-        - --wiredTigerCacheSizeGB=.25
         ports:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
@@ -57,7 +55,7 @@ spec:
           mountPath: /home/mongodb/
         resources:
           requests:
-            memory: 64M
+            memory: 128M
             cpu: 5m
             # ephemeral-storage: 100M
           limits:
