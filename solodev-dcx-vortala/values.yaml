@@ -71,6 +71,7 @@ mysql:
       net_write_timeout=90
       interactive_timeout=300
       connect_timeout=90
+      max_allowed_packet=100M
     slave.cnf: |
       # Apply this config only on slaves.
       [mysqld]
