@@ -79,11 +79,11 @@ spec:
           name: client
         resources:
           requests:
-            memory: 96M
+            memory: 128M
             cpu: 50m
             # ephemeral-storage: 200M
           limits:
-            memory: 128M
+            memory: 256M
             cpu: 400m
             # ephemeral-storage: 500M
       restartPolicy: Always
