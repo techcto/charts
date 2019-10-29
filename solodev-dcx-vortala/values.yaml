@@ -10,7 +10,8 @@ solodev:
     repository: vortala/solodev
     tag: latest
     pullPolicy: Always
-  cname: domain.com
+  domainName: domain.com
+  clusterZone: domain.com
   port: 9000
   protocol: TCP
   storage:
