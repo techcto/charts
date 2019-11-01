@@ -82,7 +82,7 @@ mongo:
 redis:
   image:
     registry: docker.io
-    repository: redis
+    repository: techcto/redis
     tag: latest
     pullPolicy: IfNotPresent
   port: 6379
