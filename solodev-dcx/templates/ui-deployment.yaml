@@ -5,6 +5,9 @@ metadata:
   labels:
     app: {{ .Release.Name }}-ui
 spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-ui
   replicas: 1
   strategy:
     type: Recreate
@@ -13,6 +16,16 @@ spec:
       labels:
         app: {{ .Release.Name }}-ui
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-ui
+            topologyKey: "kubernetes.io/hostname"
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
       containers:
