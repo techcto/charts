@@ -1,6 +1,6 @@
 env: prod
 storage:
-  className: portworx
+  className: gp2
   size: 500M
 serviceAccountName: default
 solodev:
@@ -9,11 +9,12 @@ solodev:
     repository: solodev/cms
     tag: latest
     pullPolicy: Always
-  cname: domain.com
+  domainName: domain.com
+  clusterZone: domain.com
   port: 9000
   protocol: TCP
   storage:
-    className: portworx-shared
+    className: gp2
     size: 1G
     mount: /var/www/solodev/clients/solodev
   settings:
@@ -26,6 +27,7 @@ solodev:
     dbUser: solodev
     dbPassword: password
     mongoDbName: solodev_views
+    isISV: ''
   pullSecret: solodev
 ui:
   image:
@@ -44,8 +46,6 @@ mysql:
     registry: docker.io
     repository: mariadb
     tag: 10.3
-    # repository: mysql
-    # tag: latest
     pullPolicy: IfNotPresent
   port: 3306
   read:
@@ -57,16 +57,12 @@ mysql:
       skip-name-resolve
       port=3306
       bind-address=0.0.0.0
-      # wait_timeout=90
-      # net_read_timeout=90
-      # net_write_timeout=90
-      # connect_timeout=90
-      # max_allowed_packet = 512M
-      # character-set-server=UTF8
-      # collation-server=utf8_general_ci
-      # [client]
-      # port=3306
-      # default-character-set=UTF8
+      wait_timeout=90
+      net_read_timeout=90
+      net_write_timeout=90
+      interactive_timeout=300
+      connect_timeout=90
+      max_allowed_packet=100M
     slave.cnf: |
       # Apply this config only on slaves.
       [mysqld]

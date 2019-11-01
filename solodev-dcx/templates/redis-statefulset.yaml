@@ -56,15 +56,16 @@ spec:
         volumeMounts:
         - name:  {{ .Release.Name }}-pv
           mountPath: /data
+          subPath: redis
         - name: conf
           mountPath: /etc/
         resources:
           requests:
-            memory: 5M
+            memory: 64M
             cpu: 10m
             # ephemeral-storage: 100M
           limits:
-            memory: 20M
+            memory: 256M
             cpu: 20m
             # ephemeral-storage: 500M
       volumes:
@@ -75,4 +76,4 @@ spec:
           name: {{ .Release.Name }}-redis
       - name:  {{ .Release.Name }}-pv
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-redis
+          claimName: {{ .Release.Name }}-db

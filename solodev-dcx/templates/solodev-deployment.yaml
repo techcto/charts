@@ -15,6 +15,19 @@ spec:
     spec:
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-ui
+            topologyKey: "kubernetes.io/hostname"
+    spec:
+      imagePullSecrets:
+      - name: {{ .Values.solodev.pullSecret }}
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}
@@ -53,15 +66,15 @@ spec:
           name: client
         resources:
           requests:
-            memory: 96M
+            memory: 128M
             cpu: 20m
             # ephemeral-storage: 200M
           limits:
-            memory: 128M
+            memory: 256M
             cpu: 100m
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
       - name: client
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-client
+          claimName: {{ .Release.Name }}-www

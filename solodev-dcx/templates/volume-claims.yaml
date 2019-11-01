@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-mysql
+  name: {{ .Release.Name }}-db
 spec:
   accessModes:
   - ReadWriteOnce
@@ -13,34 +13,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-redis
+  name: {{ .Release.Name }}-www
 spec:
   accessModes:
   - ReadWriteOnce
-  resources:
-    requests:
-      storage: {{ .Values.storage.size }}
-  storageClassName: {{ .Values.storage.className }}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{ .Release.Name }}-mongo
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: {{ .Values.storage.size }}
-  storageClassName: {{ .Values.storage.className }}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{ .Release.Name }}-client
-spec:
-  accessModes:
-  - ReadWriteMany
   resources:
     requests:
       storage: {{ .Values.solodev.storage.size }}
