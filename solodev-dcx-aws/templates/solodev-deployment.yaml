@@ -6,6 +6,9 @@ metadata:
     app: {{ .Release.Name }}-solodev
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-solodev
   strategy:
     type: Recreate
   template:
@@ -14,6 +17,16 @@ spec:
         app: {{ .Release.Name }}-solodev
     spec:
       serviceAccountName: {{ .Values.serviceAccountName }}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-ui
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}

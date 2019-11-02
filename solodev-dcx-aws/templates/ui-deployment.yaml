@@ -5,6 +5,9 @@ metadata:
   labels:
     app: {{ .Release.Name }}-ui
 spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-ui
   replicas: 1
   strategy:
     type: Recreate

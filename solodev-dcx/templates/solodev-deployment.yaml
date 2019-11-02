@@ -28,9 +28,6 @@ spec:
                 values:
                 - {{ .Release.Name }}-ui
             topologyKey: "kubernetes.io/hostname"
-    spec:
-      imagePullSecrets:
-      - name: {{ .Values.solodev.pullSecret }}
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}
