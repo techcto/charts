@@ -74,7 +74,7 @@ spec:
             # ephemeral-storage: 200M
           limits:
             memory: 256M
-            cpu: 100m
+            cpu: 200m
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
