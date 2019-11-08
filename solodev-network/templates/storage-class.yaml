@@ -39,3 +39,13 @@ parameters:
   shared: "true"
   io_profile: "cms"
   sharedv4: "true"
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs
+provisioner: kubernetes.io/aws-ebs
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  fsType: ext4
+  type: gp2
