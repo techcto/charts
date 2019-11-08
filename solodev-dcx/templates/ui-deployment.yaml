@@ -26,6 +26,15 @@ spec:
                 values:
                 - {{ .Release.Name }}-ui
             topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
       containers:
