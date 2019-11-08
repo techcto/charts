@@ -16,6 +16,8 @@ spec:
       labels:
         app: {{ .Release.Name }}-ui
     spec:
+      imagePullSecrets:
+      - name: {{ .Values.solodev.pullSecret }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -35,8 +37,6 @@ spec:
                 values:
                 - {{ .Release.Name }}-redis
             topologyKey: "kubernetes.io/hostname"
-      imagePullSecrets:
-      - name: {{ .Values.solodev.pullSecret }}
       containers:
       - env:
         - name: APP_ENV
