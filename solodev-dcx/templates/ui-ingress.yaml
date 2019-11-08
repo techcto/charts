@@ -20,6 +20,9 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      chunked_transfer_encoding off;
+      proxy_max_temp_file_size 0;
 spec:
   # tls:
   # - hosts:
