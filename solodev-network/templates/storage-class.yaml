@@ -26,7 +26,6 @@ provisioner: kubernetes.io/portworx-volume
 parameters:
   repl: "1"
   priority_io: "high"
-  io_profile: "db"
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -37,7 +36,6 @@ parameters:
   repl: "1"
   priority_io: "high"
   shared: "true"
-  io_profile: "cms"
   sharedv4: "true"
 ---
 apiVersion: storage.k8s.io/v1
