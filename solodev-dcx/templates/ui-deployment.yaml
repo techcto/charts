@@ -45,12 +45,12 @@ spec:
           name: client
         resources:
           requests:
-            memory: 64M
+            memory: 8M
             cpu: 5m
             # ephemeral-storage: 100M
           limits:
-            memory: 256M
-            cpu: 100m
+            memory: 16M
+            cpu: 20m
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
