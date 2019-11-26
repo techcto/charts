@@ -1,7 +1,7 @@
 env: prod
 storage:
   className: gp2
-  size: 500M
+  size: 5G
 serviceAccountName: default
 solodev:
   image:
@@ -15,7 +15,7 @@ solodev:
   protocol: TCP
   storage:
     className: gp2
-    size: 1G
+    size: 5G
     mount: /var/www/solodev/clients/solodev
   settings:
     debug: false
