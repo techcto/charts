@@ -65,4 +65,4 @@ spec:
       volumes:
       - name: client
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-www
+          claimName: {{ .Release.Name }}-client

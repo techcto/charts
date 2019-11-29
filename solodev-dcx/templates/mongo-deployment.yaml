@@ -48,7 +48,7 @@ spec:
         ports:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
-        - name:  {{ .Release.Name }}-pv
+        - name:  {{ .Release.Name }}-db
           mountPath: "/data"
           subPath: mongo
         - name: home
@@ -66,6 +66,6 @@ spec:
       volumes:
       - name: home
         emptyDir: {}
-      - name:  {{ .Release.Name }}-pv
+      - name:  {{ .Release.Name }}-db
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-db
+          claimName: {{ .Release.Name }}-client
