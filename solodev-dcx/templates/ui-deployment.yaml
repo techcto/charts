@@ -50,8 +50,9 @@ spec:
         - containerPort: {{ .Values.ui.https.port }}
         resources: {}
         volumeMounts:
-        - mountPath: {{ quote .Values.solodev.storage.mount }}
-          name: client
+        - name: client
+          mountPath: {{ quote .Values.solodev.storage.mount }}
+          subPath: client
         resources:
           requests:
             memory: 8M
