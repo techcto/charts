@@ -54,6 +54,7 @@ mysql:
     master.cnf: |
       # Apply this config only on the master.
       [mysqld]
+      skip-host-cache
       skip-name-resolve
       port=3306
       bind-address=0.0.0.0
