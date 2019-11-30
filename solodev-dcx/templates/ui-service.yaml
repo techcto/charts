@@ -7,7 +7,6 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:
-  externalName: {{ .Release.Name }}-ui
   ports:
   - name: "http"
     port: {{ .Values.ui.http.port }}
@@ -15,6 +14,7 @@ spec:
   # - name: "https"
   #   port: {{ .Values.ui.https.port }}
   #   targetPort: 443
+  # externalName: {{ .Release.Name }}-ui
   # clusterIP: None
   type: LoadBalancer
   selector:
