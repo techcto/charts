@@ -16,5 +16,6 @@ spec:
   #   port: {{ .Values.ui.https.port }}
   #   targetPort: 443
   # clusterIP: None
+  type: LoadBalancer
   selector:
     app: {{ .Release.Name }}-ui
