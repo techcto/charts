@@ -6,6 +6,7 @@ metadata:
     app: {{ .Release.Name }}-ui
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "180"
 spec:
   ports:
   - name: "http"
