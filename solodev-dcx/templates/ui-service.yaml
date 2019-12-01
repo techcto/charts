@@ -13,6 +13,6 @@ spec:
   #   port: {{ .Values.ui.https.port }}
   #   targetPort: 443
   externalName: {{ .Release.Name }}-ui
-  clusterIP: None
+  # clusterIP: None
   selector:
     app: {{ .Release.Name }}-ui
