@@ -67,8 +67,8 @@ spec:
         args:
         - --sql_mode=
         - --ignore_db_dirs=lost+found
-        - --innodb-buffer-pool-size=256M
-        - --max_allowed_packet=256M
+        - --innodb-buffer-pool-size=128M
+        - --max_allowed_packet=16M
         env:
         - name: MYSQL_INITDB_SKIP_TZINFO
           value: "yes"
@@ -95,8 +95,8 @@ spec:
             cpu: 50m
             # ephemeral-storage: 200M
           limits:
-            memory: 256M
-            cpu: 100m
+            memory: 500M
+            cpu: 200m
             # ephemeral-storage: 1G
         livenessProbe:
           exec:
