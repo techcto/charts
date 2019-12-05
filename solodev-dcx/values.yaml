@@ -28,6 +28,8 @@ solodev:
     dbPassword: password
     mongoDbName: solodev_views
     isISV: ''
+    clientId: ''
+    clientSecret: ''
   pullSecret: solodev
 ui:
   image:
