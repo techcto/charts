@@ -66,6 +66,10 @@ spec:
           value: {{ quote .Values.solodev.settings.appPassword }}
         - name: SOLODEV_USER
           value: {{ quote .Values.solodev.settings.appUser }}
+        - name: CLIENT_ID
+          value: {{ quote .Values.solodev.settings.clientId }}
+        - name: CLIENT_SECRET
+          value: {{ quote .Values.solodev.settings.clientSecret }}
         ports:
         - containerPort: {{ .Values.solodev.port }}
         resources: {}
