@@ -45,6 +45,5 @@ metadata:
 provisioner: kubernetes.io/aws-ebs
 volumeBindingMode: WaitForFirstConsumer
 parameters:
-  fsType: "xfs"
-  size: 150
-  type: "gp2"
+  fsType: ext4
+  type: gp2
