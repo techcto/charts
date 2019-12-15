@@ -57,4 +57,3 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: ext4
   type: gp2
-  size: "150"
