@@ -57,4 +57,4 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: xfs
   type: gp2
-  size: 150
+  size: "150"
