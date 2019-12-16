@@ -51,9 +51,10 @@ parameters:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: ebsio
+  name: ebsx
 provisioner: kubernetes.io/aws-ebs
 volumeBindingMode: WaitForFirstConsumer
 parameters:
-  fsType: ext4
-  type: gp2
+  fsType: xfs
+  iopsPerGB: "100"
+  type: io1
