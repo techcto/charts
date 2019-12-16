@@ -56,5 +56,5 @@ provisioner: kubernetes.io/aws-ebs
 volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: xfs
-  iopsPerGB: "100"
+  iopsPerGB: "10"
   type: io1
