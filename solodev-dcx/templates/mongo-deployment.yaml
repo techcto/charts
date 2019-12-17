@@ -53,15 +53,15 @@ spec:
           subPath: mongo
         - name: home
           mountPath: /home/mongodb/
-        resources:
-          requests:
-            memory: 128M
-            cpu: 5m
-            # ephemeral-storage: 100M
-          limits:
-            memory: 500M
-            cpu: 20m
-            # ephemeral-storage: 500M
+        # resources:
+        #   requests:
+        #     memory: 128M
+        #     cpu: 5m
+        #     # ephemeral-storage: 100M
+        #   limits:
+        #     memory: 500M
+        #     cpu: 20m
+        #     # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
       - name: home
