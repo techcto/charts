@@ -89,15 +89,15 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
-        # resources:
-        #   requests:
-        #     memory: 128M
-        #     cpu: 50m
-        #     # ephemeral-storage: 200M
-        #   limits:
-        #     memory: 500M
-        #     cpu: 200m
-        #     # ephemeral-storage: 1G
+        resources:
+          requests:
+            memory: 128M
+            cpu: 50m
+            # ephemeral-storage: 200M
+          limits:
+            memory: 500M
+            cpu: 200m
+            # ephemeral-storage: 1G
         livenessProbe:
           exec:
             command: ["sh", "-c", "exec mysqladmin ping -uroot -p$MYSQL_ROOT_PASSWORD"]
