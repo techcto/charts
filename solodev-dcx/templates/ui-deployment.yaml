@@ -53,15 +53,15 @@ spec:
         - name: client
           mountPath: {{ quote .Values.solodev.storage.mount }}
           subPath: client
-        resources:
-          requests:
-            memory: 8M
-            cpu: 5m
-            # ephemeral-storage: 100M
-          limits:
-            memory: 16M
-            cpu: 20m
-            # ephemeral-storage: 500M
+        # resources:
+        #   requests:
+        #     memory: 8M
+        #     cpu: 5m
+        #     # ephemeral-storage: 100M
+        #   limits:
+        #     memory: 16M
+        #     cpu: 20m
+        #     # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
       - name: client

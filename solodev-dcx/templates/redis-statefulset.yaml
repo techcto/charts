@@ -59,15 +59,15 @@ spec:
           subPath: redis
         - name: conf
           mountPath: /etc/
-        resources:
-          requests:
-            memory: 64M
-            cpu: 10m
-            # ephemeral-storage: 100M
-          limits:
-            memory: 256M
-            cpu: 20m
-            # ephemeral-storage: 500M
+        # resources:
+        #   requests:
+        #     memory: 64M
+        #     cpu: 10m
+        #     # ephemeral-storage: 100M
+        #   limits:
+        #     memory: 256M
+        #     cpu: 20m
+        #     # ephemeral-storage: 500M
       volumes:
       - name: conf
         emptyDir: {}
