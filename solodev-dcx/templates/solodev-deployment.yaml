@@ -81,10 +81,10 @@ spec:
         resources:
           requests:
             memory: 128M
-            cpu: 50m
+            cpu: 100m
           limits:
-            memory: 2G
-            cpu: 500m
+            memory: 1G
+            cpu: 1
       restartPolicy: Always
       volumes:
       - name: client
