@@ -82,11 +82,9 @@ spec:
           requests:
             memory: 128M
             cpu: 50m
-            # ephemeral-storage: 200M
           limits:
-            memory: 1G
+            memory: 2G
             cpu: 500m
-            # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
       - name: client
