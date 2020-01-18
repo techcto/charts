@@ -1,0 +1,25 @@
+jobs:
+  # first cron
+  - name: email-center
+    image:
+      registry: docker.io
+      repository: solodev/cms
+      tag: latest
+    schedule: "*/5 * * * *"
+    command: ["/bin/sh"]
+    args:
+      - -c
+      - date; echo "hello";
+    failedJobsHistoryLimit: 1
+    successfulJobsHistoryLimit: 3
+    concurrencyPolicy: Forbid
+    restartPolicy: OnFailure
+    volumeMounts:
+    - name: client
+      mountPath: /var/www
+      subPath: client
+    volumes:
+    - name: client
+      persistentVolumeClaim:
+        claimName: client
+  # second cron

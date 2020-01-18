@@ -1,6 +1,4 @@
 #!/bin/bash
-
-# export $(egrep -v '^#' .env | xargs)
 args=("$@")
 
 tag(){
@@ -13,6 +11,7 @@ update(){
     helm package solodev-network
     helm package solodev-dcx
     helm package solodev-dcx-aws
+    helm package solodev-cron
     helm repo index .
     helm repo update
 }
