@@ -1,10 +1,10 @@
-pullSecret: solodev
 jobs:
   - name: emailcenter
     image:
       registry: docker.io
       repository: solodev/cms
       tag: latest
+    pullSecret: solodev
     schedule: "*/5 * * * *"
     command: ["/bin/sh"]
     args:
