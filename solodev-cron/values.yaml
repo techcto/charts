@@ -1,9 +1,12 @@
+# Declare variables to be passed into your templates.
 jobs:
+  ### REQUIRED ###
   - name: emailcenter
     image:
       registry: docker.io
       repository: solodev/cms
       tag: latest
+      imagePullPolicy: Always
     pullSecret: solodev
     schedule: "*/5 * * * *"
     command: ["/bin/sh"]
