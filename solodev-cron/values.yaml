@@ -1,6 +1,5 @@
 pullSecret: solodev
 jobs:
-  # first cron
   - name: emailcenter
     image:
       registry: docker.io
@@ -23,4 +22,3 @@ jobs:
     - name: client
       persistentVolumeClaim:
         claimName: client
-  # second cron
