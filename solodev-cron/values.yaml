@@ -1,7 +1,7 @@
 pullSecret: solodev
 jobs:
   # first cron
-  - name: email-center
+  - name: emailcenter
     image:
       registry: docker.io
       repository: solodev/cms
