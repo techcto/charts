@@ -15,8 +15,10 @@ spec:
   failedJobsHistoryLimit: {{ $job.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
+    {{ if eq .Values.pullSecret }}
       imagePullSecrets:
       - name: {{ .Values.pullSecret }}
+    {{ end }}
       template:
         metadata:
           labels:
