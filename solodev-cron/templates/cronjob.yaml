@@ -1,6 +1,7 @@
 {{- $chart_name := .Chart.Name }}
 {{- $chart_version := .Chart.Version | replace "+" "_" }}
 {{- $release_name := .Release.Name }}
+{{- $pullSecret := .Values.pullSecret }}
 
 {{- range $job := .Values.jobs }}
 ---
@@ -16,7 +17,7 @@ spec:
   jobTemplate:
     spec:
       imagePullSecrets:
-      - name: {{ .Values.pullSecret }}
+      - name: {{ $pullSecret }}
       template:
         metadata:
           labels:
