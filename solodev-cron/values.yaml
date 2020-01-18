@@ -1,3 +1,4 @@
+pullSecret: solodev
 jobs:
   # first cron
   - name: email-center
