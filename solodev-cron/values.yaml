@@ -23,3 +23,13 @@ jobs:
     - name: client
       mountPath: /var/www
       subPath: client
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
