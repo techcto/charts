@@ -1,6 +1,8 @@
 {{- $chart_name := .Chart.Name }}
 {{- $chart_version := .Chart.Version | replace "+" "_" }}
 {{- $release_name := .Release.Name }}
+{{- $repository := .Values.repository }}
+{{- $claimName := .Values.claimName }}
 
 {{- range $job := .Values.jobs }}
 ---
@@ -24,7 +26,7 @@ spec:
             cron: {{ $job.name }}
         spec:
           containers:
-          - image: "{{ $job.image.repository }}:{{ $job.image.tag }}"
+          - image: "{{ $repository }}:{{ $job.image.tag }}"
             imagePullPolicy: {{ $job.image.imagePullPolicy }}
             name: {{ $job.name }}
             {{- with $job.env }}
@@ -63,6 +65,7 @@ spec:
           volumes:
 {{ toYaml . | indent 12 }}
           {{- end }}
+                  claimName: {{ $claimName }}
   schedule: {{ $job.schedule | quote }}
   successfulJobsHistoryLimit: {{ $job.successfulJobsHistoryLimit }}
 {{- end }}
