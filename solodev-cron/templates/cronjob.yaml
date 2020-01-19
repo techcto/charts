@@ -61,11 +61,13 @@ spec:
 {{ toYaml . | indent 12 }}
           {{- end }}
           restartPolicy: {{ $job.restartPolicy }}
-          {{- with $job.volumes }}
           volumes:
+          {{- with $job.volumes }}
 {{ toYaml . | indent 12 }}
           {{- end }}
-                  claimName: {{ $claimName }}
+            - name: client
+              persistentVolumeClaim:
+                claimName: {{ $claimName }}
   schedule: {{ $job.schedule | quote }}
   successfulJobsHistoryLimit: {{ $job.successfulJobsHistoryLimit }}
 {{- end }}

@@ -23,6 +23,3 @@ jobs:
     - name: client
       mountPath: /var/www
       subPath: client
-    volumes:
-    - name: client
-      persistentVolumeClaim:
