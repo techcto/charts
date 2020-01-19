@@ -17,14 +17,14 @@ spec:
   failedJobsHistoryLimit: {{ $job.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
-      imagePullSecrets:
-      - name: {{ $job.pullSecret }}
       template:
         metadata:
           labels:
             app: {{ $release_name }}
             cron: {{ $job.name }}
         spec:
+          imagePullSecrets:
+          - name: {{ $job.pullSecret }}
           containers:
           - image: "{{ $repository }}:{{ $job.image.tag }}"
             imagePullPolicy: {{ $job.image.imagePullPolicy }}
