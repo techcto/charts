@@ -53,15 +53,15 @@ spec:
 {{ toYaml . | indent 12 }}
           {{- end }}
           affinity:
-            nodeAffinity:
+            podAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                    - key: app
-                      operator: In
-                      values:
-                      - {{ $stackName }}-redis
-                  topologyKey: "kubernetes.io/hostname"
+              - labelSelector:
+                  matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - {{ $stackName }}-redis
+                topologyKey: "kubernetes.io/hostname"
 #           {{- with $job.affinity }}
 # {{ toYaml . | indent 12 }}
           # {{- end }}
