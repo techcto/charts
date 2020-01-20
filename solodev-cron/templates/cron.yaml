@@ -2,7 +2,7 @@
 {{- $chart_version := .Chart.Version | replace "+" "_" }}
 {{- $release_name := .Release.Name }}
 {{- $repository := .Values.repository }}
-{{- $claimName := .Values.claimName }}
+{{- $stackName := .Values.stackName }}
 
 {{- range $job := .Values.jobs }}
 ---
@@ -60,7 +60,7 @@ spec:
                     - key: app
                       operator: In
                       values:
-                      - {{ $release_name }}-redis
+                      - {{ $stackName }}-redis
                   topologyKey: "kubernetes.io/hostname"
 #           {{- with $job.affinity }}
 # {{ toYaml . | indent 12 }}
@@ -76,7 +76,7 @@ spec:
           {{- end }}
             - name: client
               persistentVolumeClaim:
-                claimName: {{ $claimName }}
+                claimName: {{ $stackName }}-client
   schedule: {{ $job.schedule | quote }}
   successfulJobsHistoryLimit: {{ $job.successfulJobsHistoryLimit }}
 {{- end }}

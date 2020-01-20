@@ -1,6 +1,6 @@
 # Declare variables to be passed into your templates.
 repository: solodev/cms
-claimName: client
+stackName: client
 jobs:
   ### REQUIRED ###
   - name: emailcenter
