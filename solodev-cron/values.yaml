@@ -3,7 +3,7 @@ repository: solodev/cms
 stackName: client
 jobs:
   ### REQUIRED ###
-  - name: emailcenter
+  - name: cron
     image:
       registry: docker.io
       repository: solodev/cms
