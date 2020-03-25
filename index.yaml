@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   solodev-cron:
   - apiVersion: v1
-    created: "2020-03-25T17:43:22.9039295-04:00"
+    created: "2020-03-25T18:28:42.6561941-04:00"
     description: Template to install cron jobs onto containers
-    digest: 56679be16e74be2d82be78cbbc15e3c276c8272b70678102d9117f8f6afd6495
+    digest: edcb7dfdb65429c367c53128d3a35c075fe7d2243e363fd8fd48c215b417a6c3
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Cron, Docker, Kubernetes
@@ -14,12 +14,12 @@ entries:
     version: 1.0.0
   solodev-dcx:
   - apiVersion: v1
-    created: "2020-03-25T17:43:22.9069632-04:00"
+    created: "2020-03-25T18:28:42.6601953-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: 17563d5e721f1da18b5e7af6133e63661a29df8b9fd9bffe5102ae6be90c4e01
+    digest: d4fd3305bdf8667704ad2cc6240bb36c953fd66631a553bfbcbf3b3237502b6d
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -29,26 +29,12 @@ entries:
     version: "9.1"
   solodev-dcx-aws:
   - apiVersion: v1
-    created: "2020-03-25T17:43:22.9089736-04:00"
+    created: "2020-03-25T18:28:42.6611951-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
       powered by AWS.
-    digest: ad3a9394e56b44f420ec6eae6f8598ffb26a9dc5e2319e5129551480a554381e
-    icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
-    keywords:
-    - Solodev, CMS, DCX, AWS, Docker, Kubernetes
-    name: solodev-dcx-aws
-    urls:
-    - solodev-dcx-aws-9.2.tgz
-    version: "9.2"
-  - apiVersion: v1
-    created: "2020-03-25T17:43:22.9069632-04:00"
-    description: Solodev DCX is a content management and customer experience platform
-      that lets your team work together on digital transformation. Build amazing websites
-      and apps, collaborate, review code, and publish ideas with 24/7 support – all
-      powered by AWS.
-    digest: 4b4d9f4540bc240a601246d04c1b9eec66e7d69838c2285250ad9d1c12d610fb
+    digest: edcc3706d70eb6cfdac005b0e41fe33d5158dccb717828c717fb2ef1f9c6ba8e
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -58,9 +44,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2020-03-25T17:43:22.9119613-04:00"
+    created: "2020-03-25T18:28:42.6661964-04:00"
     description: Network for Solodev DCX
-    digest: 3eda2758a41233cee1fbf11e46120f673ed0a53c8e63955b9c919d3a0a63d97f
+    digest: 765cc6b3b09a7a8c929f8f9a8beb54e38ddc708a63d88202636fb70132b4bea5
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -68,4 +54,4 @@ entries:
     urls:
     - solodev-network-9.1.tgz
     version: "9.1"
-generated: "2020-03-25T17:43:22.9019552-04:00"
+generated: "2020-03-25T18:28:42.6551939-04:00"
