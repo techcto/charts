@@ -18,6 +18,15 @@ spec:
     spec:
       serviceAccountName: {{ .Values.serviceAccountName }}
       affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-solodev
+            topologyKey: "kubernetes.io/hostname"
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
@@ -25,7 +34,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - {{ .Release.Name }}-ui
+                - {{ .Release.Name }}-redis
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: {{ .Release.Name }}-solodev
