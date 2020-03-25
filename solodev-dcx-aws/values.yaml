@@ -6,7 +6,7 @@ serviceAccountName: default
 solodev:
   image:
     registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-3246178576
-    repository: solodev-cms
+    repository: solodev/cms
     tag: 9.2-latest
     pullPolicy: Always
   port: 9000
@@ -29,7 +29,7 @@ solodev:
 ui:
   image:
     registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-3246178576
-    repository: solodev-apache
+    repository: solodev/cms-apache
     tag: 9.2-latest
     pullPolicy: IfNotPresent
   http:
