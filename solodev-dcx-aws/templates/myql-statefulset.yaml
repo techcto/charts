@@ -35,17 +35,9 @@ spec:
       initContainers:
       - name: {{ .Release.Name }}-init-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
-        args:
-        - --ignore-db-dir=lost+found
         env:
-        - name: MYSQL_DATABASE
-          value: {{ .Values.solodev.settings.dbName }}
-        - name: MYSQL_ROOT_PASSWORD
-          value: {{ .Values.solodev.settings.dbPassword }}
-        - name: MYSQL_USER
-          value: {{ .Values.solodev.settings.dbUser }}
-        - name: MYSQL_PASSWORD
-          value: {{ .Values.solodev.settings.dbPassword }}
+        - name: MYSQL_INITDB_SKIP_TZINFO
+          value: "yes"
         command:
         - bash
         - "-c"
@@ -60,6 +52,7 @@ spec:
           # Copy appropriate conf.d files from config-map to emptyDir.
           if [[ $ordinal -eq 0 ]]; then
             cp /mnt/config-map/master.cnf /mnt/conf.d/
+            echo log-basename={{ .Release.Name }}-mysql-0 >> /mnt/conf.d/server-id.cnf
           else
             cp /mnt/config-map/slave.cnf /mnt/conf.d/
           fi
@@ -68,36 +61,17 @@ spec:
           mountPath: /mnt/conf.d
         - name: config-map
           mountPath: /mnt/config-map
-      - name: {{ .Release.Name }}-clone-mysql
-        image: gcr.io/google-samples/xtrabackup:1.0
-        command:
-        - bash
-        - "-c"
-        - |
-          set -ex
-          # Skip the clone if data already exists.
-          [[ -d /var/lib/mysql/mysql ]] && exit 0
-          # Skip the clone on master (ordinal index 0).
-          [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
-          ordinal=${BASH_REMATCH[1]}
-          [[ $ordinal -eq 0 ]] && exit 0
-          # Clone data from previous peer.
-          ncat --recv-only {{ .Release.Name }}-mysql-$(($ordinal-1)).{{ .Release.Name }}-mysql {{ .Values.mysql.read.port }} | xbstream -x -C /var/lib/mysql
-          # Prepare the backup.
-          xtrabackup --prepare --target-dir=/var/lib/mysql
-        volumeMounts:
-        - name: {{ .Release.Name }}-pv
-          mountPath: /var/lib/mysql
-          subPath: mysql
-        - name: conf
-          mountPath: /etc/mysql/conf.d
       containers:
       - name: {{ .Release.Name }}-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
         args:
         - --sql_mode=
-        - --ignore-db-dir=lost+found
+        - --ignore_db_dirs=lost+found
+        - --innodb-buffer-pool-size=128M
+        - --max_allowed_packet=16M
         env:
+        - name: MYSQL_INITDB_SKIP_TZINFO
+          value: "yes"
         - name: MYSQL_DATABASE
           value: {{ .Values.solodev.settings.dbName }}
         - name: MYSQL_ROOT_PASSWORD
@@ -110,91 +84,42 @@ spec:
         - name: mysql
           containerPort: {{ .Values.mysql.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-pv
+        - name: {{ .Release.Name }}-db
           mountPath: /var/lib/mysql
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
         resources:
           requests:
-            # cpu: 500m
-            # memory: 1Gi
+            memory: 128M
+            cpu: 50m
+            # ephemeral-storage: 200M
+          limits:
+            memory: 1G
+            cpu: 500m
+            # ephemeral-storage: 1G
         livenessProbe:
           exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 30
+            command: ["sh", "-c", "exec mysqladmin ping -uroot -p$MYSQL_ROOT_PASSWORD"]
+          initialDelaySeconds: 60
           periodSeconds: 10
-          timeoutSeconds: 5
+          timeoutSeconds: 1
+          # successThreshold: 1
+          # failureThreshold: 3
         readinessProbe:
           exec:
-            # Check we can execute queries over TCP (skip-networking is off).
-            command: ["mysql", "-h", "127.0.0.1", "-u", "root", "-p{{ .Values.solodev.settings.dbPassword }}", "-e", "SELECT 1"]
-          initialDelaySeconds: 5
-          periodSeconds: 2
+            command: ["sh", "-c", "exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD"]
+          initialDelaySeconds: 45
+          periodSeconds: 10
           timeoutSeconds: 1
-      - name: {{ .Release.Name }}-xtrabackup
-        image: gcr.io/google-samples/xtrabackup:1.0
-        ports:
-        - name: xtrabackup
-          containerPort: {{ .Values.mysql.read.port }}
-        command:
-        - bash
-        - "-c"
-        - |
-          set -ex
-          cd /var/lib/mysql
-
-          # Determine binlog position of cloned data, if any.
-          if [[ -f xtrabackup_slave_info && "x$(<xtrabackup_slave_info)" != "x" ]]; then
-            # XtraBackup already generated a partial "CHANGE MASTER TO" query
-            # because we're cloning from an existing slave. (Need to remove the tailing semicolon!)
-            cat xtrabackup_slave_info | sed -E 's/;$//g' > change_master_to.sql.in
-            # Ignore xtrabackup_binlog_info in this case (it's useless).
-            rm -f xtrabackup_slave_info xtrabackup_binlog_info
-          elif [[ -f xtrabackup_binlog_info ]]; then
-            # We're cloning directly from master. Parse binlog position.
-            [[ `cat xtrabackup_binlog_info` =~ ^(.*?)[[:space:]]+(.*?)$ ]] || exit 1
-            rm -f xtrabackup_binlog_info xtrabackup_slave_info
-            echo "CHANGE MASTER TO MASTER_LOG_FILE='${BASH_REMATCH[1]}',\
-                  MASTER_LOG_POS=${BASH_REMATCH[2]}" > change_master_to.sql.in
-          fi
-
-          # Check if we need to complete a clone by starting replication.
-          if [[ -f change_master_to.sql.in ]]; then
-            echo "Waiting for mysqld to be ready (accepting connections)"
-            until mysql -h 127.0.0.1 -u root -p{{ .Values.solodev.settings.dbPassword }} -e "SELECT 1"; do sleep 1; done
-
-            echo "Initializing replication from clone position"
-            mysql -h 127.0.0.1 -u root -p{{ .Values.solodev.settings.dbPassword }}\
-                  -e "$(<change_master_to.sql.in), \
-                          MASTER_HOST='{{ .Release.Name }}-mysql-0.{{ .Release.Name }}-mysql', \
-                          MASTER_USER='root', \
-                          MASTER_PASSWORD='{{ .Values.solodev.settings.dbPassword }}', \
-                          MASTER_CONNECT_RETRY=10; \
-                        START SLAVE;" || exit 1
-            # In case of container restart, attempt this at-most-once.
-            mv change_master_to.sql.in change_master_to.sql.orig
-          fi
-
-          # Start a server to send backups when requested by peers.
-          exec ncat --listen --keep-open --send-only --max-conns=1 {{ .Values.mysql.read.port }} -c \
-            "xtrabackup --backup --slave-info --stream=xbstream --host=127.0.0.1 --user=root --password={{ .Values.solodev.settings.dbPassword }}"
-        volumeMounts:
-        - name: {{ .Release.Name }}-pv
-          mountPath: /var/lib/mysql
-          subPath: mysql
-        - name: conf
-          mountPath: /etc/mysql/conf.d
-        # resources:
-        #   requests:
-        #     cpu: 100m
-        #     memory: 100Mi
+          # successThreshold: 1
+          # failureThreshold: 3
       volumes:
       - name: conf
         emptyDir: {}
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-mysql
-      - name: {{ .Release.Name }}-pv
+      - name: {{ .Release.Name }}-db
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pv
+          claimName: {{ .Release.Name }}-client

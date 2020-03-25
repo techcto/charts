@@ -40,7 +40,6 @@ spec:
         volumeMounts:
         - name: conf
           mountPath: /etc
-          subPath: redis.conf
         - name: config-map
           mountPath: /mnt/config-map
       containers:
@@ -55,18 +54,26 @@ spec:
         - name: redis
           containerPort: {{ .Values.redis.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-pv
+        - name:  {{ .Release.Name }}-db
           mountPath: /data
           subPath: redis
         - name: conf
           mountPath: /etc/
-          subPath: redis.conf
+        resources:
+          requests:
+            memory: 64M
+            cpu: 10m
+            # ephemeral-storage: 100M
+          limits:
+            memory: 256M
+            cpu: 40m
+            # ephemeral-storage: 500M
       volumes:
       - name: conf
         emptyDir: {}
       - name: config-map
         configMap:
           name: {{ .Release.Name }}-redis
-      - name: {{ .Release.Name }}-pv
+      - name:  {{ .Release.Name }}-db
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pv
+          claimName: {{ .Release.Name }}-client

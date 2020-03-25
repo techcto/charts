@@ -48,11 +48,24 @@ spec:
         ports:
         - containerPort: {{ .Values.mongo.port }}
         volumeMounts:
-        - name: {{ .Release.Name }}-pv
+        - name:  {{ .Release.Name }}-db
           mountPath: "/data"
           subPath: mongo
+        - name: home
+          mountPath: /home/mongodb/
+        resources:
+          requests:
+            memory: 128M
+            cpu: 5m
+            # ephemeral-storage: 100M
+          limits:
+            memory: 1G
+            cpu: 500m
+            # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
-      - name: {{ .Release.Name }}-pv
+      - name: home
+        emptyDir: {}
+      - name:  {{ .Release.Name }}-db
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-pv
+          claimName: {{ .Release.Name }}-client

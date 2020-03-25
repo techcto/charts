@@ -16,7 +16,8 @@ spec:
       labels:
         app: {{ .Release.Name }}-solodev
     spec:
-      serviceAccountName: {{ .Values.serviceAccountName }}
+      imagePullSecrets:
+      - name: {{ .Values.solodev.pullSecret }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -39,6 +40,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-solodev
         image: {{ .Values.solodev.image.registry }}/{{ .Values.solodev.image.repository }}:{{ .Values.solodev.image.tag }}
+        imagePullPolicy: Always
         env:
         - name: APP_DEBUG
           value: {{ quote .Values.solodev.settings.debug }}
@@ -69,8 +71,16 @@ spec:
         resources: {}
         tty: true
         volumeMounts:
-        - mountPath: {{ quote .Values.solodev.storage.mount }}
-          name: client
+        - name: client
+          mountPath: {{ quote .Values.solodev.storage.mount }}
+          subPath: client
+        resources:
+          requests:
+            memory: 128M
+            cpu: 100m
+          limits:
+            memory: 1G
+            cpu: 1
       restartPolicy: Always
       volumes:
       - name: client
