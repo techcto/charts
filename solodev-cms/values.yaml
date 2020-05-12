@@ -49,26 +49,6 @@ mysql:
   port: 3306
   read:
     port: 3307
-  configFiles:
-    master.cnf: |
-      # Apply this config only on the master.
-      [mysqld]
-      skip-host-cache
-      skip-name-resolve
-      port=3306
-      bind-address=0.0.0.0
-      wait_timeout=300
-      net_read_timeout=300
-      net_write_timeout=300
-      interactive_timeout=300
-      connect_timeout=300
-      max_allowed_packet=100M
-    slave.cnf: |
-      # Apply this config only on slaves.
-      [mysqld]
-      super-read-only
-      port=3307
-      bind-address=0.0.0.0
 mongo:
   image:
     registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
