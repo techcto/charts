@@ -5,9 +5,9 @@ storage:
 serviceAccountName: default
 solodev:
   image:
-    registry: docker.io
-    repository: solodev/cms
-    tag: latest
+    registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
+    repository: solodev-cms
+    tag: 9.2.1-latest
     pullPolicy: Always
   domainName: domain.com
   clusterZone: domain.com
@@ -27,14 +27,12 @@ solodev:
     dbUser: solodev
     dbPassword: password
     mongoDbName: solodev_views
-    clientId: ''
-    clientSecret: ''
   pullSecret: solodev
 ui:
   image:
-    registry: docker.io
-    repository: solodev/cms-apache
-    tag: latest
+    registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
+    repository: solodev-apache
+    tag: 9.2.1-latest
     pullPolicy: IfNotPresent
   http:
     port: 80
@@ -44,9 +42,9 @@ ui:
     protocol: TCP
 mysql:
   image:
-    registry: docker.io
+    registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
     repository: mariadb
-    tag: 10.3
+    tag: 9.2.1-latest
     pullPolicy: IfNotPresent
   port: 3306
   read:
@@ -73,9 +71,9 @@ mysql:
       bind-address=0.0.0.0
 mongo:
   image:
-    registry: docker.io
+    registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
     repository: techcto/mongo
-    tag: latest
+    tag: 9.2.1-latest
     pullPolicy: IfNotPresent
   port: 27017
   settings:
@@ -83,8 +81,8 @@ mongo:
     password: password
 redis:
   image:
-    registry: docker.io
+    registry: 117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1018795255
     repository: techcto/redis
-    tag: latest
+    tag: 9.2.1-latest
     pullPolicy: IfNotPresent
   port: 6379
