@@ -36,7 +36,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - {{ .Release.Name }}-redis
+                - {{ .Release.Name }}-mysql
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: {{ .Release.Name }}-wordpress
