@@ -12,6 +12,7 @@ update(){
     helm package solodev-cms
     helm package solodev-cms-aws
     helm package solodev-cron
+    helm package wordpress
     helm repo index .
     helm repo update
 }
