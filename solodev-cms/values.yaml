@@ -22,11 +22,13 @@ solodev:
     appSecret: secret
     appUser: solodev
     appPassword: password
+    appEmail: ''
     dbHost: mysql
     dbName: solodev
     dbUser: solodev
     dbPassword: password
     mongoDbName: solodev_views
+    websiteUrl: ''
   pullSecret: solodev
 ui:
   image:

@@ -19,10 +19,12 @@ wordpress:
     debug: false
     appUser: wordpress
     appPassword: password
+    appEmail: ''
     dbHost: mysql
     dbName: wordpress
     dbUser: wordpress
     dbPassword: password
+    websiteUrl: ''
 ui:
   image:
     registry: docker.io

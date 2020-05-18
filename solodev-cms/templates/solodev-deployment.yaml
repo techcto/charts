@@ -66,6 +66,10 @@ spec:
           value: {{ quote .Values.solodev.settings.appPassword }}
         - name: SOLODEV_USER
           value: {{ quote .Values.solodev.settings.appUser }}
+        - name: SOLODEV_EMAIL
+          value: {{ quote .Values.solodev.settings.appEmail }}
+        - name: WEBSITE_URL
+          value: {{ quote .Values.solodev.settings.websiteUrl }}
         - name: CLIENT_ID
           value: {{ quote .Values.solodev.settings.clientId }}
         - name: CLIENT_SECRET
