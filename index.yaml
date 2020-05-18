@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   solodev-cms:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2057941-04:00"
+    created: "2020-05-18T15:24:04.2213649-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
       24/7 support – all powered by AWS.
-    digest: 2f323c0badd5cad501d7aaf8e27ee63fcd4ac40f7cd1aad4d0cd477688225a45
+    digest: 991c70eb26521309a5766421ed8468632a32d99f01011b72288ce0d786177d57
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -17,12 +17,12 @@ entries:
     version: "9.2"
   solodev-cms-aws:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2087161-04:00"
+    created: "2020-05-18T15:24:04.2243688-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
       24/7 support – all powered by AWS.
-    digest: 867a4e41360a0413b563910f896b150b8ff7a9449c7973eec10205759bb83eeb
+    digest: 89b06798d1fbf188ca8a0378f11afe2be5dcd127e6f28216d83f50569963636a
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -32,9 +32,9 @@ entries:
     version: "9.2"
   solodev-cron:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2117177-04:00"
+    created: "2020-05-18T15:24:04.2264005-04:00"
     description: Template to install cron jobs onto containers
-    digest: 96f1dd34983cafb350077cc1b7ebde10eafc902cbcd4384ad5c7b0993660605e
+    digest: 3af2e9290117a1bf62ccd342be13ff1dde60dfd2a77071f37f217800e3db61aa
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Cron, Docker, Kubernetes
@@ -44,7 +44,7 @@ entries:
     version: 1.0.0
   solodev-dcx:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2187192-04:00"
+    created: "2020-05-18T15:24:04.2274003-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -59,7 +59,7 @@ entries:
     version: "9.1"
   solodev-dcx-aws:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2207578-04:00"
+    created: "2020-05-18T15:24:04.2274003-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -74,9 +74,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2237183-04:00"
+    created: "2020-05-18T15:24:04.2293998-04:00"
     description: Network for Solodev Managed Kubernetes
-    digest: 96bec8d5cdfb0df03bda09917a400ba3a1dd3fccf7cb83d50e4436d6c147c29b
+    digest: 76772e5f6ca283c23412087a897887707f25912dd51b6f95d06862c81146ac44
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -86,9 +86,9 @@ entries:
     version: "9.1"
   wordpress:
   - apiVersion: v1
-    created: "2020-05-18T15:17:01.2257187-04:00"
+    created: "2020-05-18T15:24:04.2325287-04:00"
     description: Wordpress is a classic content management system.
-    digest: 0dff81fee6d1edc6da717869a6bd01f550eedabdd1fd1516194c4268ad0ee3eb
+    digest: 791446ba4b7a5d78159b08ae2afe6fbf45e9644dc5a5289d79dc934e11662447
     icon: https://www.wordpress.com/_/images/wordpress-logo-red.jpg
     keywords:
     - Wordpress, CMS, AWS, Docker, Kubernetes
@@ -96,4 +96,4 @@ entries:
     urls:
     - wordpress-5.4.tgz
     version: "5.4"
-generated: "2020-05-18T15:17:01.2027155-04:00"
+generated: "2020-05-18T15:24:04.2183993-04:00"

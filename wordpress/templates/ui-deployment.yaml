@@ -35,7 +35,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - {{ .Release.Name }}-mysql
+                - {{ .Release.Name }}-wordpress
             topologyKey: "kubernetes.io/hostname"
       containers:
       - env:
