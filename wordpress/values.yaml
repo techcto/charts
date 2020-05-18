@@ -17,6 +17,8 @@ wordpress:
     mount: /var/www/html
   settings:
     debug: false
+    appUser: wordpress
+    appPassword: password
     dbHost: mysql
     dbName: wordpress
     dbUser: wordpress
