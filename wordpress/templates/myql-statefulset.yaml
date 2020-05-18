@@ -23,15 +23,6 @@ spec:
                 values:
                 - {{ .Release.Name }}-mysql
             topologyKey: "kubernetes.io/hostname"
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - {{ .Release.Name }}-wordpress
-            topologyKey: "kubernetes.io/hostname"
       initContainers:
       - name: {{ .Release.Name }}-init-mysql
         image: {{ .Values.mysql.image.registry }}/{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
