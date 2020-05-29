@@ -10,11 +10,6 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
-    # this solver uses ambient credentials (i.e. inferred from the environment or EC2 Metadata Service)
-    - selector:
-        dnsZones:
-          - "{{ .Values.dns.zone.name }}"
-      dns01:
-        route53:
-          region: us-east-1
-          hostedZoneID: {{ .Values.dns.zone.id }} 
+    - http01:
+        ingress:
+          class: nginx

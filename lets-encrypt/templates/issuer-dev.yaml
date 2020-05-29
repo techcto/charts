@@ -1,7 +1,7 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-staging
+  name: letsencrypt-dev
   namespace: default
 spec:
   acme:
@@ -9,9 +9,8 @@ spec:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource used to store the account's private key.
-      name: letsencrypt-staging
-    # Add a single challenge solver, HTTP01 using nginx
+      name: letsencrypt-dev
     solvers:
     - http01:
         ingress:
-          class: nginx
+          class:  nginx
