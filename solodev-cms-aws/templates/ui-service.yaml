@@ -4,8 +4,10 @@ metadata:
   name: {{ .Release.Name }}-ui
   labels:
     app: {{ .Release.Name }}-ui
+  {{ if eq .Values.solodev.settings.clientId "" }}
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
+  {{ end }}
 spec:
   ports:
   - name: "http"
@@ -14,6 +16,11 @@ spec:
   - name: "https"
     port: {{ .Values.ui.https.port }}
     targetPort: 443
+  {{ if ne .Values.solodev.settings.clientId "" }}
+  externalName: {{ .Release.Name }}-ui
+  {{ end }}
   selector:
     app: {{ .Release.Name }}-ui
+  {{ if eq .Values.solodev.settings.clientId "" }}
   type: LoadBalancer
+  {{ end }}

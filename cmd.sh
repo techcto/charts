@@ -10,10 +10,10 @@ tag(){
 update(){
     helm package solodev-network
     helm package solodev-cms
-    helm package solodev-cms-aws
     helm package solodev-cron
     helm package wordpress
     helm package lets-encrypt
+    helm package cert-manager
     helm repo index .
     helm repo update
 }

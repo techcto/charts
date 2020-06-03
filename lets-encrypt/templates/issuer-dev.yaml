@@ -5,7 +5,6 @@ metadata:
   namespace: default
 spec:
   acme:
-    email: {{ .Values.ssl.email }}
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource used to store the account's private key.

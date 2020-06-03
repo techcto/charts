@@ -27,6 +27,8 @@ solodev:
     dbName: solodev
     dbUser: solodev
     dbPassword: password
+    clientId: ''
+    clientSecret: ''
     mongoDbName: solodev_views
     websiteUrl: ''
   pullSecret: solodev
