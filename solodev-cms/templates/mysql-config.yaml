@@ -5,10 +5,11 @@ metadata:
   labels:
     app: {{ .Release.Name }}-mysql
 data:
-{{ toYaml .Values.mysql.configFiles | indent 2 }}
-  # create-replication-user.sh: |-
-  #   #!/bin/bash
-  #   set -e
-  #   mysql -h 127.0.0.1 --verbose -e "CREATE USER IF NOT EXISTS '${MYSQL_REPLICATION_USER}' IDENTIFIED BY '${MYSQL_REPLICATION_PASSWORD}';"
-  #   mysql -h 127.0.0.1 --verbose -e "GRANT PROCESS, RELOAD, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '${MYSQL_REPLICATION_USER}';"
-  #   mysql -h 127.0.0.1 --verbose -e "FLUSH PRIVILEGES;"
+  master.cnf: |
+    # Apply this config only on the master.
+    [mysqld]
+    log-bin
+  slave.cnf: |
+    # Apply this config only on slaves.
+    [mysqld]
+    super-read-only
