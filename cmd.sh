@@ -13,7 +13,6 @@ update(){
     helm package solodev-cron
     helm package wordpress
     helm package lets-encrypt
-    helm package cert-manager
     helm repo index .
     helm repo update
 }
