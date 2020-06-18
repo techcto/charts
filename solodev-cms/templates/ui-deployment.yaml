@@ -55,12 +55,12 @@ spec:
           subPath: client
         resources:
           requests:
-            memory: 8M
-            cpu: 5m
-            # ephemeral-storage: 100M
-          limits:
             memory: 16M
             cpu: 20m
+            # ephemeral-storage: 100M
+          limits:
+            memory: 32M
+            cpu: 50m
             # ephemeral-storage: 500M
       restartPolicy: Always
       volumes:
