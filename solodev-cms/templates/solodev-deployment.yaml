@@ -70,6 +70,8 @@ spec:
           value: {{ quote .Values.solodev.settings.appEmail }}
         - name: WEBSITE_URL
           value: {{ quote .Values.solodev.settings.websiteUrl }}
+        - name: WEBSITE_THEME
+          value: {{ quote .Values.solodev.settings.websiteTheme }}
         - name: CLIENT_ID
           value: {{ quote .Values.solodev.settings.clientId }}
         - name: CLIENT_SECRET

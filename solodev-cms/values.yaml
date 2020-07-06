@@ -31,6 +31,7 @@ solodev:
     clientSecret: ''
     mongoDbName: solodev_views
     websiteUrl: ''
+    websiteTheme: ''
   pullSecret: solodev
 ui:
   image:
