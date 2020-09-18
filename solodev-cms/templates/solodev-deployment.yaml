@@ -73,7 +73,7 @@ spec:
         - name: WEBSITE_THEME
           value: {{ quote .Values.solodev.settings.websiteTheme }}
         - name: WEBSITE_THEME_VALUES
-          value: "{{ .Values.solodev.settings.websiteThemeValues }}"
+          value: '{{ .Values.solodev.settings.websiteThemeValues }}'
         - name: CLIENT_ID
           value: {{ quote .Values.solodev.settings.clientId }}
         - name: CLIENT_SECRET

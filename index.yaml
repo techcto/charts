@@ -3,7 +3,7 @@ entries:
   cert-manager:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2020-09-18T17:58:40.3662182-04:00"
+    created: "2020-09-18T18:15:12.4554149-04:00"
     description: A Helm chart for cert-manager
     digest: 53a16118e733394f2c0b5ec68e59d9d393670c609c9c9e8f055670baa6b3346e
     home: https://github.com/jetstack/cert-manager
@@ -24,10 +24,10 @@ entries:
     version: v0.1.0
   lets-encrypt:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3662182-04:00"
+    created: "2020-09-18T18:15:12.4554149-04:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
-    digest: 06a74be96bd56bfda276e96953c47fe90ce2f05d1ef74aca1b852638ce3d7a7f
+    digest: 59c3d92f4b8f7cdb2a39e2d03d579291077f8015085bb99dd08087b647353ab2
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, SSL, AWS
@@ -37,12 +37,12 @@ entries:
     version: "1"
   solodev-cms:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3682236-04:00"
+    created: "2020-09-18T18:15:12.4564145-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
       24/7 support – all powered by AWS.
-    digest: 6e7c01e3db3e80ed55fd7813c2d3968cfb98c1ded4c487db0c73b70b04653863
+    digest: 062183d27e9ff50c63511788239caddbb49985ddba917d04f18b3d34272550f6
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -52,7 +52,7 @@ entries:
     version: "9.2"
   solodev-cms-aws:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3692026-04:00"
+    created: "2020-09-18T18:15:12.4574145-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -67,9 +67,9 @@ entries:
     version: "9.2"
   solodev-cron:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3712061-04:00"
+    created: "2020-09-18T18:15:12.458417-04:00"
     description: Template to install cron jobs onto containers
-    digest: 652df1607b2bdae9d99b31cacf3c9b392a22a31e4529d8c69204e12d8002c88f
+    digest: 0c2706cc45b1abf642bb8409acb5514a66d0a9566d8cad2187624397e50c83c6
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Cron, Docker, Kubernetes
@@ -79,7 +79,7 @@ entries:
     version: 1.0.0
   solodev-dcx:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3722054-04:00"
+    created: "2020-09-18T18:15:12.4594188-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -94,7 +94,7 @@ entries:
     version: "9.1"
   solodev-dcx-aws:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.373205-04:00"
+    created: "2020-09-18T18:15:12.4604203-04:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -109,9 +109,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.373205-04:00"
+    created: "2020-09-18T18:15:12.4614148-04:00"
     description: Network for Solodev Managed Kubernetes
-    digest: a14a0466ad4c85afed29915b8736f6f7630ca5592f1d0a55dc5ccad174355f36
+    digest: 6f2c45e34fc24270a9001dedc6db47a46a0e93ff4fbc6e7e30b49e82ff6318a5
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -121,9 +121,9 @@ entries:
     version: "9.1"
   wordpress:
   - apiVersion: v1
-    created: "2020-09-18T17:58:40.3742036-04:00"
+    created: "2020-09-18T18:15:12.4624179-04:00"
     description: Wordpress is a classic content management system.
-    digest: e38bcbf1284ae2233f35f4bbf99bec8c9ac454c1c82e145e2c6edb26e803f814
+    digest: 39b9eda5731b9d70afa1cb7327daed2f2277390d5b3ed1f107f327ae1fb1fa35
     icon: https://www.wordpress.com/_/images/wordpress-logo-red.jpg
     keywords:
     - Wordpress, CMS, AWS, Docker, Kubernetes
@@ -131,4 +131,4 @@ entries:
     urls:
     - wordpress-5.4.tgz
     version: "5.4"
-generated: "2020-09-18T17:58:40.3592042-04:00"
+generated: "2020-09-18T18:15:12.4514135-04:00"
