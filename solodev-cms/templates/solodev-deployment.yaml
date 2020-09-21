@@ -74,7 +74,7 @@ spec:
           value: {{ quote .Values.solodev.settings.websiteTheme }}
         - name: WEBSITE_THEME_VALUES
           value: >
-            {{ printf "%s" .Values.solodev.settings.websiteThemeValues }}
+            {{ .Values.solodev.settings.websiteThemeValues | toString }}
         - name: CLIENT_ID
           value: {{ quote .Values.solodev.settings.clientId }}
         - name: CLIENT_SECRET
