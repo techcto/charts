@@ -62,8 +62,8 @@ entries:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
     name: solodev-cms
     urls:
-    - solodev-cms-9.2.tgz
-    version: "9.2"
+    - solodev-cms-9.3.tgz
+    version: "9.3"
   solodev-cms-aws:
   - apiVersion: v1
     created: "2020-09-28T11:02:53.8643026-04:00"
@@ -77,8 +77,8 @@ entries:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
     name: solodev-cms-aws
     urls:
-    - solodev-cms-aws-9.2.tgz
-    version: "9.2"
+    - solodev-cms-aws-9.3.tgz
+    version: "9.3"
   solodev-cron:
   - apiVersion: v1
     created: "2020-09-28T11:02:53.8653017-04:00"
