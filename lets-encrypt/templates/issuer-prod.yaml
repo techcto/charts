@@ -9,4 +9,7 @@ spec:
     email: {{ .Values.ssl.email }}
     privateKeySecretRef:
       name: letsencrypt-prod
-    http01: {}
+    solvers:
+       - http01:
+           ingress:
+             class:  nginx
