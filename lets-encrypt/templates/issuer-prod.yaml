@@ -1,5 +1,5 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
   namespace: cert-manager
@@ -9,7 +9,4 @@ spec:
     email: {{ .Values.ssl.email }}
     privateKeySecretRef:
       name: letsencrypt-prod
-    solvers:
-       - http01:
-           ingress:
-             class:  nginx
+    http01: {}
