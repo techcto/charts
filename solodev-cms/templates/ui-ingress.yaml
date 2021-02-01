@@ -27,11 +27,11 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
     nginx.ingress.kubernetes.io/proxy_busy_buffers_size: 40k; # essentially, proxy_buffer_size + 2 small buffers of 4k
 spec:
-  # tls:
-  # - hosts:
-  #   - {{ .Release.Name }}.{{ .Values.solodev.clusterZone }}
-  #   - {{ .Release.Name }}.{{ .Values.solodev.domainName }}
-  #   secretName: {{ .Release.Name }}-tls
+  tls:
+  - hosts:
+    - {{ .Release.Name }}.{{ .Values.solodev.clusterZone }}
+    - {{ .Release.Name }}.{{ .Values.solodev.domainName }}
+    secretName: {{ .Release.Name }}-tls
   rules:
   - host: {{ .Release.Name }}.{{ .Values.solodev.clusterZone }}
     http:
