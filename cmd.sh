@@ -8,6 +8,7 @@ tag(){
 }
 
 update(){
+    helm package ocoa-core
     helm package solodev-network
     helm package solodev-cms
     helm package solodev-cron
