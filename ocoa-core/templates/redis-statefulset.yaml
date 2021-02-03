@@ -76,4 +76,4 @@ spec:
           name: {{ .Release.Name }}-redis
       - name:  {{ .Release.Name }}-db
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-client
+          claimName: {{ .Release.Name }}-fs
