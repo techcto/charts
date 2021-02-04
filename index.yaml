@@ -3,7 +3,7 @@ entries:
   cert-manager:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-02-04T07:46:30.1237617-05:00"
+    created: "2021-02-04T07:58:49.2179297-05:00"
     description: A Helm chart for cert-manager
     digest: 53a16118e733394f2c0b5ec68e59d9d393670c609c9c9e8f055670baa6b3346e
     home: https://github.com/jetstack/cert-manager
@@ -24,10 +24,10 @@ entries:
     version: v0.1.0
   lets-encrypt:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1277638-05:00"
+    created: "2021-02-04T07:58:49.221929-05:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
-    digest: d4a44d37c0ecbdd6d80543721ef7c5162c8d9a0de61adc4c5b48a4cfeba365fb
+    digest: 94d0018ca77c2d1feb5620a844eace79a6a37da8d53214a98c9541e2b28a50af
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, SSL, AWS
@@ -36,7 +36,7 @@ entries:
     - lets-encrypt-1.3.tgz
     version: "1.3"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1247603-05:00"
+    created: "2021-02-04T07:58:49.2189302-05:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
     digest: 5244af53a92947f26a654a7a83bdb08d06f18c2bb347fd8e020f42880d8c9d2c
@@ -48,7 +48,7 @@ entries:
     - lets-encrypt-1.2.tgz
     version: "1.2"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1247603-05:00"
+    created: "2021-02-04T07:58:49.2179297-05:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
     digest: 169c4ad7a3c648ae38b9184d185d568e6647553343f3aeffb63511c2f934b5e6
@@ -60,7 +60,7 @@ entries:
     - lets-encrypt-1.1.tgz
     version: "1.1"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1277638-05:00"
+    created: "2021-02-04T07:58:49.2229313-05:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
     digest: 0dcbbdba2af576e3751431984fd92148b6f525730cf5479d7613d1dba80ded67
@@ -73,7 +73,29 @@ entries:
     version: "1"
   ocoa-core:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1327667-05:00"
+    created: "2021-02-04T07:58:49.2279289-05:00"
+    description: Ocoa Core
+    digest: 55472dc6ec61f6cf15e8312561aa4c17e2f6c318a9fd71e55b2ee4a49144c441
+    icon: https://www.ocoa.com/_resources/images/content/logo.png
+    keywords:
+    - Ocoa, Core
+    name: ocoa-core
+    urls:
+    - ocoa-core-1.4.tgz
+    version: "1.4"
+  - apiVersion: v1
+    created: "2021-02-04T07:58:49.2249289-05:00"
+    description: Ocoa Core
+    digest: 385b702c972ec3e437a60cba2f69df237e468575b9e4aa23585ba14f32674288
+    icon: https://www.ocoa.com/_resources/images/content/logo.png
+    keywords:
+    - Ocoa, Core
+    name: ocoa-core
+    urls:
+    - ocoa-core-1.3.tgz
+    version: "1.3"
+  - apiVersion: v1
+    created: "2021-02-04T07:58:49.2239308-05:00"
     description: Ocoa Core
     digest: 31f194940318536bdc7173044823e5312f584c88e72b98ea2ca58bd52dad4a55
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -84,7 +106,7 @@ entries:
     - ocoa-core-1.2.tgz
     version: "1.2"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1297643-05:00"
+    created: "2021-02-04T07:58:49.2239308-05:00"
     description: Ocoa Core
     digest: 42ba6489875db7d3611aedb275fb6d74ad6b87eb9ae3c4a64bbf6da4844a0d17
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -95,7 +117,7 @@ entries:
     - ocoa-core-1.1.tgz
     version: "1.1"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1287287-05:00"
+    created: "2021-02-04T07:58:49.2229313-05:00"
     description: Ocoa Core
     digest: 9e15f539d9950e816192d21be179a541d2d33df87420a29d42174bc3876b6017
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -106,7 +128,7 @@ entries:
     - ocoa-core-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1327667-05:00"
+    created: "2021-02-04T07:58:49.2279289-05:00"
     description: Ocoa Core
     digest: cf4a5cb2e0023bf0e1615a6aa13662af2728eb11e0f97bd6479280d77f1c2dfe
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -118,12 +140,12 @@ entries:
     version: "1"
   solodev-cms:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1357622-05:00"
+    created: "2021-02-04T07:58:49.2319299-05:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
       24/7 support – all powered by AWS.
-    digest: 5d0c6d8bb06072d6f3f4d2b9a5cb91c158b4890b088ea95af02a13b572ec99b2
+    digest: 66526f8e77963f42923199c4e1a7bd27391533934f47392e86817cbe76c15c22
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CMS, DCX, AWS, Docker, Kubernetes
@@ -132,7 +154,7 @@ entries:
     - solodev-cms-9.3.1.tgz
     version: 9.3.1
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1367606-05:00"
+    created: "2021-02-04T07:58:49.2319299-05:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -146,7 +168,7 @@ entries:
     - solodev-cms-9.3.tgz
     version: "9.3"
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1337611-05:00"
+    created: "2021-02-04T07:58:49.2289297-05:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -161,7 +183,7 @@ entries:
     version: "9.2"
   solodev-cms-aws:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1367606-05:00"
+    created: "2021-02-04T07:58:49.23293-05:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -176,9 +198,9 @@ entries:
     version: "9.2"
   solodev-cron:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1397636-05:00"
+    created: "2021-02-04T07:58:49.2349309-05:00"
     description: Template to install cron jobs onto containers
-    digest: 00ae88eedd6164fbedf2603266aa4517bf6996a0403a6ea99aa96c4e941463c4
+    digest: 9389a844b45c9f4feffe8e52d4e440542c440beb753e822bbb0715f2eb0506cf
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Cron, Docker, Kubernetes
@@ -188,7 +210,7 @@ entries:
     version: 1.0.0
   solodev-dcx:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1397636-05:00"
+    created: "2021-02-04T07:58:49.2359291-05:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -203,7 +225,7 @@ entries:
     version: "9.1"
   solodev-dcx-aws:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1407604-05:00"
+    created: "2021-02-04T07:58:49.2359291-05:00"
     description: Solodev DCX is a content management and customer experience platform
       that lets your team work together on digital transformation. Build amazing websites
       and apps, collaborate, review code, and publish ideas with 24/7 support – all
@@ -218,9 +240,9 @@ entries:
     version: "9.1"
   solodev-network:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1407604-05:00"
+    created: "2021-02-04T07:58:49.2359291-05:00"
     description: Network for Solodev Managed Kubernetes
-    digest: 65438704675184af82e47945c10dadd4ff003fe9b4d788566bb0150d648edfc0
+    digest: eebf73a0f7bfc9e29c1971d1324bf8a597530a05b418eaf60694a67ef1721b83
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -230,9 +252,9 @@ entries:
     version: "9.1"
   wordpress:
   - apiVersion: v1
-    created: "2021-02-04T07:46:30.1437646-05:00"
+    created: "2021-02-04T07:58:49.2369299-05:00"
     description: Wordpress is a classic content management system.
-    digest: 0169c6e428fe648bb9a331d8902c99dc60e288ea8d70480ee5b0f32daec8c43f
+    digest: 2e543c2b34e09fca12e43881bd3fab15cf870a273da4e6c5cf834278634b845f
     icon: https://www.wordpress.com/_/images/wordpress-logo-red.jpg
     keywords:
     - Wordpress, CMS, AWS, Docker, Kubernetes
@@ -240,4 +262,4 @@ entries:
     urls:
     - wordpress-5.4.tgz
     version: "5.4"
-generated: "2021-02-04T07:46:30.121762-05:00"
+generated: "2021-02-04T07:58:49.2159299-05:00"
