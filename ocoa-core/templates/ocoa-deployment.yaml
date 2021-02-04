@@ -51,7 +51,7 @@ spec:
         - name: APP_URL
           value: {{ .Release.Name }}-ocoa:{{ .Values.ocoa.port }}
         - name: DATABASE_URL
-          value: mysql://{{ .Values.ocoa.settings.dbUser }}:{{ .Values.ocoa.settings.dbPassword }}@{{ .Release.Name }}-{{ .Values.ocoa.settings.dbHost }}:{{ .Release.Name }}-ocoa:{{ .Values.ocoa.port }}/{{ .Values.ocoa.settings.dbName }}
+          value: mysql://{{ .Values.ocoa.settings.dbUser }}:{{ .Values.ocoa.settings.dbPassword }}@{{ .Release.Name }}-{{ .Values.ocoa.settings.dbHost }}:{{ .Values.ocoa.port }}/{{ .Values.ocoa.settings.dbName }}
         - name: MYSQL_PORT
           value: {{ quote .Values.mysql.port }}
         - name: MYSQL_HOST
