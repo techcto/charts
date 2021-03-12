@@ -5,10 +5,10 @@ storage:
 serviceAccountName: default
 solodev:
   image:
-    registry: '117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1141323769'
-    repository: solodev-cms
-    tag: 9.3.1-latest
-    pullPolicy: Always
+    registry: "docker.io"
+    repository: "solodev/cms"
+    tag: latest
+    pullPolicy: IfNotPresent
   domainName: domain.com
   clusterZone: domain.com
   port: 9000
@@ -35,10 +35,9 @@ solodev:
     websiteThemeValues: ''
 ui:
   image:
-    registry: '117940112483.dkr.ecr.us-east-1.amazonaws.com/0c908dc0-e52e-4d48-bf4c-9e883d405d92/cg-1141323769'
-    repository: solodev-apache
-    tag: 9.3.1-latest
-    pullPolicy: IfNotPresent
+    registry: "docker.io"
+    repository: "solodev/cms-apache"
+    tag: latest
   http:
     port: 80
     protocol: TCP
