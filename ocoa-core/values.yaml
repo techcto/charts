@@ -3,7 +3,7 @@ storage:
   className: gp2
   size: 5G
 serviceAccountName: default
-ocoa:
+app:
   image:
     registry: docker.io
     repository: ocoa/core
