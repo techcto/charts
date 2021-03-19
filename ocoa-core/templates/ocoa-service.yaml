@@ -6,7 +6,7 @@ metadata:
   name: {{ .Release.Name }}-ocoa
 spec:
   ports:
-  - name: "ocoa"
+  - name: "app"
     port: {{ .Values.ocoa.port }}
     targetPort: {{ .Values.ocoa.port }}
   clusterIP: None
