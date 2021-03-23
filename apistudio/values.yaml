@@ -1,0 +1,57 @@
+env: prod
+storage:
+  className: gp2
+  size: 5G
+serviceAccountName: default
+ocoa:
+  image:
+    registry: docker.io
+    repository: ocoa/apistudio
+    tag: latest
+    pullPolicy: Always
+  port: 9000
+  protocol: TCP
+  storage:
+    className: gp2
+    size: 5G
+    mount: /var/www/apistudio/fs
+  settings:
+    debug: false
+    appSecret: secret
+    appUser: ocoa
+    appPassword: password
+    appEmail: ''
+    dbHost: mysql
+    dbName: ocoa
+    dbUser: ocoa
+    dbPassword: password
+    clientId: ''
+    clientSecret: ''
+ui:
+  image:
+    registry: docker.io
+    repository: ocoa/apistudio-ui
+    tag: latest
+    pullPolicy: IfNotPresent
+  http:
+    port: 80
+    protocol: TCP
+  https:
+    port: 443
+    protocol: TCP
+mysql:
+  image:
+    registry: docker.io
+    repository: mariadb
+    tag: 10.3
+    pullPolicy: IfNotPresent
+  port: 3306
+  read:
+    port: 3307
+redis:
+  image:
+    registry: docker.io
+    repository: techcto/redis
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 6379

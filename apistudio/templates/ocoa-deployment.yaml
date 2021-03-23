@@ -1,0 +1,90 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-ocoa
+  labels:
+    app: {{ .Release.Name }}-ocoa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-ocoa
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-ocoa
+    spec:
+      imagePullSecrets:
+      - name: {{ .Values.ocoa.pullSecret }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-ocoa
+            topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}-redis
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: {{ .Release.Name }}-ocoa
+        image: {{ .Values.ocoa.image.registry }}/{{ .Values.ocoa.image.repository }}:{{ .Values.ocoa.image.tag }}
+        imagePullPolicy: Always
+        env:
+        - name: APP_DEBUG
+          value: {{ quote .Values.ocoa.settings.debug }}
+        - name: APP_ENV
+          value: {{ quote .Values.env }}
+        - name: APP_SECRET
+          value: {{ quote .Values.ocoa.settings.appSecret }}
+        - name: APP_URL
+          value: {{ .Release.Name }}-ocoa:{{ .Values.ocoa.port }}
+        - name: DATABASE_URL
+          value: mysql://{{ .Values.ocoa.settings.dbUser }}:{{ .Values.ocoa.settings.dbPassword }}@{{ .Release.Name }}-{{ .Values.ocoa.settings.dbHost }}:{{ .Values.mysql.port }}/{{ .Values.ocoa.settings.dbName }}
+        - name: MYSQL_PORT
+          value: {{ quote .Values.mysql.port }}
+        - name: MYSQL_HOST
+          value: {{ .Release.Name }}-{{ .Values.ocoa.settings.dbHost }}
+        - name: MYSQL_DATABASE
+          value: {{ quote .Values.ocoa.settings.dbName }}
+        - name: MYSQL_PASSWORD
+          value: {{ quote .Values.ocoa.settings.dbPassword }}
+        - name: MYSQL_USER
+          value: {{ quote .Values.ocoa.settings.dbUser }}
+        - name: REDIS_HOST
+          value: {{ .Release.Name }}-redis:{{ .Values.redis.port }}
+        - name: CLIENT_ID
+          value: {{ quote .Values.ocoa.settings.clientId }}
+        - name: CLIENT_SECRET
+          value: {{ quote .Values.ocoa.settings.clientSecret }}
+        ports:
+        - containerPort: {{ .Values.ocoa.port }}
+        resources: {}
+        tty: true
+        volumeMounts:
+        - name: fs
+          mountPath: {{ quote .Values.ocoa.storage.mount }}
+          subPath: fs
+        resources:
+          requests:
+            memory: 128M
+            cpu: 100m
+          limits:
+            memory: 1G
+            cpu: 1
+      restartPolicy: Always
+      volumes:
+      - name: fs
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-fs

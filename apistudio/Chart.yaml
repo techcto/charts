@@ -1,7 +1,7 @@
 apiVersion: v1
-name: ocoa-core
+name: apistudio
 version: 1.0
-description: Ocoa Core
+description: Ocoa Api Studio
 icon: https://www.ocoa.com/_resources/images/content/logo.png
 keywords:
-  - Ocoa, Core
+  - Ocoa, Api, Swagger
