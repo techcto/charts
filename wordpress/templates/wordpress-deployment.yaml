@@ -65,6 +65,10 @@ spec:
           value: {{ quote .Values.wordpress.settings.appEmail }}
         - name: WORDPRESS_WEBSITE_URL
           value: {{ quote .Values.wordpress.settings.websiteUrl }}
+        - name: CLIENT_ID
+          value: {{ quote .Values.wordpress.settings.clientId }}
+        - name: CLIENT_SECRET
+          value: {{ quote .Values.wordpress.settings.clientSecret }}
         ports:
         - containerPort: {{ .Values.wordpress.port }}
         resources: {}

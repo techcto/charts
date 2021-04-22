@@ -25,6 +25,8 @@ wordpress:
     dbUser: wordpress
     dbPassword: password
     websiteUrl: ''
+    clientId: ''
+    clientSecret: ''
 ui:
   image:
     registry: docker.io
