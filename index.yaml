@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   apistudio:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7715951-04:00"
+    created: "2021-06-07T06:50:34.5123058-04:00"
     description: Ocoa Api Studio
-    digest: 0ee542a8793549e0af55a17abe11cccb08f55b715d17ea6593b1a19b4d93418a
+    digest: 85c02f5394fc3ee57ff606465f77da00e803d1d0c7e84cfaf0599c67e0dd7552
     icon: https://www.ocoa.com/_resources/images/content/logo.png
     keywords:
     - Ocoa, Api, Swagger
@@ -15,7 +15,7 @@ entries:
   cert-manager:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-05-19T06:52:31.7745954-04:00"
+    created: "2021-06-07T06:50:34.5164711-04:00"
     description: A Helm chart for cert-manager
     digest: 53a16118e733394f2c0b5ec68e59d9d393670c609c9c9e8f055670baa6b3346e
     home: https://github.com/jetstack/cert-manager
@@ -36,10 +36,10 @@ entries:
     version: v0.1.0
   lets-encrypt:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7745954-04:00"
+    created: "2021-06-07T06:50:34.5173046-04:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
-    digest: 179dca699b0edaecdc7fe1f4b5c790d846365726286512d2f202643c6b26aaca
+    digest: 033b0510cd11abe51e725a58b62d9a1446cbf79ba76a32d8ff1b0d7d58628a7e
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, SSL, AWS
@@ -49,9 +49,9 @@ entries:
     version: "1.3"
   ocoa-core:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7755946-04:00"
+    created: "2021-06-07T06:50:34.5183059-04:00"
     description: Ocoa Core
-    digest: f03ffc3cd4789aa12ddf45d05097dd7263ed116f364ee68092416e7be23a0f12
+    digest: 36544be9773547a102dce4b075db9ec7330f3befd2772a18f749dc92233efc6f
     icon: https://www.ocoa.com/_resources/images/content/logo.png
     keywords:
     - Ocoa, Core
@@ -61,12 +61,12 @@ entries:
     version: "1"
   solodev-cms:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7755946-04:00"
+    created: "2021-06-07T06:50:34.5193032-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
       24/7 support – all powered by AWS.
-    digest: ec91ac9b45b0e4e11939ce9779d2112d54c4b9be135d1f5f7b5ce3c381b3ce95
+    digest: 9354f89e391bdb7d8f2d6c9b32886f266d2410e5ba3a09fd2010a6bfc0c40ce4
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, CM, AWS, Docker, Kubernetes
@@ -75,7 +75,7 @@ entries:
     - solodev-cms-10.tgz
     version: "10"
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7785961-04:00"
+    created: "2021-06-07T06:50:34.5213019-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -89,7 +89,7 @@ entries:
     - solodev-cms-9.3.tgz
     version: "9.3"
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7776203-04:00"
+    created: "2021-06-07T06:50:34.5203031-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -103,7 +103,7 @@ entries:
     - solodev-cms-9.2.tgz
     version: "9.2"
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7766246-04:00"
+    created: "2021-06-07T06:50:34.5203031-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -117,7 +117,7 @@ entries:
     - solodev-cms-9.1.tgz
     version: "9.1"
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7785961-04:00"
+    created: "2021-06-07T06:50:34.5223044-04:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -132,9 +132,9 @@ entries:
     version: "9"
   solodev-cron:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7795951-04:00"
+    created: "2021-06-07T06:50:34.5223044-04:00"
     description: Template to install cron jobs onto containers
-    digest: 09854e7eda309ccde9b78b137e9d2cb2bd0de6fe5ca6253a4162cb78dc793cd2
+    digest: fdcc97c6aec63ccc052b7dec7d81c68a7751b00fc6353cf55312b95e130156df
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Cron, Docker, Kubernetes
@@ -144,9 +144,9 @@ entries:
     version: 1.0.0
   solodev-network:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7795951-04:00"
+    created: "2021-06-07T06:50:34.5233035-04:00"
     description: Network for Solodev Managed Kubernetes
-    digest: a31d37f3277a8c46b79dea5e838e87251420c5a78b620602f434cc1e0aecb845
+    digest: 71cb1b2ae582d2feddbbf89effe340e3ce0b8f6272f985d23e6f162e4c04374f
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
     keywords:
     - Solodev, Network, DCX, AWS
@@ -156,9 +156,9 @@ entries:
     version: "9.1"
   wordpress:
   - apiVersion: v1
-    created: "2021-05-19T06:52:31.7805946-04:00"
+    created: "2021-06-07T06:50:34.5233035-04:00"
     description: Wordpress is a classic content management system.
-    digest: 247f2e465d098c519b46c61a26074c79a0b70c04a651497aec897437ea7eb847
+    digest: 5f085cfe52033860a3b7c3738454b13faf77c9fb36d7ea14117aaee8c6649194
     icon: https://www.wordpress.com/_/images/wordpress-logo-red.jpg
     keywords:
     - Wordpress, CMS, AWS, Docker, Kubernetes
@@ -166,4 +166,4 @@ entries:
     urls:
     - wordpress-5.4.tgz
     version: "5.4"
-generated: "2021-05-19T06:52:31.770601-04:00"
+generated: "2021-06-07T06:50:34.5113034-04:00"

@@ -7,7 +7,7 @@ solodev:
   image:
     registry: "docker.io"
     repository: "solodev/cms"
-    tag: 9.3.35
+    tag: latest
     pullPolicy: IfNotPresent
   domainName: domain.com
   clusterZone: domain.com
@@ -37,7 +37,7 @@ ui:
   image:
     registry: "docker.io"
     repository: "solodev/cms-apache"
-    tag: 9.3.35
+    tag: latest
   http:
     port: 80
     protocol: TCP
