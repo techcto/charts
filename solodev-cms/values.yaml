@@ -27,12 +27,19 @@ solodev:
     dbName: solodev
     dbUser: solodev
     dbPassword: password
-    clientId: ''
-    clientSecret: ''
     mongoDbName: solodev_views
     websiteUrl: ''
     websiteTheme: ''
     websiteThemeValues: ''
+    cloudClientId: ''
+    cloudClientSecret: ''
+    cloudRedirectURI: ''
+    cloudAuthorizeURL: ''
+    cloudAccessToken: ''
+    cloudKeySet: ''
+    cloudScope: ''
+    cloudApiToken: ''
+    cloudResourceOwner: ''
 ui:
   image:
     registry: "docker.io"

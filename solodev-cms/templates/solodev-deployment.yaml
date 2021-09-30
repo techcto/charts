@@ -74,10 +74,24 @@ spec:
           value: {{ quote .Values.solodev.settings.websiteTheme }}
         - name: WEBSITE_THEME_VALUES
           value: {{ quote .Values.solodev.settings.websiteThemeValues }}
-        - name: CLIENT_ID
-          value: {{ quote .Values.solodev.settings.clientId }}
-        - name: CLIENT_SECRET
-          value: {{ quote .Values.solodev.settings.clientSecret }}
+        - name: CLOUD_CLIENT_ID
+          value: {{ quote .Values.solodev.settings.cloudClientId }}
+        - name: CLOUD_CLIENT_SECRET
+          value: {{ quote .Values.solodev.settings.cloudClientSecret }}
+        - name: CLOUD_REDIRECT_URI
+          value: {{ quote .Values.solodev.settings.cloudRedirectURI }}
+        - name: CLOUD_AUTHORIZE_URL
+          value: {{ quote .Values.solodev.settings.cloudAuthorizeURL }}
+        - name: CLOUD_ACCESS_TOKEN
+          value: {{ quote .Values.solodev.settings.cloudAccessToken }}
+        - name: CLOUD_KEY_SET
+          value: {{ quote .Values.solodev.settings.cloudKeySet }}
+        - name: CLOUD_SCOPE
+          value: {{ quote .Values.solodev.settings.cloudScope }}
+        - name: CLOUD_API_TOKEN
+          value: {{ quote .Values.solodev.settings.cloudApiToken }}
+        - name: CLOUD_RESOURCE_OWNER
+          value: {{ quote .Values.solodev.settings.cloudResourceOwner }}
         ports:
         - containerPort: {{ .Values.solodev.port }}
         resources: {}
