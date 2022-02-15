@@ -9,7 +9,6 @@ solodev:
     repository: "solodev/cms"
     tag: latest
     pullPolicy: IfNotPresent
-  domainName: domain.com
   clusterZone: domain.com
   port: 9000
   protocol: TCP
