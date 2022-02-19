@@ -16,6 +16,7 @@ spec:
       labels:
         app: {{ .Release.Name }}-ui
     spec:
+      serviceAccountName: {{ .Values.serviceAccountName }}
       imagePullSecrets:
       - name: {{ .Values.solodev.pullSecret }}
       affinity:
