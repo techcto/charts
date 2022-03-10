@@ -3,13 +3,13 @@ provider:
   type: oidc
   port: 4190
   domain: "domain.com"
-  display-name: "OAuth2 SSO"
-  http-address: 0.0.0.0:4190
-  cookie-secure: false
-  client-id:
-  client-secret:
-  oidc-issuer-url:
-  redirect-url:
-  login-url:
-  redeem-url:
-  oidc-jwks-url:
+  displayname: "OAuth2 SSO"
+  httpaddress: 0.0.0.0:4190
+  cookiesecure: false
+  clientid:
+  clientsecret:
+  oidcissuerurl:
+  redirecturl:
+  loginurl:
+  redeemurl:
+  oidcjwksurl:

@@ -18,19 +18,19 @@ spec:
       containers:
       - args:
         - --provider={{ .Values.provider.type }}
-        - --provider-display-name={{ .Values.provider.display-name }}
+        - --provider-display-name={{ .Values.provider.displayname }}
         - --email-domain={{ .Values.provider.domain }}
         - --upstream=file:///dev/null
-        - --http-address={{ .Values.provider.http-address }}
-        - --client-id={{ .Values.provider.client-id }}
-        - --client-secret={{ .Values.provider.client-secret }}
-        - --redirect-url={{ .Values.provider.redirect-url }}
-        - --oidc-issuer-url={{ .Values.provider.oidc-issuer-url }}
+        - --http-address={{ .Values.provider.httpaddress }}
+        - --client-id={{ .Values.provider.clientid }}
+        - --client-secret={{ .Values.provider.clientsecret }}
+        - --redirect-url={{ .Values.provider.redirecturl }}
+        - --oidc-issuer-url={{ .Values.provider.oidcissuerurl }}
         - --skip-oidc-discovery
-        - --login-url={{ .Values.provider.login-url }}
-        - --redeem-url={{ .Values.provider.redeem-url }}
-        - --oidc-jwks-url={{ .Values.provider.oidc-jwks-url }}
-        - --cookie-secure={{ .Values.provider.cookie-secure }}
+        - --login-url={{ .Values.provider.loginurl }}
+        - --redeem-url={{ .Values.provider.redeemurl }}
+        - --oidc-jwks-url={{ .Values.provider.oidcjwksurl }}
+        - --cookie-secure={{ .Values.provider.cookiesecure }}
         image: quay.io/oauth2-proxy/oauth2-proxy:latest
         imagePullPolicy: Always
         name: oauth2-proxy
