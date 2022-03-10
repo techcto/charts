@@ -2,9 +2,8 @@ env: prod
 provider:
   type: oidc
   port: 4190
-  domain: domain.com
+  domain: "domain.com"
   display-name: "OAuth2 SSO"
-  email-domain: "*"
   http-address: 0.0.0.0:4190
   cookie-secure: false
   client-id:
