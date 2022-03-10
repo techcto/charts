@@ -16,6 +16,7 @@ update(){
     helm package wordpress
     helm package lets-encrypt
     helm package dashboard
+    helm package salesforce
     helm repo index .
     helm repo update
 }

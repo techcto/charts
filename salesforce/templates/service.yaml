@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-salesforce
+spec:
+  type: ExternalName
+  externalName: {{ .Values.provider.callbackurl }}

@@ -1,0 +1,17 @@
+env: prod
+provider:
+  type: oidc
+  port: 4191
+  domain: "domain.com"
+  displayname: "OAuth2 SSO"
+  httpaddress: 0.0.0.0:4191
+  cookiesecure: false
+  cookiesecret: PdowVuSyC62ocrE_CLm02A==
+  clientid:
+  clientsecret:
+  oidcissuerurl:
+  redirecturl:
+  loginurl:
+  redeemurl:
+  oidcjwksurl:
+  callbackurl:

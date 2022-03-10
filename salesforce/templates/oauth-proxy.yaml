@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: oauth2-proxy
+  name: oauth2-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: oauth2-proxy
+  template:
+    metadata:
+      labels:
+        k8s-app: oauth2-proxy
+    spec:
+      containers:
+      - args:
+        - --provider={{ .Values.provider.type }}
+        - --email-domain={{ .Values.provider.domain }}
+        - --upstream=file:///dev/null
+        - --http-address={{ .Values.provider.httpaddress }}
+        - --client-id={{ .Values.provider.clientid }}
+        - --client-secret={{ .Values.provider.clientsecret }}
+        - --redirect-url={{ .Values.provider.redirecturl }}
+        - --oidc-issuer-url={{ .Values.provider.oidcissuerurl }}
+        - --skip-oidc-discovery
+        - --login-url={{ .Values.provider.loginurl }}
+        - --redeem-url={{ .Values.provider.redeemurl }}
+        - --oidc-jwks-url={{ .Values.provider.oidcjwksurl }}
+        - --cookie-secure={{ .Values.provider.cookiesecure }}
+        - --cookie-secret={{ .Values.provider.cookiesecret }}
+        image: quay.io/oauth2-proxy/oauth2-proxy:latest
+        imagePullPolicy: Always
+        name: oauth2-proxy
+        ports:
+        - containerPort: {{ .Values.provider.port }}
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: oauth2-proxy
+  name: oauth2-proxy
+spec:
+  ports:
+  - name: http
+    port: {{ .Values.provider.port }}
+    protocol: TCP
+    targetPort: {{ .Values.provider.port }}
+  selector:
+    k8s-app: oauth2-proxy
