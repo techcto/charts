@@ -18,18 +18,18 @@ spec:
       containers:
       - args:
         - --provider={{ .Values.provider.type }}
-        - --provider-display-name {{ .Values.provider.display-name }}
+        - --provider-display-name={{ .Values.provider.display-name }}
         - --email-domain={{ .Values.provider.email-domain }}
         - --upstream=file:///dev/null
         - --http-address={{ .Values.provider.http-address }}
-        - --client-id {{ .Values.provider.client-id }}
-        - --client-secret {{ .Values.provider.client-secret }}
-        - --redirect-url {{ .Values.provider.redirect-url }}
-        - --oidc-issuer-url {{ .Values.provider.oidc-issuer-url }}
+        - --client-id={{ .Values.provider.client-id }}
+        - --client-secret={{ .Values.provider.client-secret }}
+        - --redirect-url={{ .Values.provider.redirect-url }}
+        - --oidc-issuer-url={{ .Values.provider.oidc-issuer-url }}
         - --skip-oidc-discovery
-        - --login-url {{ .Values.provider.login-url }}
-        - --redeem-url {{ .Values.provider.redeem-url }}
-        - --oidc-jwks-url {{ .Values.provider.oidc-jwks-url }}
+        - --login-url={{ .Values.provider.login-url }}
+        - --redeem-url={{ .Values.provider.redeem-url }}
+        - --oidc-jwks-url={{ .Values.provider.oidc-jwks-url }}
         - --cookie-secure={{ .Values.provider.cookie-secure }}
         image: quay.io/oauth2-proxy/oauth2-proxy:latest
         imagePullPolicy: Always
