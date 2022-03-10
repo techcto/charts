@@ -6,6 +6,7 @@ provider:
   displayname: "OAuth2 SSO"
   httpaddress: 0.0.0.0:4190
   cookiesecure: false
+  cookiesecret: secret
   clientid:
   clientsecret:
   oidcissuerurl:

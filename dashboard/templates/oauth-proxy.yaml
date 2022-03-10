@@ -30,6 +30,7 @@ spec:
         - --redeem-url={{ .Values.provider.redeemurl }}
         - --oidc-jwks-url={{ .Values.provider.oidcjwksurl }}
         - --cookie-secure={{ .Values.provider.cookiesecure }}
+        - --cookie-secret={{ .Values.provider.cookiesecret }}
         image: quay.io/oauth2-proxy/oauth2-proxy:latest
         imagePullPolicy: Always
         name: oauth2-proxy
