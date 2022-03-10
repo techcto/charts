@@ -18,7 +18,6 @@ spec:
       containers:
       - args:
         - --provider={{ .Values.provider.type }}
-        - --provider-display-name={{ .Values.provider.displayname }}
         - --email-domain={{ .Values.provider.domain }}
         - --upstream=file:///dev/null
         - --http-address={{ .Values.provider.httpaddress }}
