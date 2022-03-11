@@ -25,6 +25,8 @@ spec:
         - --redirect-url={{ .Values.provider.redirecturl }}
         - --oidc-issuer-url={{ .Values.provider.oidcissuerurl }}
         - --skip-oidc-discovery
+        - --set-authorization-header=true
+        - --skip-provider-button=true
         - --login-url={{ .Values.provider.loginurl }}
         - --redeem-url={{ .Values.provider.redeemurl }}
         - --oidc-jwks-url={{ .Values.provider.oidcjwksurl }}
