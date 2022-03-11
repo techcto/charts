@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}-oauth2
   annotations:
-    nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
-    nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/auth-response-headers: authorization
+    nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+    nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
 spec:
   ingressClassName: nginx
   rules:
@@ -27,6 +27,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 64k
 spec:
   ingressClassName: nginx
   rules:
