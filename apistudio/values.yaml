@@ -25,8 +25,15 @@ ocoa:
     dbName: ocoa
     dbUser: ocoa
     dbPassword: password
-    clientId: ''
-    clientSecret: ''
+    cloudClientId: ''
+    cloudClientSecret: ''
+    cloudRedirectURI: ''
+    cloudAuthorizeURL: ''
+    cloudAccessToken: ''
+    cloudKeySet: ''
+    cloudScope: ''
+    cloudApiToken: ''
+    cloudResourceOwner: ''
 ui:
   image:
     registry: docker.io
