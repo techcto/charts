@@ -65,23 +65,23 @@ spec:
         - name: REDIS_HOST
           value: {{ .Release.Name }}-redis:{{ .Values.redis.port }}
         - name: CLOUD_CLIENT_ID
-          value: {{ quote .Values.solodev.settings.cloudClientId }}
+          value: {{ quote .Values.ocoa.settings.cloudClientId }}
         - name: CLOUD_CLIENT_SECRET
-          value: {{ quote .Values.solodev.settings.cloudClientSecret }}
+          value: {{ quote .Values.ocoa.settings.cloudClientSecret }}
         - name: CLOUD_REDIRECT_URI
-          value: {{ quote .Values.solodev.settings.cloudRedirectURI }}
+          value: {{ quote .Values.ocoa.settings.cloudRedirectURI }}
         - name: CLOUD_AUTHORIZE_URL
-          value: {{ quote .Values.solodev.settings.cloudAuthorizeURL }}
+          value: {{ quote .Values.ocoa.settings.cloudAuthorizeURL }}
         - name: CLOUD_ACCESS_TOKEN
-          value: {{ quote .Values.solodev.settings.cloudAccessToken }}
+          value: {{ quote .Values.ocoa.settings.cloudAccessToken }}
         - name: CLOUD_KEY_SET
-          value: {{ quote .Values.solodev.settings.cloudKeySet }}
+          value: {{ quote .Values.ocoa.settings.cloudKeySet }}
         - name: CLOUD_SCOPE
-          value: {{ quote .Values.solodev.settings.cloudScope }}
+          value: {{ quote .Values.ocoa.settings.cloudScope }}
         - name: CLOUD_API_TOKEN
-          value: {{ quote .Values.solodev.settings.cloudApiToken }}
+          value: {{ quote .Values.ocoa.settings.cloudApiToken }}
         - name: CLOUD_RESOURCE_OWNER
-          value: {{ quote .Values.solodev.settings.cloudResourceOwner }}
+          value: {{ quote .Values.ocoa.settings.cloudResourceOwner }}
         ports:
         - containerPort: {{ .Values.ocoa.port }}
         resources: {}
