@@ -1,0 +1,7 @@
+apiVersion: v1
+name: nextjs
+version: 1.0
+description: NextJS Boilerplate for Cloud
+icon: https://www.ocoa.com/_resources/images/content/logo.png
+keywords:
+  - Ocoa, Cloud, NextJS

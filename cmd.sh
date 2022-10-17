@@ -17,6 +17,7 @@ update(){
     helm package lets-encrypt
     helm package dashboard
     helm package salesforce
+    helm package nextjs
     helm repo index .
     helm repo update
 }
