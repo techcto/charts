@@ -1,4 +1,4 @@
-env: prod
+env: production
 storage:
   className: gp2
   size: 5G
@@ -12,21 +12,5 @@ nextjs:
   port: 3000
   protocol: TCP
   settings:
-    debug: false
-    appSecret: secret
-    appUser: ocoa
-    appPassword: password
-    appEmail: ''
-    dbHost: mysql
-    dbName: ocoa
-    dbUser: ocoa
-    dbPassword: password
     cloudClientId: ''
     cloudClientSecret: ''
-    cloudRedirectURI: ''
-    cloudAuthorizeURL: ''
-    cloudAccessToken: ''
-    cloudKeySet: ''
-    cloudScope: ''
-    cloudApiToken: ''
-    cloudResourceOwner: ''

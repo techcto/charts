@@ -1,61 +1,42 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-nextjs
+  name: '{{ .Release.Name }}-nextjs'
   labels:
-    app: {{ .Release.Name }}-nextjs
+    app: '{{ .Release.Name }}-nextjs'
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-nextjs
+      app: '{{ .Release.Name }}-nextjs'
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-nextjs
+        app: '{{ .Release.Name }}-nextjs'
     spec:
       imagePullSecrets:
-      - name: {{ .Values.nextjs.pullSecret }}
+        - name: '{{ .Values.nextjs.pullSecret }}'
       containers:
-      - name: {{ .Release.Name }}-nextjs
-        image: {{ .Values.nextjs.image.registry }}/{{ .Values.nextjs.image.repository }}:{{ .Values.nextjs.image.tag }}
-        imagePullPolicy: Always
-        env:
-        - name: APP_DEBUG
-          value: {{ quote .Values.nextjs.settings.debug }}
-        - name: APP_ENV
-          value: {{ quote .Values.env }}
-        - name: APP_URL
-          value: {{ .Release.Name }}-nextjs:{{ .Values.nextjs.port }}
-        - name: CLOUD_CLIENT_ID
-          value: {{ quote .Values.solodev.settings.cloudClientId }}
-        - name: CLOUD_CLIENT_SECRET
-          value: {{ quote .Values.solodev.settings.cloudClientSecret }}
-        - name: CLOUD_REDIRECT_URI
-          value: {{ quote .Values.solodev.settings.cloudRedirectURI }}
-        - name: CLOUD_AUTHORIZE_URL
-          value: {{ quote .Values.solodev.settings.cloudAuthorizeURL }}
-        - name: CLOUD_ACCESS_TOKEN
-          value: {{ quote .Values.solodev.settings.cloudAccessToken }}
-        - name: CLOUD_KEY_SET
-          value: {{ quote .Values.solodev.settings.cloudKeySet }}
-        - name: CLOUD_SCOPE
-          value: {{ quote .Values.solodev.settings.cloudScope }}
-        - name: CLOUD_API_TOKEN
-          value: {{ quote .Values.solodev.settings.cloudApiToken }}
-        - name: CLOUD_RESOURCE_OWNER
-          value: {{ quote .Values.solodev.settings.cloudResourceOwner }}
-        ports:
-        - containerPort: {{ .Values.nextjs.port }}
-        resources: {}
-        tty: true
-        resources:
-          requests:
-            memory: 128M
-            cpu: 100m
-          limits:
-            memory: 500M
-            cpu: 1
+        - name: '{{ .Release.Name }}-nextjs'
+          image: '{{ .Values.nextjs.image.registry }}/{{ .Values.nextjs.image.repository }}:{{ .Values.nextjs.image.tag }}'
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: '{{ quote .Values.env }}'
+            - name: CLOUD_CLIENT_ID
+              value: '{{ quote .Values.nextjs.settings.cloudClientId }}'
+            - name: CLOUD_CLIENT_SECRET
+              value: '{{ quote .Values.nextjs.settings.cloudClientSecret }}'
+          ports:
+            - containerPort: '{{ .Values.nextjs.port }}'
+          tty: true
+          resources:
+            requests:
+              memory: 128M
+              cpu: 100m
+            limits:
+              memory: 500M
+              cpu: 1
       restartPolicy: Always
