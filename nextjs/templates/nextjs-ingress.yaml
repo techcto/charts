@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: '{{ .Release.Name }}-ui'
+  name: {{ .Release.Name }}-ui
   annotations:
     host: "{{ .Release.Name }}.{{ .Values.nextjs.domainName }}"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -25,21 +25,21 @@ metadata:
 spec:
   tls:
     - hosts:
-        - '{{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}'
-        - '{{ .Release.Name }}.{{ .Values.nextjs.domainName }}'
-      secretName: '{{ .Release.Name }}-tls'
+        - {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
+        - {{ .Release.Name }}.{{ .Values.nextjs.domainName }}
+      secretName: {{ .Release.Name }}-tls
   rules:
-    - host: '{{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}'
+    - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
       http:
         paths:
             - path: /
               backend:
-                serviceName: '{{ .Release.Name }}-nextjs'
-                servicePort: '{{ .Values.nextjs.port }}'
-    - host: '{{ .Release.Name }}.{{ .Values.nextjs.domainName }}'
+                serviceName: {{ .Release.Name }}-nextjs
+                servicePort: {{ .Values.nextjs.port }}
+    - host: {{ .Release.Name }}.{{ .Values.nextjs.domainName }}
       http:
         paths:
             - path: /
               backend:
-                serviceName: '{{ .Release.Name }}-nextjs'
-                servicePort: '{{ .Values.nextjs.port }}'
+                serviceName: {{ .Release.Name }}-nextjs
+                servicePort: {{ .Values.nextjs.port }}
