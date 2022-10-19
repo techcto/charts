@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-nextjs
@@ -17,7 +17,7 @@ spec:
         app: {{ .Release.Name }}-nextjs
     spec:
       imagePullSecrets:
-        - name: {{ .Values.nextjs.pullSecret }}
+          - name: {{ .Values.nextjs.pullSecret }}
       containers:
         - name: {{ .Release.Name }}-nextjs
           image: {{ .Values.nextjs.image.registry }}/{{ .Values.nextjs.image.repository }}:{{ .Values.nextjs.image.tag }}
