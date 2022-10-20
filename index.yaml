@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   apistudio:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.844537254+02:00"
+    created: "2022-10-20T11:07:42.660106431+02:00"
     description: Ocoa Api Studio
     digest: cb9e2b16985dc10ce2cdc0590bf8b75a77907fd49455bc960237e827722fac8f
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -15,7 +15,7 @@ entries:
   cert-manager:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2022-10-20T08:47:51.85094444+02:00"
+    created: "2022-10-20T11:07:42.666463822+02:00"
     description: A Helm chart for cert-manager
     digest: 53a16118e733394f2c0b5ec68e59d9d393670c609c9c9e8f055670baa6b3346e
     home: https://github.com/jetstack/cert-manager
@@ -36,7 +36,7 @@ entries:
     version: v0.1.0
   kubernetes-dashboard:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.853854563+02:00"
+    created: "2022-10-20T11:07:42.668906878+02:00"
     description: Kubernetes Dashboard
     digest: 507dcd48ace42bdb5c6a2fec8f9b7e0281078c746032e3743f46ed18e244c884
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
@@ -45,7 +45,7 @@ entries:
     - kubernetes-dashboard-1.1.tgz
     version: "1.1"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.856319135+02:00"
+    created: "2022-10-20T11:07:42.671624114+02:00"
     description: Kubernetes Dashboard
     digest: c281260c6a7be8d90a20ebaa44e4385700354b9b72c8c0b3dc18b4e46cc3fe49
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
@@ -55,7 +55,7 @@ entries:
     version: "1"
   lets-encrypt:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.858079478+02:00"
+    created: "2022-10-20T11:07:42.673732775+02:00"
     description: A nonprofit Certificate Authority providing TLS certificates to 200
       million websites
     digest: 0e3726bf063f0c27cae268f3aa3877e1343ee34313324aafcea4456d67e8375c
@@ -68,9 +68,9 @@ entries:
     version: "1.3"
   nextjs:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.858546451+02:00"
+    created: "2022-10-20T11:07:42.675088575+02:00"
     description: NextJS Boilerplate for Cloud
-    digest: c669ed4fd7890dd32e8d53d5ef55ecf6a67438145e85c4d9470b804b8d3bb9c8
+    digest: 11b1a64df938fa7fe68742a0e140cf08fc810b4dc1e61bc1971539ba2e3b4497
     icon: https://www.ocoa.com/_resources/images/content/logo.png
     keywords:
     - Ocoa, Cloud, NextJS
@@ -80,7 +80,7 @@ entries:
     version: "1.0"
   ocoa-core:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.861459081+02:00"
+    created: "2022-10-20T11:07:42.678506034+02:00"
     description: Ocoa Core
     digest: 9e1fac7d6ad7a0f7e535179fb4ea0fed902b4c3af63124432c6c5f301ba26bf5
     icon: https://www.ocoa.com/_resources/images/content/logo.png
@@ -92,7 +92,7 @@ entries:
     version: "1"
   salesforce:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.864885329+02:00"
+    created: "2022-10-20T11:07:42.680713876+02:00"
     description: Salesforce
     digest: cc76766f4dbd1b46fd6be2b105afab729d06398302a08121d902bbf5472ec8a3
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
@@ -102,7 +102,7 @@ entries:
     version: "1"
   solodev-cms:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.868396607+02:00"
+    created: "2022-10-20T11:07:42.686874423+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -116,7 +116,7 @@ entries:
     - solodev-cms-10.tgz
     version: "10"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.880373657+02:00"
+    created: "2022-10-20T11:07:42.698672304+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -130,7 +130,7 @@ entries:
     - solodev-cms-9.5.tgz
     version: "9.5"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.877284515+02:00"
+    created: "2022-10-20T11:07:42.69597878+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -144,7 +144,7 @@ entries:
     - solodev-cms-9.3.tgz
     version: "9.3"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.87431703+02:00"
+    created: "2022-10-20T11:07:42.69306862+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -158,7 +158,7 @@ entries:
     - solodev-cms-9.2.tgz
     version: "9.2"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.871322658+02:00"
+    created: "2022-10-20T11:07:42.689936213+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -172,7 +172,7 @@ entries:
     - solodev-cms-9.1.tgz
     version: "9.1"
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.883471662+02:00"
+    created: "2022-10-20T11:07:42.701230276+02:00"
     description: Solodev CMS for AWS is a content management and customer experience
       platform that lets your team work together on digital transformation. Build
       amazing websites and apps, collaborate, review code, and publish ideas with
@@ -187,7 +187,7 @@ entries:
     version: "9"
   solodev-cron:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.885750978+02:00"
+    created: "2022-10-20T11:07:42.70332477+02:00"
     description: Template to install cron jobs onto containers
     digest: 2377c0e73f0c7cb3bc6da61ca19665116794f28b84fe79c3ff6587a195f90d91
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
@@ -199,7 +199,7 @@ entries:
     version: 1.0.0
   solodev-network:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.888034666+02:00"
+    created: "2022-10-20T11:07:42.705453202+02:00"
     description: Network for Solodev Managed Kubernetes
     digest: bec702f710033fd63b65013aba60fe97020dea7b83c1b2425fed17cb2fedd08d
     icon: https://www.solodev.com/_/images/solodev-logo-red.jpg
@@ -211,7 +211,7 @@ entries:
     version: "9.1"
   wordpress:
   - apiVersion: v1
-    created: "2022-10-20T08:47:51.890813132+02:00"
+    created: "2022-10-20T11:07:42.708681282+02:00"
     description: Wordpress is a classic content management system.
     digest: 9cf4f49e2612d786356e36e0c77d277d7ab313a6cd15aa3b3d9bd60c7fb2c8e9
     icon: https://www.wordpress.com/_/images/wordpress-logo-red.jpg
@@ -221,4 +221,4 @@ entries:
     urls:
     - wordpress-5.4.tgz
     version: "5.4"
-generated: "2022-10-20T08:47:51.837385192+02:00"
+generated: "2022-10-20T11:07:42.656889056+02:00"

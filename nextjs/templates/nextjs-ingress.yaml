@@ -26,17 +26,9 @@ spec:
   tls:
     - hosts:
         - {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
-        - {{ .Release.Name }}.{{ .Values.nextjs.domainName }}
       secretName: {{ .Release.Name }}-tls
   rules:
     - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
-      http:
-        paths:
-            - path: /
-              backend:
-                serviceName: {{ .Release.Name }}-nextjs
-                servicePort: {{ .Values.nextjs.port }}
-    - host: {{ .Release.Name }}.{{ .Values.nextjs.domainName }}
       http:
         paths:
             - path: /
