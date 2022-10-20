@@ -12,7 +12,7 @@ nextjs:
   clusterZone: ''
   port: 3000
   protocol: TCP
-  pullSecret: ''
+  pullSecret: 'solodev'
   settings:
     cloudClientId: ''
     cloudClientSecret: ''
