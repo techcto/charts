@@ -9,8 +9,10 @@ nextjs:
     repository: ocoa/nextjs
     tag: latest
     pullPolicy: Always
+  clusterZone: ''
   port: 3000
   protocol: TCP
+  pullSecret: ''
   settings:
     cloudClientId: ''
     cloudClientSecret: ''

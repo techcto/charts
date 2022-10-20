@@ -28,10 +28,10 @@ spec:
         - {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
       secretName: {{ .Release.Name }}-tls
   rules:
-    - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
-      http:
-        paths:
-            - path: /
-              backend:
-                serviceName: {{ .Release.Name }}-nextjs
-                servicePort: {{ .Values.nextjs.port }}
+      - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
+        http:
+          paths:
+              - path: /
+                backend:
+                  serviceName: {{ .Release.Name }}-nextjs
+                  servicePort: {{ .Values.nextjs.port }}
