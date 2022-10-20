@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-ui
+  name: {{ .Release.Name }}-nextjs
   annotations:
     host: "{{ .Release.Name }}.{{ .Values.nextjs.domainName }}"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
