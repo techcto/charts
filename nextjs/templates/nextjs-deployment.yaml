@@ -26,7 +26,7 @@ spec:
             - name: NODE_ENV
               value: {{ quote .Values.env }}
             - name: NEXTAUTH_SECRET
-              value: {{ quote .Values.nextjs.appSecret }}
+              value: {{ quote .Values.nextjs.settings.appSecret }}
             - name: CLOUD_CLIENT_ID
               value: {{ quote .Values.nextjs.settings.cloudClientId }}
             - name: CLOUD_CLIENT_SECRET
