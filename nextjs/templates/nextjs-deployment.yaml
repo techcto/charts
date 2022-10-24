@@ -27,10 +27,16 @@ spec:
               value: {{ quote .Values.env }}
             - name: NEXTAUTH_SECRET
               value: {{ quote .Values.nextjs.settings.appSecret }}
+            - name: CLOUD_CONFIG_URL
+              value: {{ quote .Values.nextjs.settings.cloudConfigUrl }}
+            - name: CLOUD_AUTHORIZE_URL
+              value: {{ quote .Values.nextjs.settings.cloudAuthorizeUrl }}
             - name: CLOUD_CLIENT_ID
               value: {{ quote .Values.nextjs.settings.cloudClientId }}
             - name: CLOUD_CLIENT_SECRET
               value: {{ quote .Values.nextjs.settings.cloudClientSecret }}
+            - name: CLOUD_SCOPES
+              value: {{ quote .Values.nextjs.settings.cloudScopes }}
           ports:
             - containerPort: {{ .Values.nextjs.port }}
           tty: true
