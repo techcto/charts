@@ -10,9 +10,11 @@ nextjs:
     tag: latest
     pullPolicy: Always
   clusterZone: ''
+  env: 'production'
   port: 3000
   protocol: TCP
   pullSecret: 'solodev'
   settings:
+    appSecret: ''
     cloudClientId: ''
     cloudClientSecret: ''
