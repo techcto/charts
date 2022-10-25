@@ -16,6 +16,7 @@ nextjs:
   pullSecret: 'solodev'
   settings:
     appSecret: ''
+    appUrl: ''
     cloudConfigUrl: ''
     cloudAuthorizeUrl: ''
     cloudClientId: ''

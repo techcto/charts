@@ -27,6 +27,8 @@ spec:
               value: {{ quote .Values.env }}
             - name: NEXTAUTH_SECRET
               value: {{ quote .Values.nextjs.settings.appSecret }}
+            - name: NEXTAUTH_URL
+              value: {{ quote .Values.nextjs.settings.appUrl }}
             - name: CLOUD_CONFIG_URL
               value: {{ quote .Values.nextjs.settings.cloudConfigUrl }}
             - name: CLOUD_AUTHORIZE_URL
