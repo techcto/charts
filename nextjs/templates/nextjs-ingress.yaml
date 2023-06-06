@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}-nextjs
@@ -28,10 +28,12 @@ spec:
         - {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
       secretName: {{ .Release.Name }}-tls
   rules:
-      - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
-        http:
-          paths:
-              - path: /
-                backend:
-                  serviceName: {{ .Release.Name }}-nextjs
-                  servicePort: {{ .Values.nextjs.port }}
+    - host: {{ .Release.Name }}.{{ .Values.nextjs.clusterZone }}
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: {{ .Release.Name }}-nextjs
+                port:
+                  number: {{ .Values.nextjs.port }}

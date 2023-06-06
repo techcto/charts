@@ -19,8 +19,8 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.nextjs.pullSecret }}
       containers:
-        - name: {{ .Release.Name }}-nextjs
-          image: {{ .Values.nextjs.image.registry }}/{{ .Values.nextjs.image.repository }}:{{ .Values.nextjs.image.tag }}
+        - name: "{{ .Release.Name }}-nextjs"
+          image: "{{ .Values.nextjs.image.registry }}/{{ .Values.nextjs.image.repository }}:{{ .Values.nextjs.image.tag }}"
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
@@ -44,9 +44,9 @@ spec:
           tty: true
           resources:
             requests:
-              memory: 128M
-              cpu: 100m
+              memory: "128M"
+              cpu: "100m"
             limits:
-              memory: 500M
-              cpu: 1
+              memory: "500M"
+              cpu: "1"
       restartPolicy: Always

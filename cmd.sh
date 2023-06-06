@@ -1,25 +1,26 @@
-#!/bin/bash
-args=("$@")
+#!/usr/bin/env bash
 
-tag(){
-    VERSION="${args[1]}"
-    git tag -a v${VERSION} -m "tag release"
-    git push --tags
+set -ex
+
+tag() {
+  local VERSION="$1"
+  git tag -a "v${VERSION}" -m "tag release"
+  git push --tags
 }
 
-update(){
-    helm package ocoa-core
-    helm package apistudio
-    helm package solodev-network
-    helm package solodev-cms
-    helm package solodev-cron
-    helm package wordpress
-    helm package lets-encrypt
-    helm package dashboard
-    helm package salesforce
-    helm package nextjs
-    helm repo index .
-    helm repo update
+update() {
+  helm package ocoa-core
+  helm package apistudio
+  helm package solodev-network
+  helm package solodev-cms
+  helm package solodev-cron
+  helm package wordpress
+  helm package lets-encrypt
+  helm package dashboard
+  helm package salesforce
+  helm package nextjs
+  helm repo index .
+  helm repo update
 }
 
-$*
+"$@"
